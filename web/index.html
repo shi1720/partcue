@@ -8,7 +8,7 @@
       name="description"
       content="PartCue remembers the way back. Rehearse a manual teardown and return each part in reverse order, with saved origins and tray positions."
     />
-    <title>PartCue — Remember the way back.</title>
+    <title>PartCue | Remember the way back.</title>
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
     <script type="module" src="/app.bundle.js"></script>
@@ -25,7 +25,7 @@
         <span class="signal-dot"></span> A memory for your workbench
       </div>
       <div class="account-actions">
-        <span id="account-label">Guest rehearsal</span
+        <button id="help-open" class="icon-button" aria-label="How PartCue works" title="How it works">?</button><button id="account-settings" class="button button-small button-outline" hidden>Account</button><span id="account-label">Guest rehearsal</span
         ><button id="auth-open" class="button button-small button-outline">
           Sign in</button
         ><button id="logout" class="button button-small button-outline" hidden>
@@ -44,8 +44,8 @@
           </p>
         </div>
         <div class="intro-note">
-          <span class="note-number">01—04</span>
-          <p>A small repair.<br />A little less to remember.</p>
+          <span class="note-number">01 / 04</span>
+          <p>A small repair.<br />A little less to remember.</p><a class="intro-link" href="#workspace">Open your workbench ↗</a>
         </div>
       </section>
       <section
@@ -127,7 +127,7 @@
                 class="button button-primary button-full"
               >
                 Start a teardown <span aria-hidden="true">↗</span>
-              </button>
+              </button><button id="load-example" class="button button-text button-full">Explore a recorded example ↗</button>
             </div>
             <div id="record-panel" hidden>
               <div class="field-heading">
@@ -188,7 +188,7 @@
             <div id="return-panel" hidden>
               <div class="next-part-card">
                 <p class="eyebrow">NEXT TO RETURN</p>
-                <h4 id="next-label">—</h4>
+                <h4 id="next-label">Ready</h4>
                 <p id="next-note" class="part-note"></p>
                 <div class="route-label">
                   <span class="amber-dot"></span><span id="next-tray">Tray</span
@@ -302,7 +302,7 @@
               </div>
               <div class="bench-locations">
                 <span><span class="cyan-dot"></span> ORIGIN / ENCLOSURE</span
-                ><span><span class="amber-dot"></span> TRAYS / A — D</span>
+                ><span><span class="amber-dot"></span> TRAYS / A to D</span>
               </div>
               <div class="scene-bottom">
                 <p id="scene-hint">
@@ -403,7 +403,7 @@
     </main>
     <footer class="site-footer">
       <span>PARTCUE / A MEMORY FOR YOUR WORKBENCH</span
-      ><span>Designed & built by Shivam Gupta · Learn AR with SPECS</span>
+      ><span>Designed & built by Shivam Gupta</span>
     </footer>
     <dialog
       id="auth-dialog"
@@ -471,10 +471,7 @@
       <button id="auth-switch" class="button button-text button-full">
         New here? Create an account
       </button>
-      <p class="modal-footnote">
-        This account belongs to this server. No cloud sync, email verification,
-        or password recovery is configured.
-      </p>
+      <button id="password-reset" class="button button-text button-full" hidden>Forgot your password?</button><p id="auth-footnote" class="modal-footnote">This account belongs to this local server. Export JSON for a portable backup.</p>
     </dialog>
     <dialog
       id="sessions-dialog"
@@ -562,6 +559,24 @@
           Continue
         </button>
       </div>
+    </dialog>
+
+    <dialog id="help-dialog" class="modal help-modal" aria-labelledby="help-title">
+      <div class="modal-top"><span class="eyebrow">A LITTLE LESS TO REMEMBER</span><button class="close-modal icon-button" aria-label="Close help">×</button></div>
+      <h2 id="help-title">Two places.<br />One way back.</h2>
+      <p>PartCue keeps a manual memory of where each part came from and where you put it. Start with the interactive enclosure, or explore a recorded example.</p>
+      <div class="help-steps"><p><strong>1. Record</strong> Choose a removed part and a free tray. Add its quantity and a note.</p><p><strong>2. Return</strong> Follow the sequence in reverse. Amber marks the pickup. Cyan marks the saved origin.</p><p><strong>3. Confirm</strong> Select the next part, put it back, and confirm the exact quantity. Pause or undo whenever needed.</p><p><strong>4. Keep</strong> Save privately to your account, or export a JSON backup. Import gives each copy a new identity.</p></div>
+      <p class="modal-footnote">This browser workbench is a simulation with four predefined parts. Your marks and confirmations drive the sequence. It does not recognize real objects or verify physical assembly. The separate SPECS Lens runs in Lens Studio; browser saves do not restore Lens anchors.</p>
+      <button class="close-modal button button-primary button-full">Back to the workbench ↗</button>
+    </dialog>
+    <dialog id="account-dialog" class="modal" aria-labelledby="account-title">
+      <div class="modal-top"><span class="eyebrow">YOUR PRIVATE WORKSPACE</span><button class="close-modal icon-button" aria-label="Close account settings">×</button></div>
+      <h2 id="account-title">Your account.</h2>
+      <p id="account-email" class="account-email"></p><p id="verification-status" class="field-help"></p>
+      <div class="account-controls"><button id="verify-email" class="button button-outline">Send verification email</button><button id="refresh-account" class="button button-text">Check verification</button></div>
+      <p id="account-status" class="field-help" role="status"></p>
+      <details class="privacy-details"><summary>Privacy and your data</summary><p>Session titles, notes, quantities and positions are stored privately in Firebase under your account. Save is explicit. Export JSON for your own backup. This browser tab keeps a temporary recovery copy until you sign out or close the tab. No analytics or advertising trackers are included.</p><p>Up to 50 saved sessions per account. Avoid putting sensitive information in your notes.</p></details>
+      <details class="danger-zone"><summary>Delete my account and saved sessions</summary><p>This permanently removes your cloud sessions and account. Export any work you need first. Enter your current password to confirm ownership.</p><label for="delete-password">Current password</label><input id="delete-password" type="password" autocomplete="current-password" maxlength="128" /><button id="delete-account" class="button button-danger button-full">Delete account and saved sessions</button></details>
     </dialog>
   </body>
 </html>

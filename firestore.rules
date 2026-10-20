@@ -1,0 +1,76 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+    function validId(id) { return id is string && id.matches('^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$'); }
+    function ownerPath(uid) { return /databases/$(database)/documents/users/$(uid); }
+    function sessionPath(uid,id) { return /databases/$(database)/documents/users/$(uid)/sessions/$(id); }
+    function validMeta(d) {
+      return d.keys().hasOnly(['schemaVersion','sessionCount','mutationId','deleting','createdAt','updatedAt'])
+        && d.keys().hasAll(['schemaVersion','sessionCount','mutationId','deleting','createdAt','updatedAt'])
+        && d.schemaVersion == 1 && d.sessionCount is int && d.sessionCount >= 0 && d.sessionCount <= 50
+        && (d.mutationId == null || validId(d.mutationId)) && d.deleting is bool
+        && d.createdAt is timestamp && d.updatedAt is timestamp && d.updatedAt == request.time;
+    }
+    function validSummary(s) {
+      return s is map && s.keys().hasOnly(['title','phase','partCount','schemaVersion','units'])
+        && s.keys().hasAll(['title','phase','partCount','schemaVersion','units'])
+        && s.title is string && s.title.trim().size() > 0 && s.title.size() <= 80
+        && s.phase in ['setup','recording','returning','paused','complete']
+        && s.partCount is int && s.partCount >= 0 && s.partCount <= 100
+        && s.schemaVersion == 1 && s.units == 'cm';
+    }
+    function validSession(d,uid,id) {
+      // Rules enforce the private storage envelope. JSON domain invariants are
+      // checked by the shared TS core in the client, not executed by these rules.
+      return d.keys().hasOnly(['ownerId','id','revision','snapshotJson','summary','createdAt','updatedAt'])
+        && d.keys().hasAll(['ownerId','id','revision','snapshotJson','summary','createdAt','updatedAt'])
+        && validId(id) && d.id == id && d.ownerId == uid
+        && d.revision is int && d.revision >= 1 && d.revision <= 9007199254740991
+        && d.snapshotJson is string && d.snapshotJson.toUtf8().size() >= 2 && d.snapshotJson.toUtf8().size() <= 250000
+        && validSummary(d.summary) && d.createdAt is timestamp && d.updatedAt is timestamp && d.updatedAt == request.time;
+    }
+    function createsOne(uid,d,prior) {
+      return !prior.deleting && !d.deleting && d.sessionCount == prior.sessionCount + 1
+        && validId(d.mutationId) && !exists(sessionPath(uid,d.mutationId)) && existsAfter(sessionPath(uid,d.mutationId));
+    }
+    function deletesOne(uid,d,prior) {
+      return d.deleting == prior.deleting && d.sessionCount == prior.sessionCount - 1
+        && validId(d.mutationId) && exists(sessionPath(uid,d.mutationId)) && !existsAfter(sessionPath(uid,d.mutationId));
+    }
+    function startsDeletion(d,prior) {
+      return !prior.deleting && d.deleting && d.sessionCount == prior.sessionCount && d.mutationId == prior.mutationId;
+    }
+    match /users/{uid} {
+      allow get: if owner(uid);
+      allow list: if false;
+      allow create: if owner(uid) && validMeta(request.resource.data)
+        && request.resource.data.sessionCount == 0 && request.resource.data.mutationId == null
+        && request.resource.data.deleting == false && request.resource.data.createdAt == request.time;
+      allow update: if owner(uid) && validMeta(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && (createsOne(uid,request.resource.data,resource.data)
+          || deletesOne(uid,request.resource.data,resource.data)
+          || startsDeletion(request.resource.data,resource.data));
+      allow delete: if owner(uid) && resource.data.deleting == true && resource.data.sessionCount == 0;
+      match /sessions/{id} {
+        allow get: if owner(uid);
+        allow list: if owner(uid) && request.query.limit != null && request.query.limit <= 50;
+        allow create: if owner(uid) && validSession(request.resource.data,uid,id)
+          && request.resource.data.revision == 1 && request.resource.data.createdAt == request.time
+          && !get(ownerPath(uid)).data.deleting
+          && getAfter(ownerPath(uid)).data.deleting == false
+          && getAfter(ownerPath(uid)).data.sessionCount == get(ownerPath(uid)).data.sessionCount + 1
+          && getAfter(ownerPath(uid)).data.mutationId == id;
+        allow update: if owner(uid) && validSession(request.resource.data,uid,id)
+          && !get(ownerPath(uid)).data.deleting && !getAfter(ownerPath(uid)).data.deleting
+          && request.resource.data.createdAt == resource.data.createdAt
+          && request.resource.data.revision == resource.data.revision + 1;
+        allow delete: if owner(uid)
+          && getAfter(ownerPath(uid)).data.sessionCount == get(ownerPath(uid)).data.sessionCount - 1
+          && getAfter(ownerPath(uid)).data.mutationId == id;
+      }
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

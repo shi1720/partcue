@@ -35,3 +35,7 @@ This is a tested local-first application, **not an audited public SaaS service**
 - Design explicit consent and team permissions before adding shared repairs or camera data. Do not infer cloud sync, machine-verified part identity or physical repair safety from this browser rehearsal.
 
 The detailed API and configuration contract is in [the server guide](../server/README.md). Automated tests cover real HTTP authentication, ownership isolation, malformed and oversized requests, revision conflicts, bounded sessions, failed auth persistence, online backup/restore and unavailable storage. They establish the tested boundaries above; they do not establish public-production readiness.
+
+## Hosted version 1.1
+
+The original local server described above remains an optional development mode. The public app uses a separate Firebase Auth and Firestore adapter, not an internet-exposed SQLite process. See [Firebase deployment](firebase-deployment.md) for the actual hosted architecture, account recovery/deletion, ownership rules, quota and deployment gates. Browser sessions and local-server sessions are separate stores. JSON export/import transfers a copy explicitly.

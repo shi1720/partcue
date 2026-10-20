@@ -10,6 +10,8 @@ import {
 import { FIXTURE, TRAYS, samePosition, trayName, formatCm } from "./fixture.js";
 import { createBenchScene } from "./scene.js";
 import { ApiClient } from "./api.js";
+import { FirebaseApiClient } from "./firebase-api.js";
+import { FIREBASE_CONFIG } from "./firebase-config.js";
 
 const $ = (id) => document.getElementById(id);
 const node = (tag, className, text) => {
@@ -18,7 +20,10 @@ const node = (tag, className, text) => {
   if (text !== undefined) element.textContent = text;
   return element;
 };
-const api = new ApiClient();
+const cloud = Boolean(FIREBASE_CONFIG);
+const api = cloud ? new FirebaseApiClient(FIREBASE_CONFIG) : new ApiClient();
+const storageName = cloud ? "your private cloud account" : "this companion server";
+let listRequest = 0;
 const id = () => `bench-${crypto.randomUUID()}`;
 let state = createSession(
   { id: id(), title: "Mechanical enclosure" },
@@ -217,6 +222,7 @@ function render() {
     : "No account required to try the bench";
   $("auth-open").hidden = Boolean(user);
   $("logout").hidden = !user;
+  $("account-settings").hidden = !user || !cloud;
   $("logout").disabled = networkBusy;
   $("save-session").disabled =
     networkBusy || Boolean(user && revision !== null && !isDirty());
@@ -224,7 +230,7 @@ function render() {
   $("save-status").textContent = !user
     ? "In memory only"
     : revision !== null && !isDirty()
-      ? "Saved to server"
+      ? cloud ? "Saved privately to cloud" : "Saved to server"
       : "Unsaved changes";
   $("save-status").className =
     `save-status ${!user ? "" : revision !== null && !isDirty() ? "saved" : "unsaved"}`;
@@ -232,8 +238,8 @@ function render() {
   $("new-session").disabled = networkBusy;
   $("import-session").disabled = networkBusy;
   $("persistence-note").textContent = user
-    ? "Save explicitly to keep changes on this companion server. Export a JSON copy for a portable backup."
-    : "Guest work lives in this tab. Export it before closing, or sign in to save.";
+    ? `Save explicitly to keep changes in ${storageName}. Export JSON for a portable backup.`
+    : "Guest work stays in this tab, including across a reload. Export before closing, or sign in to save.";
   const copy = {
     setup: [
       "READY WHEN YOU ARE",
@@ -427,6 +433,7 @@ function render() {
             ? "Session paused · Save or export before closing"
             : "Drag to orbit · Scroll to zoom · Select a part to begin";
   benchScene.update(state, selectedPartId, selectedTrayId);
+  rememberDraft();
   // Replacing a button list must not send keyboard users back to the page start.
   if (focusGroup && (focusPart || focusTray)) {
     const group = $(focusGroup);
@@ -458,8 +465,8 @@ function setAuthMode(mode) {
     mode === "register" ? "Make it your bench." : "Back to your bench.";
   $("auth-description").textContent =
     mode === "register"
-      ? "Create an account to save sessions on this companion server."
-      : "Sign in to save sessions on this companion server.";
+      ? `Create an account to keep your sessions in ${storageName}.`
+      : `Sign in to keep your sessions in ${storageName}.`;
   $("auth-submit").textContent =
     mode === "register" ? "Create account ↗" : "Sign in ↗";
   $("auth-switch").textContent =
@@ -511,6 +518,30 @@ function useSnapshot(snapshot, savedRevision = null) {
   render();
 }
 
+// A tab-scoped recovery copy survives a reload without mixing different accounts.
+const draftKey = "partcue.recovery.v1";
+let draftReady = false;
+let initialDraft = null;
+try { initialDraft = JSON.parse(sessionStorage.getItem(draftKey) || "null"); } catch { /* Storage can be disabled. */ }
+function rememberDraft() {
+  if (!draftReady) return;
+  try {
+    sessionStorage.setItem(draftKey, JSON.stringify({ owner: user?.id ?? null, snapshot: state, revision, lastSavedJson }));
+  } catch { /* Explicit export and cloud saves remain available. */ }
+}
+function restoreDraft(owner) {
+  if (initialDraft && initialDraft.owner === owner && !hasWork()) {
+    try {
+      state = parseSession(JSON.stringify(initialDraft.snapshot));
+      revision = owner && Number.isSafeInteger(initialDraft.revision) ? initialDraft.revision : null;
+      lastSavedJson = owner && typeof initialDraft.lastSavedJson === "string" ? initialDraft.lastSavedJson : null;
+      if (hasWork()) notice("Your tab’s recovery copy is restored. Save to your account or export JSON to keep it after closing this tab.", "success");
+    } catch { /* A damaged recovery copy must never replace the current bench. */ }
+  }
+  initialDraft = null;
+  draftReady = true;
+}
+
 async function saveSession() {
   if (networkBusy) return;
   if (!user) {
@@ -540,7 +571,7 @@ async function saveSession() {
       notice(
         isDirty()
           ? "Saved the captured session. Your newer changes are still unsaved."
-          : "Session saved on this companion server. Export a copy for a portable backup.",
+          : `Session saved in ${storageName}. Export a copy for a portable backup.`,
         "success",
       );
     }
@@ -563,13 +594,16 @@ async function listSessions() {
     return;
   }
   if (networkBusy) return;
+  const request = ++listRequest, account = user.id, generation = authGeneration;
+  const current = () => request === listRequest && user?.id === account && authGeneration === generation && $("sessions-dialog").open;
   $("sessions-dialog").showModal();
   $("sessions-status").textContent = "Loading your saved sessions…";
   $("saved-sessions").replaceChildren();
   try {
     const data = await api.request("/api/sessions");
+    if (!current()) return;
     $("sessions-status").textContent =
-      `${data.sessions.length} saved ${data.sessions.length === 1 ? "session" : "sessions"} · Stored on this server`;
+      `${data.sessions.length} saved ${data.sessions.length === 1 ? "session" : "sessions"} · ${cloud ? "Private cloud storage" : "Stored on this server"}`;
     if (data.sessions.length === 0) {
       $("saved-sessions").append(
         node(
@@ -605,6 +639,7 @@ async function listSessions() {
       $("saved-sessions").append(row);
     }
   } catch (error) {
+    if (!current()) return;
     if (error.code === "AUTH_REQUIRED") {
       $("sessions-dialog").close();
       expireAuth();
@@ -623,11 +658,17 @@ async function loadSession(sessionId) {
   )
     return;
   networkBusy = true;
+  const requestedState = serializeSession(state), account = user.id, generation = authGeneration;
   render();
   try {
     const data = await api.request(
       `/api/sessions/${encodeURIComponent(sessionId)}`,
     );
+    if (user?.id !== account || generation !== authGeneration) return;
+    if (serializeSession(state) !== requestedState) {
+      notice("Your bench changed while the saved session was loading. Your newer work is kept. Save or export it, then choose Load again.", "error");
+      return;
+    }
     const snapshot = parseSession(JSON.stringify(data.snapshot));
     useSnapshot(snapshot, data.revision);
     $("sessions-dialog").close();
@@ -636,6 +677,7 @@ async function loadSession(sessionId) {
       "success",
     );
   } catch (error) {
+    if (user?.id !== account || generation !== authGeneration) return;
     if (error.code === "AUTH_REQUIRED") {
       $("sessions-dialog").close();
       expireAuth();
@@ -653,7 +695,7 @@ async function deleteSession(item) {
   if (
     !(await confirmAction(
       "Remove this saved memory?",
-      `“${item.title}” will be deleted from your account on this server. Export a copy first if you need to keep it. Your current bench is not changed.`,
+      `“${item.title}” will be deleted from your account. Export a copy first if you need to keep it. Your current bench is not changed.`,
       "Delete saved session",
     ))
   )
@@ -884,7 +926,7 @@ $("import-file").addEventListener("change", async () => {
       return;
     useSnapshot(snapshot);
     notice(
-      "Snapshot validated and imported with a new session id. Save it to keep a separate server copy.",
+      "Snapshot validated and imported with a new session id. Save it to keep a separate saved copy.",
       "success",
     );
   } catch {
@@ -895,6 +937,18 @@ $("import-file").addEventListener("change", async () => {
   }
 });
 $("auth-open").addEventListener("click", () => openAuth());
+$("help-open").addEventListener("click", () => $("help-dialog").showModal());
+$("load-example").addEventListener("click", () => {
+  let example = createSession({ id: id(), title: "Enclosure | recorded example" }, Date.now());
+  for (const command of [{ type: "start" }, ...FIXTURE.map((part, index) => ({ type: "recordPart", part: { id: part.id, label: part.label, originCm: { ...part.originCm }, trayCm: { ...TRAYS[index].position }, count: part.count, note: index === 0 ? "Short screw belongs in the first mounting hole" : "" } })), { type: "beginReturn" }]) {
+    const result = applyCommand(example, command, Math.max(Date.now(), example.updatedAt));
+    if (!result.ok) { notice("The example could not be loaded. Start a fresh teardown instead.", "error"); return; }
+    example = result.state;
+  }
+  useSnapshot(example);
+  notice("Example loaded. Select the gear module from tray D to begin the reverse return, or start a new session to record your own sequence.");
+  $("guide-title").focus();
+});
 $("auth-switch").addEventListener("click", () => {
   if (!authBusy) setAuthMode(authMode === "login" ? "register" : "login");
 });
@@ -916,13 +970,14 @@ $("auth-form").addEventListener("submit", async (event) => {
     api.csrfToken = data.csrfToken;
     revision = null;
     lastSavedJson = null;
+    restoreDraft(user.id);
     const shouldSave = saveAfterAuth;
     saveAfterAuth = false;
     $("auth-dialog").close();
     $("auth-form").reset();
     render();
     notice(
-      `Signed in as ${user.name || user.email}. Save explicitly to keep this bench on the server.`,
+      `Signed in as ${user.name || user.email}. Save explicitly to keep this bench in your account.`,
       "success",
     );
     if (shouldSave) await saveSession();
@@ -938,7 +993,7 @@ $("logout").addEventListener("click", async () => {
   if (
     !(await confirmAction(
       "Sign out of your bench?",
-      `${isUnprotected() ? "You have unsaved changes. Cancel and save or export them first. " : ""}Signing out clears this tab’s bench. Saved sessions remain on this server.`,
+      `${isUnprotected() ? "You have unsaved changes. Cancel and save or export them first. " : ""}Signing out clears this tab’s bench. Saved sessions remain in your account.`,
       "Sign out",
     ))
   )
@@ -999,6 +1054,8 @@ window.addEventListener("beforeunload", (event) => {
   }
 });
 render();
+$("password-reset").hidden = !cloud;
+if (cloud) $("auth-footnote").textContent = "Your saved sessions are private to your Firebase account. Password recovery and email verification are available. No analytics or advertising trackers.";
 const bootGeneration = authGeneration;
 api
   .request("/api/auth/me")
@@ -1006,11 +1063,77 @@ api
     if (bootGeneration !== authGeneration) return;
     user = data.user;
     api.csrfToken = data.csrfToken;
+    restoreDraft(user.id);
     render();
   })
   .catch((error) => {
+    if (bootGeneration !== authGeneration) return;
+    restoreDraft(null);
+    render();
     if (error.code !== "AUTH_REQUIRED" && bootGeneration === authGeneration)
       notice(
         "The companion server is unavailable. You can still rehearse here; export your JSON before closing.",
       );
   });
+
+function renderAccount() {
+  $("account-email").textContent = user?.email ?? "";
+  $("verification-status").textContent = user?.emailVerified ? "Email verified" : "Your email has not been verified yet. You can save sessions now and verify your email when convenient.";
+  $("verify-email").hidden = Boolean(user?.emailVerified);
+  $("refresh-account").hidden = Boolean(user?.emailVerified);
+}
+$("account-settings").addEventListener("click", () => {
+  if (!user || !cloud || networkBusy) return;
+  $("account-status").textContent = "";
+  $("delete-password").value = "";
+  renderAccount();
+  $("account-dialog").showModal();
+});
+$("password-reset").addEventListener("click", async () => {
+  if (!cloud || authBusy) return;
+  if (!$("auth-email").reportValidity()) return;
+  setAuthBusy(true);
+  try {
+    await api.resetPassword($("auth-email").value.trim());
+    $("auth-error").textContent = "If an account exists for this email, a password reset link has been sent. Check your inbox and spam folder.";
+    $("auth-error").hidden = false;
+  } catch (error) { $("auth-error").textContent = error.message; $("auth-error").hidden = false; }
+  finally { setAuthBusy(false); }
+});
+async function accountAction(button, action, success) {
+  if (!cloud || networkBusy || !user) return;
+  button.disabled = true;
+  try { await action(); $("account-status").textContent = success; }
+  catch (error) { $("account-status").textContent = error.message; }
+  finally { button.disabled = false; }
+}
+$("verify-email").addEventListener("click", () => accountAction($("verify-email"), () => api.sendVerification(), "Verification email sent. Open the link in your inbox, then choose Check verification."));
+$("refresh-account").addEventListener("click", () => accountAction($("refresh-account"), async () => {
+  const account = user.id, generation = authGeneration;
+  const data = await api.refreshUser();
+  if (user?.id !== account || authGeneration !== generation) return;
+  user = data.user;
+  renderAccount(); render();
+}, "Account status refreshed."));
+$("delete-account").addEventListener("click", async () => {
+  if (!cloud || !user || networkBusy) return;
+  if (!$("delete-password").value) { $("account-status").textContent = "Enter your current password before deleting your account."; $("delete-password").focus(); return; }
+  if (!(await confirmAction("Permanently delete your account?", "All your cloud sessions and your sign-in will be removed permanently. Export the work you need first. This cannot be undone.", "Delete everything"))) return;
+  networkBusy = true; render();
+  try {
+    await api.deleteAccount($("delete-password").value);
+    authGeneration++;
+    user = null;
+    $("account-dialog").close();
+    $("delete-password").value = "";
+    useSnapshot(createSession({ id: id(), title: "Mechanical enclosure" }, Date.now()));
+    notice("Your account and all its saved sessions were deleted. A fresh guest bench is ready.", "success");
+  } catch (error) { $("account-status").textContent = error.message; }
+  finally { networkBusy = false; render(); }
+});
+if (cloud) api.onAuthChange((nextUser) => {
+  if (authBusy || networkBusy || !user || nextUser?.id === user.id) return;
+  authGeneration++; listRequest++;
+  $("sessions-dialog").close(); $("account-dialog").close();
+  expireAuth();
+});

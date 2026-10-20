@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { FIXTURE, TRAYS } from "./fixture.js";
+import { cameraViewForSession, routeControlPoints } from "./scene-view.js";
 
 /** Procedural, simulated workbench. All stored positions use centimetres. */
 export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
@@ -28,6 +29,10 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
   let angle = 0.36,
     elevation = 0.84,
     distance = 154;
+  let fittedView = cameraViewForSession({ parts: [] });
+  let sceneState = { parts: [] };
+  let viewKey = null;
+  let fittedSessionId = null;
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -351,14 +356,11 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
   function route(origin, tray) {
     ring(origin, 4.2, originMat);
     ring(tray, 5.8, trayMarkerMat);
-    const from = new THREE.Vector3(tray.x, tray.y + 0.8, tray.z);
-    const to = new THREE.Vector3(origin.x, origin.y + 0.8, origin.z);
-    const curve = new THREE.CatmullRomCurve3([
-      from,
-      new THREE.Vector3(tray.x - 6, 15, tray.z),
-      new THREE.Vector3(origin.x + 8, 17, origin.z),
-      to,
-    ]);
+    const points = routeControlPoints(origin, tray).map(
+      (point) => new THREE.Vector3(point.x, point.y, point.z),
+    );
+    const to = points.at(-1);
+    const curve = new THREE.CatmullRomCurve3(points);
     const pathGeometry = new THREE.TubeGeometry(curve, 64, 0.17, 8, false);
     const colors = new Float32Array(pathGeometry.attributes.position.count * 3);
     for (let i = 0; i < pathGeometry.attributes.position.count; i++) {
@@ -438,7 +440,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     const height = canvas.clientHeight;
     if (!width || !height) return;
     camera.aspect = width / height;
-    camera.zoom = Math.min(1, camera.aspect / 1.35);
+    fitView(sceneState, true);
     camera.updateProjectionMatrix();
     renderer.setSize(width, height, false);
     invalidate();
@@ -448,16 +450,18 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
   const raycaster = new THREE.Raycaster();
   let pointerStart = null,
     lastPointer = null,
+    activePointerId = null,
     dragged = false;
   canvas.addEventListener("pointerdown", (event) => {
-    if (event.button !== 0) return;
+    if (event.button !== 0 || activePointerId !== null) return;
+    activePointerId = event.pointerId;
     pointerStart = { x: event.clientX, y: event.clientY };
     lastPointer = pointerStart;
     dragged = false;
     canvas.setPointerCapture(event.pointerId);
   });
   canvas.addEventListener("pointermove", (event) => {
-    if (!lastPointer) return;
+    if (!lastPointer || event.pointerId !== activePointerId) return;
     const dx = event.clientX - lastPointer.x,
       dy = event.clientY - lastPointer.y;
     if (
@@ -476,7 +480,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     lastPointer = { x: event.clientX, y: event.clientY };
   });
   canvas.addEventListener("pointerup", (event) => {
-    if (!lastPointer) return;
+    if (!lastPointer || event.pointerId !== activePointerId) return;
     if (!dragged) {
       const rect = canvas.getBoundingClientRect();
       raycaster.setFromCamera(
@@ -495,16 +499,22 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     }
     lastPointer = null;
     pointerStart = null;
+    activePointerId = null;
   });
-  canvas.addEventListener("pointercancel", () => {
+  canvas.addEventListener("pointercancel", (event) => {
+    if (event.pointerId !== activePointerId) return;
     lastPointer = null;
     pointerStart = null;
+    activePointerId = null;
   });
   canvas.addEventListener(
     "wheel",
     (event) => {
       event.preventDefault();
-      distance = THREE.MathUtils.clamp(distance + event.deltaY * 0.08, 95, 230);
+      distance = THREE.MathUtils.clamp(
+        distance + event.deltaY * fittedView.distance * 0.00052,
+        fittedView.minDistance, fittedView.maxDistance,
+      );
       moveCamera();
       invalidate();
     },
@@ -532,8 +542,8 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     if (event.key === "ArrowRight") angle += 0.12;
     if (event.key === "ArrowUp") elevation = Math.min(elevation + 0.1, 1.35);
     if (event.key === "ArrowDown") elevation = Math.max(elevation - 0.1, 0.28);
-    if (event.key === "+") distance = Math.max(distance - 10, 95);
-    if (event.key === "-") distance = Math.min(distance + 10, 230);
+    if (event.key === "+") distance = Math.max(distance - fittedView.distance * 0.065, fittedView.minDistance);
+    if (event.key === "-") distance = Math.min(distance + fittedView.distance * 0.065, fittedView.maxDistance);
     moveCamera();
     invalidate();
   });
@@ -541,14 +551,34 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     event.preventDefault();
     onUnavailable();
   });
+  function fitView(state, resized = false) {
+    const key = JSON.stringify([state.id, state.parts.map((part) => [part.id, part.originCm, part.trayCm])]);
+    if (!resized && key === viewKey) return;
+    const nextView = cameraViewForSession(state, camera.aspect);
+    const preserveZoom = resized || (state.id === fittedSessionId && !nextView.custom && !fittedView.custom);
+    const zoomRatio = preserveZoom ? distance / fittedView.distance : 1;
+    fittedView = nextView;
+    viewKey = key;
+    fittedSessionId = state.id;
+    target.set(fittedView.target.x, fittedView.target.y, fittedView.target.z);
+    distance = THREE.MathUtils.clamp(fittedView.distance * zoomRatio, fittedView.minDistance, fittedView.maxDistance);
+    camera.zoom = fittedView.zoom;
+    camera.far = fittedView.far;
+    scene.fog.near = fittedView.fogNear;
+    scene.fog.far = fittedView.fogFar;
+    camera.updateProjectionMatrix();
+    moveCamera();
+  }
   function reset() {
     angle = 0.36;
     elevation = 0.84;
-    distance = 154;
+    distance = fittedView.distance;
     moveCamera();
     invalidate();
   }
   function update(state, selectedPartId, selectedTrayId) {
+    sceneState = state;
+    fitView(state);
     const records = new Map(
       state.parts.map((p, index) => [
         p.id,
@@ -593,8 +623,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
         entry.target.y += 1;
     });
     clearMarkers();
-    const activePhase =
-      state.phase === "paused" ? state.resumePhase : state.phase;
+    const activePhase = state.phase;
     if (activePhase === "returning") {
       const part = state.parts[state.parts.length - 1 - state.returnedCount];
       if (part) route(part.originCm, part.trayCm);

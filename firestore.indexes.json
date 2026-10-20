@@ -1,0 +1,6 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    { "collectionGroup": "sessions", "fieldPath": "snapshotJson", "indexes": [] }
+  ]
+}

@@ -307,7 +307,7 @@ def overlay_image(path: Path, timeline: dict, card: dict | None, caption: dict |
     draw.text((126, 47), timeline["title"], font=b(45), fill=INK, anchor="lt")
     title_width = draw.textlength(timeline["title"], font=b(45))
     draw.text((int(145 + title_width), 58), timeline["tagline"], font=f(28), fill=MUTED, anchor="lt")
-    heading = "LEARN AR WITH SPECS  /  ACTUAL LENS STUDIO PREVIEW"
+    heading = "PARTCUE  /  ACTUAL LENS STUDIO PREVIEW AND WEB COMPANION"
     if replay:
         heading = "REPLAY  /  EXCERPT FROM THE SAME CAPTURED LENS STUDIO FOOTAGE"
     if test_only:
@@ -574,7 +574,7 @@ def main() -> int:
             command.extend(["-map", f"[{audio}]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000"])
         else:
             command.append("-an")
-        command.extend(["-c:v", "libx264", "-preset", args.preset, "-crf", str(args.crf), "-pix_fmt", "yuv420p", "-r", str(FPS), "-frames:v", str(frames), "-t", f"{duration:.9f}", "-movflags", "+faststart", "-map_metadata", "-1", "-metadata", f"title={timeline['title']} — {timeline['tagline']}", "-metadata", "artist=Shivam Gupta", "-metadata", f"comment={'TEST ONLY - synthetic input - not a product demo' if args.test_only else 'Actual Lens Studio preview; simulated input; manual marking; built with AI assistance'}. {edition}.", str(temporary_output)])
+        command.extend(["-c:v", "libx264", "-preset", args.preset, "-crf", str(args.crf), "-pix_fmt", "yuv420p", "-r", str(FPS), "-frames:v", str(frames), "-t", f"{duration:.9f}", "-movflags", "+faststart", "-map_metadata", "-1", "-metadata", f"title={timeline['title']} | {timeline['tagline']}", "-metadata", "artist=Shivam Gupta", "-metadata", f"comment={'TEST ONLY - synthetic input - not a product demo' if args.test_only else 'Actual Lens Studio preview; simulated input; manual marking; built with AI assistance'}. {edition}.", str(temporary_output)])
         print(f"Composing {frames} frames / {duration:.3f}s at {WIDTH}×{HEIGHT}; {edition}.", flush=True)
         run(command, "ffmpeg composition", 900)
         rendered = probe(temporary_output, ffprobe, True)

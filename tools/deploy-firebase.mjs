@@ -1,0 +1,16 @@
+import { execFileSync } from 'node:child_process';
+import { readFile } from 'node:fs/promises';
+const run = (cmd, args, env = {}) => execFileSync(cmd, args, { stdio: 'inherit', env: { ...process.env, ...env } });
+const firebase = process.platform === 'win32' ? 'node_modules/.bin/firebase.cmd' : 'node_modules/.bin/firebase';
+const cfg = JSON.parse(await readFile('firebase.json', 'utf8'));
+if (cfg.hosting.site !== 'partcue' || cfg.hosting.public !== 'dist/hosting') throw new Error('Unexpected hosting target; refusing to deploy.');
+run('npm', ['test']);
+run('npm', ['run', 'test:firebase']);
+run('npm', ['run', 'build:hosting']);
+if (process.argv.includes('--build-only')) process.exit(0);
+run(firebase, ['deploy', '--project', 'benchback', '--only', 'firestore:rules,firestore:indexes,hosting', '--non-interactive']);
+const response = await fetch('https://partcue.web.app/release.json', { cache: 'no-store' });
+if (!response.ok) throw new Error(`Live release check failed: ${response.status}`);
+const release = await response.json();
+if (release.product !== 'PartCue') throw new Error('Live site did not return the expected product.');
+console.log(`Deployed ${release.product} ${release.version}: https://partcue.web.app`);
