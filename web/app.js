@@ -21,6 +21,7 @@ const node = (tag, className, text) => {
   return element;
 };
 const cloud = Boolean(FIREBASE_CONFIG);
+let booting = cloud;
 const api = cloud ? new FirebaseApiClient(FIREBASE_CONFIG) : new ApiClient();
 const storageName = cloud ? "your private cloud account" : "this companion server";
 let listRequest = 0;
@@ -91,7 +92,7 @@ function transition(command) {
       );
     else if (result.error.code === "WRONG_COUNT" && expected)
       notice(
-        `Check the quantity. Confirm all ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at the saved origin.`,
+        `Check the quantity. Confirm ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at the saved origin.`,
         "error",
       );
     else notice(`${result.error.message} ${result.error.recovery}`, "error");
@@ -216,17 +217,22 @@ function render() {
   $("session-title").textContent = state.title;
   $("account-label").textContent = user
     ? user.name || user.email
-    : "Guest rehearsal";
+    : booting ? "Checking your account…" : "Guest rehearsal";
   $("account-label").title = user
     ? user.email
     : "No account required to try the bench";
   $("auth-open").hidden = Boolean(user);
+  $("auth-open").disabled = booting;
   $("logout").hidden = !user;
   $("account-settings").hidden = !user || !cloud;
+  $("account-settings").disabled = networkBusy;
   $("logout").disabled = networkBusy;
   $("save-session").disabled =
-    networkBusy || Boolean(user && revision !== null && !isDirty());
+    booting || networkBusy || Boolean(user && revision !== null && !isDirty());
   $("save-session").textContent = networkBusy ? "Please wait…" : "Save session";
+  $("complete-save").disabled = booting || networkBusy || Boolean(user && revision !== null && !isDirty());
+  $("complete-save").textContent = networkBusy ? "Saving your session…" : "Save this session";
+  $("complete-new").disabled = networkBusy;
   $("save-status").textContent = !user
     ? "In memory only"
     : revision !== null && !isDirty()
@@ -234,9 +240,12 @@ function render() {
       : "Unsaved changes";
   $("save-status").className =
     `save-status ${!user ? "" : revision !== null && !isDirty() ? "saved" : "unsaved"}`;
-  $("sessions-open").disabled = networkBusy;
+  $("sessions-open").disabled = booting || networkBusy;
+  $("workspace").inert = Boolean(booting && initialDraft);
+  $("workspace").setAttribute("aria-busy", String(booting));
   $("new-session").disabled = networkBusy;
   $("import-session").disabled = networkBusy;
+  $("saved-sessions").querySelectorAll("button").forEach((button) => { button.disabled = networkBusy; });
   $("persistence-note").textContent = user
     ? `Save explicitly to keep changes in ${storageName}. Export JSON for a portable backup.`
     : "Guest work stays in this tab, including across a reload. Export before closing, or sign in to save.";
@@ -338,7 +347,7 @@ function render() {
       `TRAY ${formatCm(expected.trayCm)}\nORIGIN ${formatCm(expected.originCm)}`;
     $("confirm-form").hidden = state.pendingReturnId !== expected.id;
     $("confirm-count-label").textContent =
-      `Confirm all ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at the saved origin`;
+      `Confirm ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at the saved origin`;
     $("return-parts").replaceChildren(
       ...state.parts.map((part, index) =>
         makePartButton(
@@ -659,6 +668,7 @@ async function loadSession(sessionId) {
     return;
   networkBusy = true;
   const requestedState = serializeSession(state), account = user.id, generation = authGeneration;
+  $("sessions-status").textContent = "Opening your saved session…";
   render();
   try {
     const data = await api.request(
@@ -701,6 +711,7 @@ async function deleteSession(item) {
   )
     return;
   networkBusy = true;
+  $("sessions-status").textContent = "Deleting this saved session…";
   render();
   try {
     await api.request(
@@ -1074,7 +1085,8 @@ api
       notice(
         "The companion server is unavailable. You can still rehearse here; export your JSON before closing.",
       );
-  });
+  })
+  .finally(() => { booting = false; render(); });
 
 function renderAccount() {
   $("account-email").textContent = user?.email ?? "";
