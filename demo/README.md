@@ -1,37 +1,34 @@
-# PartCue demo package
+# PartCue product demo
 
-[Watch the public YouTube demo](https://www.youtube.com/watch?v=Z9rPXUwUdnw) · [Local MP4](partcue-demo.mp4) · [Verbatim script](../docs/video-script.md)
+[Public video](https://www.youtube.com/watch?v=BVofj69YVnA) · [Final MP4](partcue-product-demo.mp4) · [Exact script](voiceover-v2.txt) · [Captions](partcue-product-demo.srt)
 
-The final master is **152 seconds, 1920×1080, 30 fps**. It contains a continuous 71-second Lens workflow and a separate continuous 21-second viewpoint check. Intro and closing excerpts carry a persistent REPLAY label. Source footage is native Lens Studio preview, with four authored parts, predefined origins and SIK input replay. Every confirmation is explicit.
+The current master is **156.500 seconds, 1920×1080, 30 fps**. It combines actual Lens Studio preview recordings with captured excerpts from the hosted companion. The first 71 seconds show a continuous native workflow. The spatial viewpoint excerpt is also native footage. Captured browser interactions demonstrate sign-in, recording, saving, reload/restoration, JSON export/import and invalid-file rejection. Excerpts and held results are labelled. No product screen is synthesized.
 
-The voice is a generic synthetic guide, not Shivam Gupta's voice. No cloning was used. The video labels this permanently. Original product SFX are mixed under the guide. The script also includes an optional first-person intro for Shivam to record himself.
+The Lens demonstrates four authored parts and predefined origins with manual marking and explicit quantity confirmation. Recorded hand interactions use an actual SIK replay scenario. The Lens and browser maintain separate sessions. Physical installation and camera recognition are not verified.
+
+The guide is Kokoro's generic `af_heart` stock voice, with no cloning or reference recording. The video and description disclose synthetic narration. There are 57 cleaned timed cues, burned into the sidebar and supplied for YouTube closed captions. Narration runs at normal generated speed, with no clipped samples. A separate ASR check found no omitted words; this is not a human listening review.
 
 | File | Purpose |
 | --- | --- |
-| [partcue-demo.mp4](partcue-demo.mp4) | Finished submission video |
-| [partcue-demo.srt](partcue-demo.srt) | 31 timed narration captions; also burned into the video sidebar |
-| [partcue-thumbnail.png](partcue-thumbnail.png) | Actual-product thumbnail |
-| [partcue-guide.wav](partcue-guide.wav) | Complete timed guide, including silence between sections |
-| [narration-segments.json](narration-segments.json) and [voiceover.txt](voiceover.txt) | Exact spoken words |
-| [narration-provenance.json](narration-provenance.json) | Pinned local model/tool, licenses, waveform hashes and bounds |
-| [narration-schedule.json](narration-schedule.json) | Section starts and durations; sentence caption times are estimates within aligned sections |
-| [capture-provenance.json](capture-provenance.json) | Native capture hashes, revision boundary and source-master construction |
-| [partcue-edit-plan.json](partcue-edit-plan.json) | Explicit source excerpts, cards and captions |
-| [partcue-demo.edit.json](partcue-demo.edit.json) | Output hash, encoder settings and successful full-decode check |
+| [partcue-product-demo.mp4](partcue-product-demo.mp4) | Current product demonstration |
+| [partcue-product-demo.srt](partcue-product-demo.srt) | Timed English captions |
+| [partcue-product-demo.edit.json](partcue-product-demo.edit.json) | Source ranges, capture provenance, output hash and full-decode result |
+| [partcue-guide-v2.wav](partcue-guide-v2.wav) | Timed stock-voice guide |
+| [narration-v2.json](narration-v2.json) | Spoken text, cue timing and generation metadata |
+| [narration-v2-asr.json](narration-v2-asr.json) | Independent transcript comparison |
+| [partcue-thumbnail.png](partcue-thumbnail.png) | Product thumbnail using an actual Lens capture |
+| [cover-provenance.json](cover-provenance.json) | Capture crop and image hashes |
+| [youtube-description-v2.txt](youtube-description-v2.txt) | Published description and chapters |
 
-## Reproduce the composition
+## Reproduce
 
-The native source captures and concatenated source master are distributed as assets of the [preview release](https://github.com/shi1720/partcue/releases/tag/v1.0.0). They are excluded from the source checkout's `demo/raw/` folder to keep routine clones smaller. The master joins the complete final workflow capture, then the complete spatial capture, using FFmpeg's concat demuxer and stream copy. The edit plan selects explicit ranges from that master; no footage is generated.
-
-Install Python 3.10+, FFmpeg with libx264, and the pinned `requirements-video.txt`. Download `partcue-source-master.mp4`, then run from the repository root:
+`tools/create-product-demo.py` composes the current edit from the native captures and browser screencast manifests recorded in its provenance. The [v1.1 release](https://github.com/shi1720/partcue/releases/tag/v1.1.0) provides `PartCue-Browser-Captures.zip` plus the two native MP4s. Extract the capture archive into `demo/raw/browser/` and place the native files in `demo/raw/`. The native captures are excluded from routine Git clones and are distributed as release assets. Browser manifests and changed-frame images are recording inputs, not application source. Restore exact source stop timestamps and compose with the portable plan:
 
 ```sh
-python3 tools/create-demo.py \
-  --input /absolute/path/to/partcue-source-master.mp4 \
-  --output /absolute/path/to/new-partcue-demo.mp4 \
-  --timeline demo/partcue-edit-plan.json \
-  --audio demo/partcue-guide.wav --audio-kind ai-guide \
-  --mix-raw-audio --sfx-volume 0.3
+python3 demo/raw/browser/restore-capture-times.py
+python3 tools/create-product-demo.py --plan demo/product-web-edit.json --output demo/reproduced-product-demo.mp4 --allow-mtime-stop
 ```
 
-The tool refuses to overwrite inputs, checks edit bounds and readable text, enforces a duration below three minutes, labels synthetic narration and replay, and verifies a full media decode. Rendering on another font/platform may change encoded bytes; the supplied provenance identifies this release's exact output.
+The restore helper checks capture hashes before changing file timestamps. `product-web-edit.recorded.json` retains the original recorded plan; the portable plan changes only manifest paths. Run `python3 tools/create-product-demo.py --help` for all supported paths. It refuses errored captures and input overwrites, fits complete viewports, preserves real elapsed time and fully decodes the rendered video before replacing the output.
+
+Kokoro model, voice and environment versions are documented in [the narration notice](../docs/licenses/Kokoro-Narration-Notice.md). The original `partcue-demo.mp4`, Piper guide and v1.0 edit manifests are retained as clearly separate archived assets. They are not the current submission video.

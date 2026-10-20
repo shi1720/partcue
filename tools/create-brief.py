@@ -3,7 +3,7 @@
 
 Install: python3 -m pip install -r requirements-docs.txt
 Draft: python3 tools/create-brief.py --output /tmp/PartCue-Brief-Draft.pdf
-Verified: python3 tools/create-brief.py --software-tests 34 --leaf-passed 7 \
+Verified: python3 tools/create-brief.py --software-tests 51 --firebase-tests 12 --leaf-passed 7 \
     --verified --lens-image docs/evidence/lens-return.png
 
 Run from any directory. Relative --output and --lens-image paths resolve against
@@ -27,7 +27,8 @@ ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument('--output', default='PartCue-Project-Brief.pdf', help='PDF output path (relative to repository root)')
 parser.add_argument('--lens-image', help='Actual Lens Studio capture, used as supplied (relative to repository root)')
-parser.add_argument('--software-tests', type=int, default=34, help='Observed passing software-test count')
+parser.add_argument('--software-tests', type=int, default=51, help='Observed passing software-test count')
+parser.add_argument('--firebase-tests', type=int, default=12, help='Observed passing Firebase emulator-test count')
 parser.add_argument('--leaf-passed', type=int, default=7, help='Observed passing LEAF count')
 parser.add_argument('--leaf-total', type=int, default=7, help='Total required LEAF scenarios')
 parser.add_argument('--verified', action='store_true', help='Current design and final scenario rerun/capture are verified')
@@ -39,7 +40,7 @@ if args.video_url:
     video = urlsplit(args.video_url)
     if video.scheme != 'https' or video.hostname not in {'youtube.com','www.youtube.com','youtu.be'}:
         parser.error('--video-url must be an HTTPS YouTube link verified by the author')
-if args.software_tests < 0 or not 0 <= args.leaf_passed <= args.leaf_total:
+if args.software_tests < 0 or args.firebase_tests < 0 or not 0 <= args.leaf_passed <= args.leaf_total:
     parser.error('Test counts must be nonnegative, with passed LEAF <= total LEAF')
 try:
     SNAPSHOT = date.fromisoformat(args.date)
@@ -95,7 +96,7 @@ def base(n,section):
     label('PartCue / '+section,48,802,NAVY)
     rule(787)
     rule(43)
-    text('SHIVAM GUPTA  /  LEARN AR WITH SPECS',48,27,7.2,'SansB',MUTED)
+    text('SHIVAM GUPTA  /  PARTCUE',48,27,7.2,'SansB',MUTED)
     text(f'{SNAPSHOT:%d %b %Y}     {n:02d} / 05'.upper(),430,27,7.2,'Sans',MUTED)
 def title(kicker,heading,deck=None):
     label(kicker,48,751)
@@ -170,9 +171,9 @@ c.showPage()
 
 # 2 / Experience
 base(2,'the experience')
-y=title('The core interaction','Remember the way back.','A local record of what the user actually removed - not an AI-generated repair procedure.')
+y=title('The core interaction','Remember the way back.','A record of what the user actually removed, with an explicit confirmation for each return.')
 y-=32
-y=smallrow('1','Mark the removal','Select the origin, choose an empty tray well, and confirm. Store the part label, quantity, locations, and removal order.',y)
+y=smallrow('1','Mark the removal','In the Lens, select an authored part and tray well. In a custom browser job, write the part name, origin, container, quantity and optional note.',y)
 y=smallrow('2','Follow one pair','Return mode reverses the confirmed removal log. Select the highlighted tray target; a directional path connects pickup to the saved origin.',y)
 y=smallrow('3','Confirm, correct, continue','A wrong selection preserves progress. One active confirmation stays beside the task. Phase-specific controls recede; pause, resume, and undo preserve context.',y)
 y=smallrow('4','Finish with a reconciled log','Completion means every recorded group has a user-confirmed return. It does not certify assembly, safety, or device function.',y)
@@ -182,7 +183,7 @@ y=p('The useful information is a relationship between two places on the bench. K
 y-=22
 box(48,y,499,114)
 label('Scope / simulated bench and manual marking',63,y-21,CYAN)
-p('The <b>simulated bench / manual marking</b> preview uses four authored parts and predefined origins. Mouse-driven pinches carry the flow. Lens state is session-only, with no automatic companion sync. Camera recognition, automatic screw measurement, and device comfort remain outside this demonstration.',63,y-34,468,10.3,15)
+p('The Lens uses <b>four authored parts and predefined origins</b>. Its session is separate from the browser. The hosted companion accepts up to 100 custom part groups with written references and an illustrative diagram. Private Firebase accounts save browser jobs; JSON files support deliberate backups and handoffs.',63,y-34,468,10.3,15)
 c.showPage()
 
 # 3 / Economics
@@ -241,7 +242,7 @@ c.showPage()
 base(5,'build and submission status')
 if args.verified:
     heading='Built, tested,<br/>ready to demonstrate.'
-    deck='A working Lens, captured workflow, and public source. Lens runtime scenarios and independent software CI checks are reported separately.'
+    deck='A working Lens, a hosted job companion, captured workflows and public source. Software, cloud and Lens results are reported separately.'
 else:
     heading='Working baseline.<br/>Final checks pending.'
     deck='The Lens baseline runs and its scenarios passed. Direct tray selection and phase-based UI are being refined; the final design needs a fresh scenario run and capture.'
@@ -249,12 +250,12 @@ y=title('Evidence snapshot / '+SNAPSHOT.strftime('%d %B %Y'),heading,deck)
 y-=21
 box(48,y,499,99,NAVY)
 text(str(args.software_tests),65,y-40,31,'Serif',BG);text('SOFTWARE TESTS',65,y-59,8,'SansB',HexColor('#B4D7D8'))
-text(f'{args.leaf_passed}/{args.leaf_total}',233,y-40,31,'Serif',BG);text('LEAF SCENARIOS',233,y-59,8,'SansB',HexColor('#B4D7D8'))
-text('PUBLIC' if args.verified else 'PENDING',400,y-39,18,'Serif',BG);text('SOURCE + CI',400,y-59,8,'SansB',HexColor('#B4D7D8'))
+text(str(args.firebase_tests),233,y-40,31,'Serif',BG);text('FIREBASE TESTS',233,y-59,8,'SansB',HexColor('#B4D7D8'))
+text(f'{args.leaf_passed}/{args.leaf_total}',400,y-40,31,'Serif',BG);text('LENS SCENARIOS',400,y-59,8,'SansB',HexColor('#B4D7D8'))
 text('Automated software checks and manual browser QA are separate from Lens validation.',65,y-83,8.5,'Sans',BG)
 y-=122
 label('Observed in the companion browser flow',48,y)
-y=p('Four-part record/return; wrong-part and quantity rejection; pause, resume, undo, and completion. Account registration, save/reload/load, multi-tab conflict handling, valid import with a new ID, and invalid import preserving the job.',48,y-14,499,10.2,14.5)
+y=p('Practice and custom named-part jobs; wrong-part and quantity rejection; pause, resume, undo and completion. Real hosted registration, save/reload/load, private account isolation, concurrent revision rejection, valid import with a new ID, and invalid import preserving current work.',48,y-14,499,10.2,14.5)
 y-=18
 label('Lens implementation and verification',48,y)
 if args.verified:
@@ -268,9 +269,9 @@ y=p('Four authored parts and predefined origins define the preview scope. Marks 
 y-=21
 text('Release status',48,y,20,'Serif');y-=26
 capture_status = 'Captured the workflow, spatial-viewpoint clip, and final runtime views.' if args.spatial_recorded else 'Captured the workflow and final runtime views; spatial recording is next.'
-video_status = ('DONE', 'Published the <link href="'+args.video_url+'" color="#16858E"><u>public YouTube demonstration</u></link> (2:32).') if args.video_url else ('NEXT','Publish a YouTube demo under three minutes; verify public playback.')
+video_status = ('DONE', 'Published the <link href="'+args.video_url+'" color="#16858E"><u>captioned public product demonstration</u></link> (2:37).') if args.video_url else ('NEXT','Publish a YouTube demo under three minutes; verify public playback.')
 release_rows = [
-    ('DONE','Published <link href="https://github.com/shi1720/partcue" color="#16858E"><u>source and planning</u></link>; <link href="https://github.com/shi1720/partcue/actions/runs/39416731639" color="#16858E"><u>independent GitHub CI passed all 34 checks</u></link>.'),
+    ('DONE','Hosted at <link href="https://partcue.web.app" color="#16858E"><u>partcue.web.app</u></link>; public <link href="https://github.com/shi1720/partcue" color="#16858E"><u>source, planning and repeatable checks</u></link>.'),
     ('DONE',capture_status),
     video_status,
     ('NEXT','Complete personal details and eligibility, then select final Submit on Devpost.')

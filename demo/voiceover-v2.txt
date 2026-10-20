@@ -1,0 +1,19 @@
+After an interruption, two similar screws can become a guessing game. PartCue keeps their pickup and origin visible beside the work. This is the actual Lens Studio preview. The bench is simulated, with four authored parts and predefined origins. Select each part and its tray well, then record the removal. Every mark is an explicit choice, so the return follows your own recorded sequence.
+
+Now the last recorded part becomes the first return. Amber marks the pickup, cyan marks its origin. A wrong choice cannot advance the record.
+
+The correct selection and confirmation move forward once. Pause clears the work cues. Resume restores the same next part. Undo brings back the previous return, so a correction does not lose context.
+
+Confirm the remaining parts, and the path disappears when all four returns are accounted for. These are user confirmations. The Lens does not verify physical installation.
+
+Restart asks for confirmation before clearing the session. The Lens keeps its own session. The separate companion handles saved job records.
+
+Here is the web companion, running in the browser. You can rehearse the same workflow and keep a record between visits. It does not synchronize automatically with the Lens. The two experiences have separate sessions. The companion provides a place to review and save those job records.
+
+Start as a guest, or sign in to save a job. Record a few parts, then save the session to your account. After reloading the page, load that saved job and carry on from the same point. Accounts keep saved jobs separate. Guest work needs explicit saving or export.
+
+Export creates a portable record. Import checks the file before opening it as a new session. A broken file leaves your current work untouched. Saved revisions stop an older browser tab from silently overwriting a newer job. Portable files also support deliberate backups and handoffs.
+
+The goal is less reconstruction after an interruption. That still needs testing with repairers, including the time spent recording. Glasses comfort and physical alignment also need device testing. Mats, photographs and a plain reverse checklist are the baselines to beat. This demonstration shows the software behavior.
+
+PartCue was created by Shivam Gupta with AI assistance. It helps you follow your own record, one part at a time. Every part has a way home.

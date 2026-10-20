@@ -1,4 +1,4 @@
-PartCue — synthetic AI guide, third-person narration
+PartCue | synthetic AI guide, third-person narration
 
 Two similar screws. Two different homes. After an interruption, which loose part belongs where? PartCue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance. Every part has a way home.
 

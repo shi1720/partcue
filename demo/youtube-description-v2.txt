@@ -1,0 +1,24 @@
+Two similar screws. Two different homes. After an interruption, which part belongs where?
+
+PartCue keeps each recorded pickup and origin connected, then guides your teardown in reverse, one explicit confirmation at a time.
+
+Try the web workbench: https://partcue.web.app
+Source and project files: https://github.com/shi1720/partcue
+
+0:00 Record a teardown in the actual Lens Studio preview
+0:24 Follow the paired pickup and origin cues
+0:35 Pause, resume and undo
+0:49 Confirm the return and restart deliberately
+1:11 Explore the separate web companion
+1:29 Sign in, save, reload and restore a job
+1:46 Export, import and recover from an invalid file
+2:06 Move around the spatial preview
+2:27 Every part has a way home
+
+Created by Shivam Gupta with AI coding assistance.
+
+This video shows actual Lens Studio preview footage and captured excerpts from the hosted browser companion. The demonstrated enclosure has four authored parts and predefined origins. Marking and quantity confirmations are manual. Physical placement is not automatically verified. The Lens and browser companion keep separate sessions and do not synchronize automatically.
+
+The browser workbench has real Firebase accounts and private saved sessions. The software has been tested; physical glasses comfort, alignment and repair benefits still need device and user testing.
+
+Narration uses Kokoro's generic af_heart stock voice. It does not imitate Shivam or another person. Captions are visible in the video and supplied as a subtitle track. Voice, code and asset provenance are documented in the repository. No customer data or real repair footage is included.

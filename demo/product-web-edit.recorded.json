@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "captureCommit": "0d3277c",
+  "currentDeploymentCommit": "dd6b458",
+  "captureNote": "Actual Chrome CDP captures before later cosmetic loading-text changes. Browser feature excerpts are edited by topic, not presented as one continuous interaction.",
+  "browserClips": [
+    {
+      "manifest": "partcue-live-capture/chrome-return/manifest.json",
+      "start": 0,
+      "end": 4.637977123260498,
+      "title": "Rehearse the return.",
+      "body": "The separate companion provides the same manually recorded workflow.",
+      "eyebrow": "BROWSER / FEATURE OVERVIEW"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-complete/manifest.json",
+      "start": 0,
+      "end": 6.013549089431763,
+      "title": "Keep the record.",
+      "body": "A completed browser session accounts for all four recorded returns.",
+      "eyebrow": "BROWSER / FEATURE OVERVIEW"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-help/manifest.json",
+      "start": 0,
+      "end": 4.3781211376190186,
+      "title": "Two experiences. Separate sessions.",
+      "body": "The web companion does not synchronize automatically with the Lens.",
+      "eyebrow": "BROWSER / FEATURE OVERVIEW"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-final-result/manifest.json",
+      "start": 0,
+      "end": 3.29535264968872,
+      "title": "A record between visits.",
+      "body": "An unchanged captured result, held while the guide explains the companion.",
+      "eyebrow": "BROWSER / RESULT HELD",
+      "unchangedFromManifest": "partcue-live-capture/chrome-complete/manifest.json"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-sign-in/manifest.json",
+      "start": 0,
+      "end": 2.7778940200805664,
+      "title": "An account for saved jobs.",
+      "body": "Actual sign-in capture. Guest work remains available without an account.",
+      "eyebrow": "SAVED JOBS / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-record-save/manifest.json",
+      "start": 1.1248940200805748,
+      "end": 4.9345,
+      "title": "Record, then save.",
+      "body": "An explicit account save preserves this browser session.",
+      "eyebrow": "SAVED JOBS / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-reload/manifest.json",
+      "start": 0,
+      "end": 1.5875,
+      "title": "Return to your bench.",
+      "body": "Actual page reload, followed by opening saved jobs.",
+      "eyebrow": "SAVED JOBS / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-open-saved/manifest.json",
+      "start": 0.8,
+      "end": 2.3,
+      "title": "Choose a saved job.",
+      "body": "Account records can be selected deliberately.",
+      "eyebrow": "SAVED JOBS / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-load-job/manifest.json",
+      "start": 0,
+      "end": 3.2,
+      "title": "Continue from the saved point.",
+      "body": "A saved record restores its marked parts and return order.",
+      "eyebrow": "SAVED JOBS / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-load-job/manifest.json",
+      "start": 3.2,
+      "end": 6.275070667266846,
+      "title": "Saved and ready to continue.",
+      "body": "Actual captured saved-job result. Lens and companion records remain separate.",
+      "eyebrow": "SAVED JOBS / CAPTURED RESULT"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-reload/manifest.json",
+      "start": 4.0674289226531855,
+      "end": 5.3173582553863525,
+      "title": "Saved and ready to continue.",
+      "body": "Actual captured saved-job result. Lens and companion records remain separate.",
+      "eyebrow": "SAVED JOBS / CAPTURED RESULT"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-export-verified/manifest.json",
+      "start": 0,
+      "end": 3.3619160652160645,
+      "title": "A portable record.",
+      "body": "Actual export action. The downloaded JSON was independently validated.",
+      "eyebrow": "PORTABLE FILES / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-import/manifest.json",
+      "start": 0,
+      "end": 2.5141777992248535,
+      "title": "Open a validated copy.",
+      "body": "Actual import of the exported record creates a new session.",
+      "eyebrow": "PORTABLE FILES / CAPTURED EXCERPTS"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-invalid-verified/manifest.json",
+      "start": 0,
+      "end": 4.913816213607788,
+      "title": "A broken file leaves work intact.",
+      "body": "A separate captured validation test shows the error and preserved 3-of-4 return state. Revision conflict protection was verified in software tests.",
+      "eyebrow": "FILE GUARD / SEPARATE CAPTURED TEST"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-open-saved/manifest.json",
+      "start": 1.8,
+      "end": 6.019031763076782,
+      "title": "Backups and deliberate handoffs.",
+      "body": "Saved jobs and exported records support continuity. An older tab cannot silently overwrite a newer saved revision.",
+      "eyebrow": "SAVED JOBS / CAPTURED REVIEW"
+    },
+    {
+      "manifest": "partcue-live-capture/chrome-final-result/manifest.json",
+      "start": 2.9749418411254895,
+      "end": 7.316,
+      "title": "A place to come back to.",
+      "body": "An unchanged completed result, held for the closing companion explanation.",
+      "eyebrow": "BROWSER / RESULT HELD",
+      "unchangedFromManifest": "partcue-live-capture/chrome-complete/manifest.json"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # PartCue: commercial plan
 
-**Evidence status — 20 October 2026:** no customer interviews, paid pilots, or measured repair outcomes are claimed. The core and companion pass 32 software tests and manual browser QA. The actual CLAD-built SPECS Lens passes all six LEAF preview scenarios, including hand interaction without scripted fallback. Physical glasses and field performance remain untested. PartCue is the current product name. This plan defines hypotheses worth testing, not a proven business.
+**Evidence status, 20 October 2026:** no customer interviews, paid pilots, or measured repair outcomes are claimed. The core and companion pass 51 software checks, 12 Firebase checks and hosted browser QA. The actual CLAD-built SPECS Lens passes seven functional/IK preview scenarios, including hand interaction without scripted fallback. Physical glasses and field performance remain untested. PartCue is the current product name. This plan defines hypotheses worth testing, not a proven business.
 
 ## A narrow customer and a specific job
 
@@ -8,7 +8,7 @@ Start with independent electronics repair shops with multiple benches and repair
 
 The buyer is a shop owner or training lead; the daily user is a technician or learner. An occasional home repairer is a secondary free user, since a subscription plus glasses is a large commitment for a sporadic task. Hardware access is a major adoption dependency, not a solved distribution problem.
 
-The first product should support an explicit local sequence, one active spatial origin/tray pair, corrections, and transparent confirmation. Account login does not belong in the Lens's active repair flow. The implemented companion has accounts and saved jobs; useful Lens-to-companion integration and technician handoff still require evidence.
+The first product should support an explicit local sequence, one active spatial origin/tray pair, corrections, and transparent confirmation. Account login does not belong in the Lens's active repair flow. The hosted companion already records up to 100 manually named part groups per job, with private Firebase saves and portable JSON handoff. Its diagram is illustrative. Lens-to-companion synchronization remains future work.
 
 ## Alternatives and evidence
 
@@ -72,4 +72,4 @@ There is **no established moat**. A direct public reverse-log competitor strengt
 
 ## Release discipline
 
-The hackathon version should be judged as a preview-tested AR experience once evidence exists. A commercial release additionally needs durable job storage with recovery, device testing, privacy and deletion controls, permission boundaries, actual support processes, and a documented way to invalidate alignment after the bench moves. Do not call the current package production-ready on glasses.
+The hackathon version should be judged as a preview-tested AR experience once evidence exists. The hosted companion supplies private job storage, explicit backups and documented deletion controls. A commercial glasses release still needs durable Lens jobs, device testing, actual support processes and a documented way to invalidate alignment after the bench moves. Do not call the current package production-ready on glasses.

@@ -1,6 +1,6 @@
-# PartCue companion server
+# PartCue optional local server
 
-A real account and snapshot service for the bench rehearsal companion. It does not connect the Lens to cloud storage, infer part identity, or make the Lens submission requirement disappear. The browser rehearsal and the Lens are separate adapters of the shared domain model.
+This Node/SQLite service powers the local browser workbench. The public v1.1 app at [partcue.web.app](https://partcue.web.app) uses the separate Firebase Auth/Firestore adapter described in [Firebase deployment](../docs/firebase-deployment.md). This server is not exposed by that hosting deployment. Local and hosted accounts/data are independent; JSON export/import transfers a copy. Neither service synchronizes with the SPECS Lens or infers physical part identity.
 
 ## Run locally
 
@@ -39,7 +39,7 @@ A snapshot is a complete schema-version-1 session in centimetres, as validated b
 - Parameterized SQLite statements and owner constraints cover all reads and writes. Revision checks also appear in SQL updates/deletes to handle requests that overlap while reading bodies.
 - Local Host validation blocks ordinary DNS rebinding to arbitrary domains. A restrictive Content Security Policy permits same-origin scripts/styles and forbids framing and remote connections. Static requests cannot read server files, source maps, dotfiles, database files or files reached through escaping symlinks. Only `web/` assets and JavaScript from `dist/` are served.
 
-This is a tested **local-first companion**, not a claim of an audited public SaaS service. An attacker with access to this operating-system account or data directory can read saved repairs and replace the database. Data is not encrypted at rest. Someone who knows a user's password can sign in locally. Email verification, password recovery, MFA, shared-team permissions, abuse monitoring, durable distributed rate limiting and independent penetration testing are not implemented. The app makes no guarantee about mechanical safety or factual part recognition.
+This is a tested **local-first companion**, not a claim of an audited public SaaS service. An attacker with access to this operating-system account or data directory can read saved repairs and replace the database. Data is not encrypted at rest. Someone who knows a user's password can sign in locally. In this local server, email verification, password recovery, account deletion, MFA, shared-team permissions, abuse monitoring, durable distributed rate limiting and independent penetration testing are not implemented. The hosted Firebase mode has its own reset, optional verification and deletion flows; its deletion retains a minimal private UID marker to prevent stale-token recreation, as documented in the deployment guide. The app makes no guarantee about mechanical safety or factual part recognition.
 
 ## Explicit deployment configuration
 

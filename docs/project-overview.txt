@@ -1,0 +1,7 @@
+PartCue
+
+Two similar screws. Two different homes. PartCue remembers your teardown and shows the next pickup and origin together, one manual confirmation at a time.
+
+https://partcue.web.app
+https://github.com/shi1720/partcue
+https://www.youtube.com/watch?v=BVofj69YVnA

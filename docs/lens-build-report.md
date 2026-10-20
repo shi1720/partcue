@@ -1,4 +1,4 @@
-# PartCue — Lens implementation and evidence
+# PartCue ,  Lens implementation and evidence
 
 Open [PartCue.esproj](../lens/PartTrail/PartCue.esproj) in Lens Studio 5.24.1. Official Save As preserved the 635 asset UUIDs and scene UUID. The public product and Lens metadata are **PartCue**; internal PartTrail script names remain stable.
 

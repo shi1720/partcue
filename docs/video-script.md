@@ -1,92 +1,26 @@
-# PartCue demo — exact guide script and capture alignment
+# PartCue product demo script
 
-**Final — 20 October 2026:** [the public demo](https://www.youtube.com/watch?v=Z9rPXUwUdnw) is complete. The local master is exactly **2:32 (152 seconds), 1920×1080, 30 fps**, with source SFX, a generic synthetic guide and 31 caption cues. The workflow uses four authored parts, predefined origins and actual SIK input replay. The complete workflow was recorded after the final selection guard; all 34 software checks and seven Lens scenarios pass.
+Created by Shivam Gupta with AI coding assistance. The published video uses a disclosed generic synthetic guide. The following is the exact spoken script; Shivam can also record it verbatim.
 
-The narrator is a generic synthetic guide, not Shivam's voice. Keep **AI guide narration · synthetic** visible for that edition. Shivam may also read this exact third-person script. Preserve **Actual Lens Studio preview · Simulated bench · Manual marking** and show **Four authored parts · predefined origins · SIK replay** clearly at least once. No automatic recognition, arbitrary teardown recording, physical-glasses validation, or repair verification is claimed.
+After an interruption, two similar screws can become a guessing game. PartCue keeps their pickup and origin visible beside the work. This is the actual Lens Studio preview. The bench is simulated, with four authored parts and predefined origins. Select each part and its tray well, then record the removal. Every mark is an explicit choice, so the return follows your own recorded sequence.
 
-## Optional human-recorded intro — Shivam only
+Now the last recorded part becomes the first return. Amber marks the pickup, cyan marks its origin. A wrong choice cannot advance the record.
 
-Use this as an alternative to the synthetic intro **only when Shivam records it himself**. Label that edition as Shivam's voiceover. Keep the synthetic guide edition and its nine canonical segments unchanged.
+The correct selection and confirmation move forward once. Pause clears the work cues. Resume restores the same next part. Undo brings back the previous return, so a correction does not lose context.
 
-> I'm Shivam Gupta. Two similar screws. Two different homes. After an interruption, which loose part belongs where? I created PartCue with AI assistance to help you retrace your own teardown. Every part has a way home.
+Confirm the remaining parts, and the path disappears when all four returns are accounted for. These are user confirmations. The Lens does not verify physical installation.
 
-The human version needs a fresh timing pass; its length will differ from the synthetic intro. The remaining wording below can be read verbatim, preserving the preview and hardware limitations.
+Restart asks for confirmation before clearing the session. The Lens keeps its own session. The separate companion handles saved job records.
 
-## Exact nine-segment spoken copy
+Here is the web companion, running in the browser. You can rehearse the same workflow and keep a record between visits. It does not synchronize automatically with the Lens. The two experiences have separate sessions. The companion provides a place to review and save those job records.
 
-Total unpadded speech: **107.064s**. These nine verified chunks are placed in the completed soundtrack using [narration-schedule.json](../demo/narration-schedule.json). Only engine input expands `PartCue` to `Part Cue`; the official transcript below preserves the brand.
+Start as a guest, or sign in to save a job. Record a few parts, then save the session to your account. After reloading the page, load that saved job and carry on from the same point. Accounts keep saved jobs separate. Guest work needs explicit saving or export.
 
-### 1. Intro · 17.950s
+Export creates a portable record. Import checks the file before opening it as a new session. A broken file leaves your current work untouched. Saved revisions stop an older browser tab from silently overwriting a newer job. Portable files also support deliberate backups and handoffs.
 
-Two similar screws. Two different homes. After an interruption, which loose part belongs where? PartCue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance. Every part has a way home.
+The goal is less reconstruction after an interruption. That still needs testing with repairers, including the time spent recording. Glasses comfort and physical alignment also need device testing. Mats, photographs and a plain reverse checklist are the baselines to beat. This demonstration shows the software behavior.
 
-### 2. Setup · 9.045s
+PartCue was created by Shivam Gupta with AI assistance. It helps you follow your own record, one part at a time. Every part has a way home.
 
-This is the actual Lens Studio preview. The bench is simulated, and every mark is manual. First, place the workspace.
 
-### 3. Record · 10.531s
-
-Select a part, choose an empty tray well, and record its removal. Each record connects an origin to a tray location. Repeat for the remaining parts.
-
-### 4. Pair · 4.598s
-
-Amber is pickup. Cyan is origin. Follow the path.
-
-### 5. Wrong · 4.267s
-
-A wrong part stays blocked. Confirm the expected part.
-
-### 6. Pause · 9.045s
-
-Pause hides the cues. Resume restores the same next part. Undo brings back the previous return when a correction is needed.
-
-### 7. Complete · 9.718s
-
-Confirm the remaining returns, and the active cues clear. This accounts for user confirmations. It does not inspect a physical installation.
-
-### 8. Spatial · 10.345s
-
-Here, the viewpoint moves without replacing the bench. Both cues stay at their saved locations. Confirming the return advances to the next pair.
-
-### 9. Closing · 31.564s
-
-Thirty-four software checks pass, alongside Lens preview scenarios. Physical glasses and repair benefits still need testing. The first customer hypothesis is repair and training benches. Twenty dollars per bench per month is a pricing hypothesis. A pilot must compare total task time against mats, photos and a plain reverse checklist, including recording time. PartCue helps you find your own way back.
-
-## Final video timeline
-
-| Edited time | Actual footage and narration |
-| --- | --- |
-| 0:00–0:28 | Visibly labeled replay of a calm active pair. Intro begins at 0:00.6; preview explanation at 0:19. |
-| 0:28–1:39 | Full continuous final Lens workflow, source 0–71 seconds, at native speed. Includes placement, all four removals, wrong selection, correction, pause/resume, undo, completion and confirmed restart. |
-| 1:39–2:00 | Separate continuous viewpoint check, spatial source 123–144 seconds. Camera moves, saved endpoints remain fixed, and confirming Lid advances to Long screw. Narration begins at 1:40.5. |
-| 2:00–2:32 | Visibly labeled replay of the calm bench. Validation, customer/pricing hypothesis and comparative pilot; closing voice begins at 2:00.1. |
-
-Narration starts within the continuous workflow: record **0:35**, paired cues **0:52.2**, wrong pick **0:57.2**, interruption/recovery **1:05.5**, and completion **1:23.95**. Completion narration begins during the last returns, so the complete 9.718-second explanation is finished before the restart flow advances.
-
-## Final native workflow anchors
-
-These times refer to `demo/raw/partcue-workflow-final.mp4`, the 114.165-second native recording from public product commit `a6c74c7`. Add 28 seconds for the main workflow's position in the final video.
-
-| Native source time | Visible evidence |
-| --- | --- |
-| 5.667s | Bench placed. |
-| 7.398s | Start teardown. |
-| 11.098 / 14.833 / 18.567 / 22.298s | Four part removals recorded into distinct wells. |
-| 24.033s | Inner module becomes the active pickup/origin pair, 0/4. |
-| 29.167s | Wrong selection stays blocked; correct selection is required. |
-| 32.298 / 34.732s | Expected module selected, then confirmation advances to Lid, 1/4. |
-| 37.867 / 40.567s | Pause hides cues; resume restores Lid. |
-| 42.798 / 47.532s | Undo restores module; selecting and confirming it advances once again. |
-| 51.932 / 56.332s | Lid, then Long screw confirmed. |
-| 60.767s | Four user-confirmed returns; active cues clear. |
-| 66.098 / 68.098s | Restart prompt, then confirmed reset to setup. |
-
-The [capture provenance](../demo/capture-provenance.json), [edit plan](../demo/partcue-edit-plan.json) and [render verification](../demo/partcue-demo.edit.json) preserve the selected source ranges and hashes. The separate spatial recording predates the final selection guard; its geometry and demonstrated spatial path are unchanged. No speed changes, generated product footage or hidden cuts occur within either evidence flow.
-
-## Delivery and optional human voiceover
-
-The published edition labels synthetic narration permanently. Captions are burned into the sidebar; the timed SRT is also supplied. Full video decode, dimensions, duration, source hashes, waveform bounds and key visual/action alignment were checked. Those checks do not substitute for a human listening review of narration quality.
-
-To replace the guide with your own voice, read the optional first-person intro and the remaining nine-section copy verbatim, leaving the indicated gaps. Keep the disclosure and footage intact, then check the replacement voice against the timeline before republishing. The current public demo is already usable without that replacement.
-
-Shivam must review eligibility and complete the final Devpost Submit action himself; the preparation and published demo do not imply that the prize entry has been submitted.
+The actual Lens footage shows four authored parts with predefined origins and automated SIK input replay. Browser excerpts show the separately hosted companion. Neither experience verifies physical installation or synchronizes automatically with the other.

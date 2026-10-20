@@ -1,15 +1,12 @@
 {
-  "video_url": "https://www.youtube.com/watch?v=Z9rPXUwUdnw",
+  "video_url": "https://www.youtube.com/watch?v=BVofj69YVnA",
+  "master_sha256": "71a534990d51d813dfb74edba7c6c6f9b0d8d00d0edebc1790fae541a61c9957",
+  "durationSeconds": 156.5,
   "studio_confirmation": "Video published; Public selected; copyright and Community Guidelines checks found no issues",
-  "verified_at": "2026-10-20T11:55:26.494Z",
-  "playback_method": "privacy-enhanced public embed in an HTTP page with a proper Referer; playback advanced with no media error",
-  "playback": {
-    "currentTime": 25.716857,
-    "duration": 152.021,
-    "errorCode": null,
-    "paused": true,
-    "readyState": 4
-  },
-  "captions": "YouTube embedded player reports Subtitles/CC turned on and displays the uploaded narration text",
-  "anonymous_oembed": "Public metadata fetched without cookies or authentication; separate work log retained"
+  "verified_at": "2026-10-20T13:23:59.111678+00:00",
+  "playback_method": "Public YouTube watch page in Chrome; HD quality and manual English caption track selected through the player menu. Actual narration caption text appeared.",
+  "captions": "57 uploaded, punctuation-corrected English cues; separate track published after video publication",
+  "publicCaptionTextObserved": "origin. A wrong choice cannot advance the record.",
+  "qualityObserved": "Auto (1080p HD)",
+  "note": "YouTube rounds duration differently across Studio and player, 2:37 and 2:36. The encoded master is exactly 156.500 seconds."
 }

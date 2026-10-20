@@ -1,0 +1,3582 @@
+{
+  "engine": "kokoro",
+  "engineVersion": "0.9.4",
+  "voice": "af_heart",
+  "voiceKind": "publisher stock preset",
+  "cloning": false,
+  "referenceAudio": null,
+  "sampleRate": 24000,
+  "encoding": "PCM_16",
+  "baseSpeed": 1.0,
+  "timingMethod": "Kokoro predicted token durations, not independently forced-aligned",
+  "nativeVideoInterval": [
+    0,
+    71
+  ],
+  "totalUnpaddedSpeechSeconds": 152.4,
+  "scheduledSpeechEnd": 156.1,
+  "suggestedVideoDuration": 156.5,
+  "totalInsertedGapSeconds": 3.7,
+  "webVideoStart": 71.0,
+  "useNotes": "Native video stays at actual speed from 0 to71. Narration starts are aligned to its recorded actions. Web footage should follow the actual segment starts below. Do not reuse original targetEnd values for silence padding.",
+  "captions": [
+    {
+      "start": 0.275,
+      "end": 2.9375,
+      "text": "After an interruption, two similar screws can become"
+    },
+    {
+      "start": 2.9375,
+      "end": 4.1625,
+      "text": "a guessing game."
+    },
+    {
+      "start": 4.1625,
+      "end": 7.0125,
+      "text": "PartCue keeps their pickup and origin visible beside"
+    },
+    {
+      "start": 7.0125,
+      "end": 9.475,
+      "text": "the work. This is the actual Lens Studio"
+    },
+    {
+      "start": 9.475,
+      "end": 12.3875,
+      "text": "preview. The bench is simulated, with four"
+    },
+    {
+      "start": 12.3875,
+      "end": 15.05,
+      "text": "authored parts and predefined origins."
+    },
+    {
+      "start": 15.05,
+      "end": 17.425,
+      "text": "Select each part and its tray well, then"
+    },
+    {
+      "start": 17.425,
+      "end": 18.8375,
+      "text": "record the removal."
+    },
+    {
+      "start": 18.8375,
+      "end": 21.1,
+      "text": "Every mark is an explicit choice, so the"
+    },
+    {
+      "start": 21.1,
+      "end": 23.875,
+      "text": "return follows your own recorded sequence."
+    },
+    {
+      "start": 24.325,
+      "end": 27.525,
+      "text": "Now the last recorded part becomes the first return."
+    },
+    {
+      "start": 27.525,
+      "end": 30.15,
+      "text": "Amber marks the pickup, cyan marks its"
+    },
+    {
+      "start": 30.15,
+      "end": 33.675,
+      "text": "origin. A wrong choice cannot advance the record."
+    },
+    {
+      "start": 35.25,
+      "end": 38.65,
+      "text": "The correct selection and confirmation move forward once."
+    },
+    {
+      "start": 38.65,
+      "end": 40.8625,
+      "text": "Pause clears the work cues."
+    },
+    {
+      "start": 40.8625,
+      "end": 43.4,
+      "text": "Resume restores the same next part."
+    },
+    {
+      "start": 43.4,
+      "end": 45.875,
+      "text": "Undo brings back the previous return, so a"
+    },
+    {
+      "start": 45.875,
+      "end": 48.075,
+      "text": "correction does not lose context."
+    },
+    {
+      "start": 49.25,
+      "end": 52.325,
+      "text": "Confirm the remaining parts, and the path disappears"
+    },
+    {
+      "start": 52.325,
+      "end": 55.025,
+      "text": "when all four returns are accounted for."
+    },
+    {
+      "start": 55.025,
+      "end": 57.4125,
+      "text": "These are user confirmations."
+    },
+    {
+      "start": 57.4125,
+      "end": 60.6,
+      "text": "The Lens does not verify physical installation."
+    },
+    {
+      "start": 61.3,
+      "end": 64.725,
+      "text": "Restart asks for confirmation before clearing the session."
+    },
+    {
+      "start": 64.725,
+      "end": 67.175,
+      "text": "The Lens keeps its own session."
+    },
+    {
+      "start": 67.175,
+      "end": 70.375,
+      "text": "The separate companion handles saved job records."
+    },
+    {
+      "start": 71.275,
+      "end": 73.45,
+      "text": "Here is the web companion, running in the"
+    },
+    {
+      "start": 73.45,
+      "end": 76.475,
+      "text": "browser. You can rehearse the same workflow and"
+    },
+    {
+      "start": 76.475,
+      "end": 78.45,
+      "text": "keep a record between visits."
+    },
+    {
+      "start": 78.45,
+      "end": 81.7375,
+      "text": "It does not synchronize automatically with the Lens."
+    },
+    {
+      "start": 81.7375,
+      "end": 84.6,
+      "text": "The two experiences have separate sessions."
+    },
+    {
+      "start": 84.6,
+      "end": 87.55,
+      "text": "The companion provides a place to review and save"
+    },
+    {
+      "start": 87.55,
+      "end": 89.025,
+      "text": "those job records."
+    },
+    {
+      "start": 89.6,
+      "end": 91.325,
+      "text": "Start as a guest, or sign in to"
+    },
+    {
+      "start": 91.325,
+      "end": 92.4875,
+      "text": "save a job."
+    },
+    {
+      "start": 92.4875,
+      "end": 94.75,
+      "text": "Record a few parts, then save the session"
+    },
+    {
+      "start": 94.75,
+      "end": 95.9125,
+      "text": "to your account."
+    },
+    {
+      "start": 95.9125,
+      "end": 98.725,
+      "text": "After reloading the page, load that saved job"
+    },
+    {
+      "start": 98.725,
+      "end": 100.7875,
+      "text": "and carry on from the same point."
+    },
+    {
+      "start": 100.7875,
+      "end": 103.1625,
+      "text": "Accounts keep saved jobs separate."
+    },
+    {
+      "start": 103.1625,
+      "end": 106.225,
+      "text": "Guest work needs explicit saving or export."
+    },
+    {
+      "start": 106.8,
+      "end": 109.0875,
+      "text": "Export creates a portable record."
+    },
+    {
+      "start": 109.0875,
+      "end": 111.7,
+      "text": "Import checks the file before opening it as a"
+    },
+    {
+      "start": 111.7,
+      "end": 114.725,
+      "text": "new session. A broken file leaves your current"
+    },
+    {
+      "start": 114.725,
+      "end": 118.65,
+      "text": "work untouched. Saved revisions stop an older browser"
+    },
+    {
+      "start": 118.65,
+      "end": 121.6875,
+      "text": "tab from silently overwriting a newer job."
+    },
+    {
+      "start": 121.6875,
+      "end": 125.575,
+      "text": "Portable files also support deliberate backups and handoffs."
+    },
+    {
+      "start": 126.15,
+      "end": 129.5375,
+      "text": "The goal is less reconstruction after an interruption."
+    },
+    {
+      "start": 129.5375,
+      "end": 132.5125,
+      "text": "That still needs testing with repairers, including the"
+    },
+    {
+      "start": 132.5125,
+      "end": 134.1625,
+      "text": "time spent recording."
+    },
+    {
+      "start": 134.1625,
+      "end": 137.475,
+      "text": "Glasses comfort and physical alignment also need device"
+    },
+    {
+      "start": 137.475,
+      "end": 140.8875,
+      "text": "testing. Mats, photographs and a plain reverse"
+    },
+    {
+      "start": 140.8875,
+      "end": 143.15,
+      "text": "checklist are the baselines to beat."
+    },
+    {
+      "start": 143.15,
+      "end": 146.275,
+      "text": "This demonstration shows the software behavior."
+    },
+    {
+      "start": 146.825,
+      "end": 149.475,
+      "text": "PartCue was created by Shivam Gupta with AI"
+    },
+    {
+      "start": 149.475,
+      "end": 152.5,
+      "text": "assistance. It helps you follow your own record,"
+    },
+    {
+      "start": 152.5,
+      "end": 154.1375,
+      "text": "one part at a time."
+    },
+    {
+      "start": 154.1375,
+      "end": 156.0,
+      "text": "Every part has a way home."
+    }
+  ],
+  "audioFile": "partcue-guide-v2.wav",
+  "scriptFile": "voiceover-v2.txt",
+  "captionsFile": "partcue-v2.srt",
+  "combinedAudioSha256": "013f73adce4b1cbf2bf2dc2dddf8afcf05147fed6837c22f97724e74b8d94271",
+  "model": {
+    "repository": "hexgrad/Kokoro-82M",
+    "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "weightsSha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+    "stockVoiceSha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+    "license": "Apache-2.0"
+  },
+  "segments": [
+    {
+      "id": "01-native-record",
+      "start": 0.0,
+      "end": 23.975,
+      "text": "After an interruption, two similar screws can become a guessing game. PartCue keeps their pickup and origin visible beside the work. This is the actual Lens Studio preview. The bench is simulated, with four authored parts and predefined origins. Select each part and its tray well, then record the removal. Every mark is an explicit choice, so the return follows your own recorded sequence.",
+      "speed": 1.0,
+      "synthesisText": "After an interruption, two similar screws can become a guessing game. Part Cue keeps their pickup and origin visible beside the work. This is the actual Lens Studio preview. The bench is simulated, with four authored parts and predefined origins. Select each part and its tray well, then record the removal. Every mark is an explicit choice, so the return follows your own recorded sequence.",
+      "duration": 23.975,
+      "peak": 0.5996431708335876,
+      "sha256": "7c8d1727f16f94171e338407e295d9b2cf574d149cb76278c1a09e47f54236ad",
+      "tokens": [
+        {
+          "text": "After",
+          "start": 0.275,
+          "end": 0.5375,
+          "globalStart": 0.275,
+          "globalEnd": 0.5375
+        },
+        {
+          "text": "an",
+          "start": 0.5375,
+          "end": 0.6125,
+          "globalStart": 0.5375,
+          "globalEnd": 0.6125
+        },
+        {
+          "text": "interruption",
+          "start": 0.6125,
+          "end": 1.275,
+          "globalStart": 0.6125,
+          "globalEnd": 1.275
+        },
+        {
+          "text": ",",
+          "start": 1.275,
+          "end": 1.3875,
+          "globalStart": 1.275,
+          "globalEnd": 1.3875
+        },
+        {
+          "text": "two",
+          "start": 1.3875,
+          "end": 1.6625,
+          "globalStart": 1.3875,
+          "globalEnd": 1.6625
+        },
+        {
+          "text": "similar",
+          "start": 1.6625,
+          "end": 2.0875,
+          "globalStart": 1.6625,
+          "globalEnd": 2.0875
+        },
+        {
+          "text": "screws",
+          "start": 2.0875,
+          "end": 2.525,
+          "globalStart": 2.0875,
+          "globalEnd": 2.525
+        },
+        {
+          "text": "can",
+          "start": 2.525,
+          "end": 2.6375,
+          "globalStart": 2.525,
+          "globalEnd": 2.6375
+        },
+        {
+          "text": "become",
+          "start": 2.6375,
+          "end": 2.9375,
+          "globalStart": 2.6375,
+          "globalEnd": 2.9375
+        },
+        {
+          "text": "a",
+          "start": 2.9375,
+          "end": 3.0,
+          "globalStart": 2.9375,
+          "globalEnd": 3.0
+        },
+        {
+          "text": "guessing",
+          "start": 3.0,
+          "end": 3.35,
+          "globalStart": 3.0,
+          "globalEnd": 3.35
+        },
+        {
+          "text": "game",
+          "start": 3.35,
+          "end": 4.025,
+          "globalStart": 3.35,
+          "globalEnd": 4.025
+        },
+        {
+          "text": ".",
+          "start": 4.025,
+          "end": 4.1625,
+          "globalStart": 4.025,
+          "globalEnd": 4.1625
+        },
+        {
+          "text": "Part",
+          "start": 4.1625,
+          "end": 4.475,
+          "globalStart": 4.1625,
+          "globalEnd": 4.475
+        },
+        {
+          "text": "Cue",
+          "start": 4.475,
+          "end": 4.7875,
+          "globalStart": 4.475,
+          "globalEnd": 4.7875
+        },
+        {
+          "text": "keeps",
+          "start": 4.7875,
+          "end": 5.075,
+          "globalStart": 4.7875,
+          "globalEnd": 5.075
+        },
+        {
+          "text": "their",
+          "start": 5.075,
+          "end": 5.225,
+          "globalStart": 5.075,
+          "globalEnd": 5.225
+        },
+        {
+          "text": "pickup",
+          "start": 5.225,
+          "end": 5.675,
+          "globalStart": 5.225,
+          "globalEnd": 5.675
+        },
+        {
+          "text": "and",
+          "start": 5.675,
+          "end": 5.8375,
+          "globalStart": 5.675,
+          "globalEnd": 5.8375
+        },
+        {
+          "text": "origin",
+          "start": 5.8375,
+          "end": 6.275,
+          "globalStart": 5.8375,
+          "globalEnd": 6.275
+        },
+        {
+          "text": "visible",
+          "start": 6.275,
+          "end": 6.675,
+          "globalStart": 6.275,
+          "globalEnd": 6.675
+        },
+        {
+          "text": "beside",
+          "start": 6.675,
+          "end": 7.0125,
+          "globalStart": 6.675,
+          "globalEnd": 7.0125
+        },
+        {
+          "text": "the",
+          "start": 7.0125,
+          "end": 7.1,
+          "globalStart": 7.0125,
+          "globalEnd": 7.1
+        },
+        {
+          "text": "work",
+          "start": 7.1,
+          "end": 7.7,
+          "globalStart": 7.1,
+          "globalEnd": 7.7
+        },
+        {
+          "text": ".",
+          "start": 7.7,
+          "end": 7.8125,
+          "globalStart": 7.7,
+          "globalEnd": 7.8125
+        },
+        {
+          "text": "This",
+          "start": 7.8125,
+          "end": 8.05,
+          "globalStart": 7.8125,
+          "globalEnd": 8.05
+        },
+        {
+          "text": "is",
+          "start": 8.05,
+          "end": 8.1625,
+          "globalStart": 8.05,
+          "globalEnd": 8.1625
+        },
+        {
+          "text": "the",
+          "start": 8.1625,
+          "end": 8.2875,
+          "globalStart": 8.1625,
+          "globalEnd": 8.2875
+        },
+        {
+          "text": "actual",
+          "start": 8.2875,
+          "end": 8.75,
+          "globalStart": 8.2875,
+          "globalEnd": 8.75
+        },
+        {
+          "text": "Lens",
+          "start": 8.75,
+          "end": 9.075,
+          "globalStart": 8.75,
+          "globalEnd": 9.075
+        },
+        {
+          "text": "Studio",
+          "start": 9.075,
+          "end": 9.475,
+          "globalStart": 9.075,
+          "globalEnd": 9.475
+        },
+        {
+          "text": "preview",
+          "start": 9.475,
+          "end": 10.225,
+          "globalStart": 9.475,
+          "globalEnd": 10.225
+        },
+        {
+          "text": ".",
+          "start": 10.225,
+          "end": 10.4125,
+          "globalStart": 10.225,
+          "globalEnd": 10.4125
+        },
+        {
+          "text": "The",
+          "start": 10.4125,
+          "end": 10.55,
+          "globalStart": 10.4125,
+          "globalEnd": 10.55
+        },
+        {
+          "text": "bench",
+          "start": 10.55,
+          "end": 10.925,
+          "globalStart": 10.55,
+          "globalEnd": 10.925
+        },
+        {
+          "text": "is",
+          "start": 10.925,
+          "end": 11.0625,
+          "globalStart": 10.925,
+          "globalEnd": 11.0625
+        },
+        {
+          "text": "simulated",
+          "start": 11.0625,
+          "end": 11.825,
+          "globalStart": 11.0625,
+          "globalEnd": 11.825
+        },
+        {
+          "text": ",",
+          "start": 11.825,
+          "end": 11.9,
+          "globalStart": 11.825,
+          "globalEnd": 11.9
+        },
+        {
+          "text": "with",
+          "start": 11.9,
+          "end": 12.1,
+          "globalStart": 11.9,
+          "globalEnd": 12.1
+        },
+        {
+          "text": "four",
+          "start": 12.1,
+          "end": 12.3875,
+          "globalStart": 12.1,
+          "globalEnd": 12.3875
+        },
+        {
+          "text": "authored",
+          "start": 12.3875,
+          "end": 12.775,
+          "globalStart": 12.3875,
+          "globalEnd": 12.775
+        },
+        {
+          "text": "parts",
+          "start": 12.775,
+          "end": 13.15,
+          "globalStart": 12.775,
+          "globalEnd": 13.15
+        },
+        {
+          "text": "and",
+          "start": 13.15,
+          "end": 13.2875,
+          "globalStart": 13.15,
+          "globalEnd": 13.2875
+        },
+        {
+          "text": "predefined",
+          "start": 13.2875,
+          "end": 13.925,
+          "globalStart": 13.2875,
+          "globalEnd": 13.925
+        },
+        {
+          "text": "origins",
+          "start": 13.925,
+          "end": 14.9,
+          "globalStart": 13.925,
+          "globalEnd": 14.9
+        },
+        {
+          "text": ".",
+          "start": 14.9,
+          "end": 15.05,
+          "globalStart": 14.9,
+          "globalEnd": 15.05
+        },
+        {
+          "text": "Select",
+          "start": 15.05,
+          "end": 15.5,
+          "globalStart": 15.05,
+          "globalEnd": 15.5
+        },
+        {
+          "text": "each",
+          "start": 15.5,
+          "end": 15.7875,
+          "globalStart": 15.5,
+          "globalEnd": 15.7875
+        },
+        {
+          "text": "part",
+          "start": 15.7875,
+          "end": 16.1625,
+          "globalStart": 15.7875,
+          "globalEnd": 16.1625
+        },
+        {
+          "text": "and",
+          "start": 16.1625,
+          "end": 16.2875,
+          "globalStart": 16.1625,
+          "globalEnd": 16.2875
+        },
+        {
+          "text": "its",
+          "start": 16.2875,
+          "end": 16.425,
+          "globalStart": 16.2875,
+          "globalEnd": 16.425
+        },
+        {
+          "text": "tray",
+          "start": 16.425,
+          "end": 16.7,
+          "globalStart": 16.425,
+          "globalEnd": 16.7
+        },
+        {
+          "text": "well",
+          "start": 16.7,
+          "end": 17.125,
+          "globalStart": 16.7,
+          "globalEnd": 17.125
+        },
+        {
+          "text": ",",
+          "start": 17.125,
+          "end": 17.2,
+          "globalStart": 17.125,
+          "globalEnd": 17.2
+        },
+        {
+          "text": "then",
+          "start": 17.2,
+          "end": 17.425,
+          "globalStart": 17.2,
+          "globalEnd": 17.425
+        },
+        {
+          "text": "record",
+          "start": 17.425,
+          "end": 17.8125,
+          "globalStart": 17.425,
+          "globalEnd": 17.8125
+        },
+        {
+          "text": "the",
+          "start": 17.8125,
+          "end": 17.9,
+          "globalStart": 17.8125,
+          "globalEnd": 17.9
+        },
+        {
+          "text": "removal",
+          "start": 17.9,
+          "end": 18.7,
+          "globalStart": 17.9,
+          "globalEnd": 18.7
+        },
+        {
+          "text": ".",
+          "start": 18.7,
+          "end": 18.8375,
+          "globalStart": 18.7,
+          "globalEnd": 18.8375
+        },
+        {
+          "text": "Every",
+          "start": 18.8375,
+          "end": 19.15,
+          "globalStart": 18.8375,
+          "globalEnd": 19.15
+        },
+        {
+          "text": "mark",
+          "start": 19.15,
+          "end": 19.475,
+          "globalStart": 19.15,
+          "globalEnd": 19.475
+        },
+        {
+          "text": "is",
+          "start": 19.475,
+          "end": 19.5875,
+          "globalStart": 19.475,
+          "globalEnd": 19.5875
+        },
+        {
+          "text": "an",
+          "start": 19.5875,
+          "end": 19.675,
+          "globalStart": 19.5875,
+          "globalEnd": 19.675
+        },
+        {
+          "text": "explicit",
+          "start": 19.675,
+          "end": 20.2375,
+          "globalStart": 19.675,
+          "globalEnd": 20.2375
+        },
+        {
+          "text": "choice",
+          "start": 20.2375,
+          "end": 20.8,
+          "globalStart": 20.2375,
+          "globalEnd": 20.8
+        },
+        {
+          "text": ",",
+          "start": 20.8,
+          "end": 20.9,
+          "globalStart": 20.8,
+          "globalEnd": 20.9
+        },
+        {
+          "text": "so",
+          "start": 20.9,
+          "end": 21.0125,
+          "globalStart": 20.9,
+          "globalEnd": 21.0125
+        },
+        {
+          "text": "the",
+          "start": 21.0125,
+          "end": 21.1,
+          "globalStart": 21.0125,
+          "globalEnd": 21.1
+        },
+        {
+          "text": "return",
+          "start": 21.1,
+          "end": 21.6125,
+          "globalStart": 21.1,
+          "globalEnd": 21.6125
+        },
+        {
+          "text": "follows",
+          "start": 21.6125,
+          "end": 22.0125,
+          "globalStart": 21.6125,
+          "globalEnd": 22.0125
+        },
+        {
+          "text": "your",
+          "start": 22.0125,
+          "end": 22.1875,
+          "globalStart": 22.0125,
+          "globalEnd": 22.1875
+        },
+        {
+          "text": "own",
+          "start": 22.1875,
+          "end": 22.475,
+          "globalStart": 22.1875,
+          "globalEnd": 22.475
+        },
+        {
+          "text": "recorded",
+          "start": 22.475,
+          "end": 23.0,
+          "globalStart": 22.475,
+          "globalEnd": 23.0
+        },
+        {
+          "text": "sequence",
+          "start": 23.0,
+          "end": 23.725,
+          "globalStart": 23.0,
+          "globalEnd": 23.725
+        },
+        {
+          "text": ".",
+          "start": 23.725,
+          "end": 23.875,
+          "globalStart": 23.725,
+          "globalEnd": 23.875
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "02-native-return",
+      "start": 24.0,
+      "end": 33.775,
+      "text": "Now the last recorded part becomes the first return. Amber marks the pickup, cyan marks its origin. A wrong choice cannot advance the record.",
+      "speed": 1.0,
+      "synthesisText": "Now the last recorded part becomes the first return. Amber marks the pickup, cyan marks its origin. A wrong choice cannot advance the record.",
+      "duration": 9.775,
+      "peak": 0.3657391667366028,
+      "sha256": "72bec3427e2bf468051577284bfb166596a16f919b34fa69a55037b0578fc6f4",
+      "tokens": [
+        {
+          "text": "Now",
+          "start": 0.325,
+          "end": 0.525,
+          "globalStart": 24.325,
+          "globalEnd": 24.525
+        },
+        {
+          "text": "the",
+          "start": 0.525,
+          "end": 0.65,
+          "globalStart": 24.525,
+          "globalEnd": 24.65
+        },
+        {
+          "text": "last",
+          "start": 0.65,
+          "end": 1.05,
+          "globalStart": 24.65,
+          "globalEnd": 25.05
+        },
+        {
+          "text": "recorded",
+          "start": 1.05,
+          "end": 1.575,
+          "globalStart": 25.05,
+          "globalEnd": 25.575
+        },
+        {
+          "text": "part",
+          "start": 1.575,
+          "end": 1.875,
+          "globalStart": 25.575,
+          "globalEnd": 25.875
+        },
+        {
+          "text": "becomes",
+          "start": 1.875,
+          "end": 2.3125,
+          "globalStart": 25.875,
+          "globalEnd": 26.3125
+        },
+        {
+          "text": "the",
+          "start": 2.3125,
+          "end": 2.4125,
+          "globalStart": 26.3125,
+          "globalEnd": 26.4125
+        },
+        {
+          "text": "first",
+          "start": 2.4125,
+          "end": 2.7125,
+          "globalStart": 26.4125,
+          "globalEnd": 26.7125
+        },
+        {
+          "text": "return",
+          "start": 2.7125,
+          "end": 3.525,
+          "globalStart": 26.7125,
+          "globalEnd": 27.525
+        },
+        {
+          "text": ".",
+          "start": 3.525,
+          "end": 3.6875,
+          "globalStart": 27.525,
+          "globalEnd": 27.6875
+        },
+        {
+          "text": "Amber",
+          "start": 3.6875,
+          "end": 4.075,
+          "globalStart": 27.6875,
+          "globalEnd": 28.075
+        },
+        {
+          "text": "marks",
+          "start": 4.075,
+          "end": 4.375,
+          "globalStart": 28.075,
+          "globalEnd": 28.375
+        },
+        {
+          "text": "the",
+          "start": 4.375,
+          "end": 4.475,
+          "globalStart": 28.375,
+          "globalEnd": 28.475
+        },
+        {
+          "text": "pickup",
+          "start": 4.475,
+          "end": 5.075,
+          "globalStart": 28.475,
+          "globalEnd": 29.075
+        },
+        {
+          "text": ",",
+          "start": 5.075,
+          "end": 5.225,
+          "globalStart": 29.075,
+          "globalEnd": 29.225
+        },
+        {
+          "text": "cyan",
+          "start": 5.225,
+          "end": 5.7,
+          "globalStart": 29.225,
+          "globalEnd": 29.7
+        },
+        {
+          "text": "marks",
+          "start": 5.7,
+          "end": 5.9875,
+          "globalStart": 29.7,
+          "globalEnd": 29.9875
+        },
+        {
+          "text": "its",
+          "start": 5.9875,
+          "end": 6.15,
+          "globalStart": 29.9875,
+          "globalEnd": 30.15
+        },
+        {
+          "text": "origin",
+          "start": 6.15,
+          "end": 6.975,
+          "globalStart": 30.15,
+          "globalEnd": 30.975
+        },
+        {
+          "text": ".",
+          "start": 6.975,
+          "end": 7.1125,
+          "globalStart": 30.975,
+          "globalEnd": 31.1125
+        },
+        {
+          "text": "A",
+          "start": 7.1125,
+          "end": 7.2375,
+          "globalStart": 31.1125,
+          "globalEnd": 31.2375
+        },
+        {
+          "text": "wrong",
+          "start": 7.2375,
+          "end": 7.6125,
+          "globalStart": 31.2375,
+          "globalEnd": 31.6125
+        },
+        {
+          "text": "choice",
+          "start": 7.6125,
+          "end": 8.0,
+          "globalStart": 31.6125,
+          "globalEnd": 32.0
+        },
+        {
+          "text": "cannot",
+          "start": 8.0,
+          "end": 8.3375,
+          "globalStart": 32.0,
+          "globalEnd": 32.3375
+        },
+        {
+          "text": "advance",
+          "start": 8.3375,
+          "end": 8.775,
+          "globalStart": 32.3375,
+          "globalEnd": 32.775
+        },
+        {
+          "text": "the",
+          "start": 8.775,
+          "end": 8.875,
+          "globalStart": 32.775,
+          "globalEnd": 32.875
+        },
+        {
+          "text": "record",
+          "start": 8.875,
+          "end": 9.525,
+          "globalStart": 32.875,
+          "globalEnd": 33.525
+        },
+        {
+          "text": ".",
+          "start": 9.525,
+          "end": 9.675,
+          "globalStart": 33.525,
+          "globalEnd": 33.675
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "03-native-recovery",
+      "start": 35.0,
+      "end": 48.175,
+      "text": "The correct selection and confirmation move forward once. Pause clears the work cues. Resume restores the same next part. Undo brings back the previous return, so a correction does not lose context.",
+      "speed": 1.0,
+      "synthesisText": "The correct selection and confirmation move forward once. Pause clears the work cues. Resume restores the same next part. Undo brings back the previous return, so a correction does not lose context.",
+      "duration": 13.175,
+      "peak": 0.41158923506736755,
+      "sha256": "ac0dae7ec239fa1f09353a7ccd856d15960b34e40d06c97f40b3cd18c020ecfe",
+      "tokens": [
+        {
+          "text": "The",
+          "start": 0.25,
+          "end": 0.325,
+          "globalStart": 35.25,
+          "globalEnd": 35.325
+        },
+        {
+          "text": "correct",
+          "start": 0.325,
+          "end": 0.725,
+          "globalStart": 35.325,
+          "globalEnd": 35.725
+        },
+        {
+          "text": "selection",
+          "start": 0.725,
+          "end": 1.275,
+          "globalStart": 35.725,
+          "globalEnd": 36.275
+        },
+        {
+          "text": "and",
+          "start": 1.275,
+          "end": 1.4,
+          "globalStart": 36.275,
+          "globalEnd": 36.4
+        },
+        {
+          "text": "confirmation",
+          "start": 1.4,
+          "end": 2.2125,
+          "globalStart": 36.4,
+          "globalEnd": 37.2125
+        },
+        {
+          "text": "move",
+          "start": 2.2125,
+          "end": 2.5125,
+          "globalStart": 37.2125,
+          "globalEnd": 37.5125
+        },
+        {
+          "text": "forward",
+          "start": 2.5125,
+          "end": 2.925,
+          "globalStart": 37.5125,
+          "globalEnd": 37.925
+        },
+        {
+          "text": "once",
+          "start": 2.925,
+          "end": 3.65,
+          "globalStart": 37.925,
+          "globalEnd": 38.65
+        },
+        {
+          "text": ".",
+          "start": 3.65,
+          "end": 3.7875,
+          "globalStart": 38.65,
+          "globalEnd": 38.7875
+        },
+        {
+          "text": "Pause",
+          "start": 3.7875,
+          "end": 4.2125,
+          "globalStart": 38.7875,
+          "globalEnd": 39.2125
+        },
+        {
+          "text": "clears",
+          "start": 4.2125,
+          "end": 4.6,
+          "globalStart": 39.2125,
+          "globalEnd": 39.6
+        },
+        {
+          "text": "the",
+          "start": 4.6,
+          "end": 4.7,
+          "globalStart": 39.6,
+          "globalEnd": 39.7
+        },
+        {
+          "text": "work",
+          "start": 4.7,
+          "end": 4.975,
+          "globalStart": 39.7,
+          "globalEnd": 39.975
+        },
+        {
+          "text": "cues",
+          "start": 4.975,
+          "end": 5.725,
+          "globalStart": 39.975,
+          "globalEnd": 40.725
+        },
+        {
+          "text": ".",
+          "start": 5.725,
+          "end": 5.8625,
+          "globalStart": 40.725,
+          "globalEnd": 40.8625
+        },
+        {
+          "text": "Resume",
+          "start": 5.8625,
+          "end": 6.35,
+          "globalStart": 40.8625,
+          "globalEnd": 41.35
+        },
+        {
+          "text": "restores",
+          "start": 6.35,
+          "end": 6.85,
+          "globalStart": 41.35,
+          "globalEnd": 41.85
+        },
+        {
+          "text": "the",
+          "start": 6.85,
+          "end": 6.9875,
+          "globalStart": 41.85,
+          "globalEnd": 41.9875
+        },
+        {
+          "text": "same",
+          "start": 6.9875,
+          "end": 7.325,
+          "globalStart": 41.9875,
+          "globalEnd": 42.325
+        },
+        {
+          "text": "next",
+          "start": 7.325,
+          "end": 7.625,
+          "globalStart": 42.325,
+          "globalEnd": 42.625
+        },
+        {
+          "text": "part",
+          "start": 7.625,
+          "end": 8.275,
+          "globalStart": 42.625,
+          "globalEnd": 43.275
+        },
+        {
+          "text": ".",
+          "start": 8.275,
+          "end": 8.4,
+          "globalStart": 43.275,
+          "globalEnd": 43.4
+        },
+        {
+          "text": "Undo",
+          "start": 8.4,
+          "end": 8.725,
+          "globalStart": 43.4,
+          "globalEnd": 43.725
+        },
+        {
+          "text": "brings",
+          "start": 8.725,
+          "end": 9.05,
+          "globalStart": 43.725,
+          "globalEnd": 44.05
+        },
+        {
+          "text": "back",
+          "start": 9.05,
+          "end": 9.325,
+          "globalStart": 44.05,
+          "globalEnd": 44.325
+        },
+        {
+          "text": "the",
+          "start": 9.325,
+          "end": 9.425,
+          "globalStart": 44.325,
+          "globalEnd": 44.425
+        },
+        {
+          "text": "previous",
+          "start": 9.425,
+          "end": 9.85,
+          "globalStart": 44.425,
+          "globalEnd": 44.85
+        },
+        {
+          "text": "return",
+          "start": 9.85,
+          "end": 10.525,
+          "globalStart": 44.85,
+          "globalEnd": 45.525
+        },
+        {
+          "text": ",",
+          "start": 10.525,
+          "end": 10.625,
+          "globalStart": 45.525,
+          "globalEnd": 45.625
+        },
+        {
+          "text": "so",
+          "start": 10.625,
+          "end": 10.8,
+          "globalStart": 45.625,
+          "globalEnd": 45.8
+        },
+        {
+          "text": "a",
+          "start": 10.8,
+          "end": 10.875,
+          "globalStart": 45.8,
+          "globalEnd": 45.875
+        },
+        {
+          "text": "correction",
+          "start": 10.875,
+          "end": 11.375,
+          "globalStart": 45.875,
+          "globalEnd": 46.375
+        },
+        {
+          "text": "does",
+          "start": 11.375,
+          "end": 11.525,
+          "globalStart": 46.375,
+          "globalEnd": 46.525
+        },
+        {
+          "text": "not",
+          "start": 11.525,
+          "end": 11.75,
+          "globalStart": 46.525,
+          "globalEnd": 46.75
+        },
+        {
+          "text": "lose",
+          "start": 11.75,
+          "end": 12.0,
+          "globalStart": 46.75,
+          "globalEnd": 47.0
+        },
+        {
+          "text": "context",
+          "start": 12.0,
+          "end": 12.925,
+          "globalStart": 47.0,
+          "globalEnd": 47.925
+        },
+        {
+          "text": ".",
+          "start": 12.925,
+          "end": 13.075,
+          "globalStart": 47.925,
+          "globalEnd": 48.075
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "04-native-complete",
+      "start": 49.0,
+      "end": 60.7,
+      "text": "Confirm the remaining parts, and the path disappears when all four returns are accounted for. These are user confirmations. The Lens does not verify physical installation.",
+      "speed": 1.0,
+      "synthesisText": "Confirm the remaining parts, and the path disappears when all four returns are accounted for. These are user confirmations. The Lens does not verify physical installation.",
+      "duration": 11.7,
+      "peak": 0.4707825183868408,
+      "sha256": "7b476e55d7bf28493f2b8aba5392e95b0156129c77a3117652d617f65ea6bf30",
+      "tokens": [
+        {
+          "text": "Confirm",
+          "start": 0.25,
+          "end": 0.7125,
+          "globalStart": 49.25,
+          "globalEnd": 49.7125
+        },
+        {
+          "text": "the",
+          "start": 0.7125,
+          "end": 0.8,
+          "globalStart": 49.7125,
+          "globalEnd": 49.8
+        },
+        {
+          "text": "remaining",
+          "start": 0.8,
+          "end": 1.275,
+          "globalStart": 49.8,
+          "globalEnd": 50.275
+        },
+        {
+          "text": "parts",
+          "start": 1.275,
+          "end": 1.925,
+          "globalStart": 50.275,
+          "globalEnd": 50.925
+        },
+        {
+          "text": ",",
+          "start": 1.925,
+          "end": 2.025,
+          "globalStart": 50.925,
+          "globalEnd": 51.025
+        },
+        {
+          "text": "and",
+          "start": 2.025,
+          "end": 2.1375,
+          "globalStart": 51.025,
+          "globalEnd": 51.1375
+        },
+        {
+          "text": "the",
+          "start": 2.1375,
+          "end": 2.2375,
+          "globalStart": 51.1375,
+          "globalEnd": 51.2375
+        },
+        {
+          "text": "path",
+          "start": 2.2375,
+          "end": 2.625,
+          "globalStart": 51.2375,
+          "globalEnd": 51.625
+        },
+        {
+          "text": "disappears",
+          "start": 2.625,
+          "end": 3.325,
+          "globalStart": 51.625,
+          "globalEnd": 52.325
+        },
+        {
+          "text": "when",
+          "start": 3.325,
+          "end": 3.5125,
+          "globalStart": 52.325,
+          "globalEnd": 52.5125
+        },
+        {
+          "text": "all",
+          "start": 3.5125,
+          "end": 3.8,
+          "globalStart": 52.5125,
+          "globalEnd": 52.8
+        },
+        {
+          "text": "four",
+          "start": 3.8,
+          "end": 4.075,
+          "globalStart": 52.8,
+          "globalEnd": 53.075
+        },
+        {
+          "text": "returns",
+          "start": 4.075,
+          "end": 4.6,
+          "globalStart": 53.075,
+          "globalEnd": 53.6
+        },
+        {
+          "text": "are",
+          "start": 4.6,
+          "end": 4.7,
+          "globalStart": 53.6,
+          "globalEnd": 53.7
+        },
+        {
+          "text": "accounted",
+          "start": 4.7,
+          "end": 5.2,
+          "globalStart": 53.7,
+          "globalEnd": 54.2
+        },
+        {
+          "text": "for",
+          "start": 5.2,
+          "end": 5.85,
+          "globalStart": 54.2,
+          "globalEnd": 54.85
+        },
+        {
+          "text": ".",
+          "start": 5.85,
+          "end": 6.025,
+          "globalStart": 54.85,
+          "globalEnd": 55.025
+        },
+        {
+          "text": "These",
+          "start": 6.025,
+          "end": 6.525,
+          "globalStart": 55.025,
+          "globalEnd": 55.525
+        },
+        {
+          "text": "are",
+          "start": 6.525,
+          "end": 6.6875,
+          "globalStart": 55.525,
+          "globalEnd": 55.6875
+        },
+        {
+          "text": "user",
+          "start": 6.6875,
+          "end": 7.075,
+          "globalStart": 55.6875,
+          "globalEnd": 56.075
+        },
+        {
+          "text": "confirmations",
+          "start": 7.075,
+          "end": 8.275,
+          "globalStart": 56.075,
+          "globalEnd": 57.275
+        },
+        {
+          "text": ".",
+          "start": 8.275,
+          "end": 8.4125,
+          "globalStart": 57.275,
+          "globalEnd": 57.4125
+        },
+        {
+          "text": "The",
+          "start": 8.4125,
+          "end": 8.5625,
+          "globalStart": 57.4125,
+          "globalEnd": 57.5625
+        },
+        {
+          "text": "Lens",
+          "start": 8.5625,
+          "end": 8.975,
+          "globalStart": 57.5625,
+          "globalEnd": 57.975
+        },
+        {
+          "text": "does",
+          "start": 8.975,
+          "end": 9.175,
+          "globalStart": 57.975,
+          "globalEnd": 58.175
+        },
+        {
+          "text": "not",
+          "start": 9.175,
+          "end": 9.425,
+          "globalStart": 58.175,
+          "globalEnd": 58.425
+        },
+        {
+          "text": "verify",
+          "start": 9.425,
+          "end": 9.975,
+          "globalStart": 58.425,
+          "globalEnd": 58.975
+        },
+        {
+          "text": "physical",
+          "start": 9.975,
+          "end": 10.425,
+          "globalStart": 58.975,
+          "globalEnd": 59.425
+        },
+        {
+          "text": "installation",
+          "start": 10.425,
+          "end": 11.45,
+          "globalStart": 59.425,
+          "globalEnd": 60.45
+        },
+        {
+          "text": ".",
+          "start": 11.45,
+          "end": 11.6,
+          "globalStart": 60.45,
+          "globalEnd": 60.6
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "05-native-reset",
+      "start": 61.0,
+      "end": 70.475,
+      "text": "Restart asks for confirmation before clearing the session. The Lens keeps its own session. The separate companion handles saved job records.",
+      "speed": 1.0,
+      "synthesisText": "Restart asks for confirmation before clearing the session. The Lens keeps its own session. The separate companion handles saved job records.",
+      "duration": 9.475,
+      "peak": 0.7043890357017517,
+      "sha256": "e10873359a97e083d8f1b8198e5d43dbf5f0b2db300cc63d96acda4b3c711a39",
+      "tokens": [
+        {
+          "text": "Restart",
+          "start": 0.3,
+          "end": 0.8375,
+          "globalStart": 61.3,
+          "globalEnd": 61.8375
+        },
+        {
+          "text": "asks",
+          "start": 0.8375,
+          "end": 1.225,
+          "globalStart": 61.8375,
+          "globalEnd": 62.225
+        },
+        {
+          "text": "for",
+          "start": 1.225,
+          "end": 1.35,
+          "globalStart": 62.225,
+          "globalEnd": 62.35
+        },
+        {
+          "text": "confirmation",
+          "start": 1.35,
+          "end": 2.125,
+          "globalStart": 62.35,
+          "globalEnd": 63.125
+        },
+        {
+          "text": "before",
+          "start": 2.125,
+          "end": 2.4875,
+          "globalStart": 63.125,
+          "globalEnd": 63.4875
+        },
+        {
+          "text": "clearing",
+          "start": 2.4875,
+          "end": 2.8625,
+          "globalStart": 63.4875,
+          "globalEnd": 63.8625
+        },
+        {
+          "text": "the",
+          "start": 2.8625,
+          "end": 2.95,
+          "globalStart": 63.8625,
+          "globalEnd": 63.95
+        },
+        {
+          "text": "session",
+          "start": 2.95,
+          "end": 3.725,
+          "globalStart": 63.95,
+          "globalEnd": 64.725
+        },
+        {
+          "text": ".",
+          "start": 3.725,
+          "end": 3.8625,
+          "globalStart": 64.725,
+          "globalEnd": 64.8625
+        },
+        {
+          "text": "The",
+          "start": 3.8625,
+          "end": 4.0125,
+          "globalStart": 64.8625,
+          "globalEnd": 65.0125
+        },
+        {
+          "text": "Lens",
+          "start": 4.0125,
+          "end": 4.5625,
+          "globalStart": 65.0125,
+          "globalEnd": 65.5625
+        },
+        {
+          "text": "keeps",
+          "start": 4.5625,
+          "end": 4.875,
+          "globalStart": 65.5625,
+          "globalEnd": 65.875
+        },
+        {
+          "text": "its",
+          "start": 4.875,
+          "end": 5.05,
+          "globalStart": 65.875,
+          "globalEnd": 66.05
+        },
+        {
+          "text": "own",
+          "start": 5.05,
+          "end": 5.3,
+          "globalStart": 66.05,
+          "globalEnd": 66.3
+        },
+        {
+          "text": "session",
+          "start": 5.3,
+          "end": 6.05,
+          "globalStart": 66.3,
+          "globalEnd": 67.05
+        },
+        {
+          "text": ".",
+          "start": 6.05,
+          "end": 6.175,
+          "globalStart": 67.05,
+          "globalEnd": 67.175
+        },
+        {
+          "text": "The",
+          "start": 6.175,
+          "end": 6.3125,
+          "globalStart": 67.175,
+          "globalEnd": 67.3125
+        },
+        {
+          "text": "separate",
+          "start": 6.3125,
+          "end": 6.65,
+          "globalStart": 67.3125,
+          "globalEnd": 67.65
+        },
+        {
+          "text": "companion",
+          "start": 6.65,
+          "end": 7.2125,
+          "globalStart": 67.65,
+          "globalEnd": 68.2125
+        },
+        {
+          "text": "handles",
+          "start": 7.2125,
+          "end": 7.75,
+          "globalStart": 68.2125,
+          "globalEnd": 68.75
+        },
+        {
+          "text": "saved",
+          "start": 7.75,
+          "end": 8.1875,
+          "globalStart": 68.75,
+          "globalEnd": 69.1875
+        },
+        {
+          "text": "job",
+          "start": 8.1875,
+          "end": 8.475,
+          "globalStart": 69.1875,
+          "globalEnd": 69.475
+        },
+        {
+          "text": "records",
+          "start": 8.475,
+          "end": 9.225,
+          "globalStart": 69.475,
+          "globalEnd": 70.225
+        },
+        {
+          "text": ".",
+          "start": 9.225,
+          "end": 9.375,
+          "globalStart": 70.225,
+          "globalEnd": 70.375
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "06-web-intro",
+      "start": 71.0,
+      "end": 89.125,
+      "text": "Here is the web companion, running in the browser. You can rehearse the same workflow and keep a record between visits. It does not synchronize automatically with the Lens. The two experiences have separate sessions. The companion provides a place to review and save those job records.",
+      "speed": 1.0,
+      "synthesisText": "Here is the web companion, running in the browser. You can rehearse the same workflow and keep a record between visits. It does not synchronize automatically with the Lens. The two experiences have separate sessions. The companion provides a place to review and save those job records.",
+      "duration": 18.125,
+      "peak": 0.443501740694046,
+      "sha256": "9e93cc9391c5f139977c316b690049b2b17a6e762ee65edd37c9b5f9a9810a9f",
+      "tokens": [
+        {
+          "text": "Here",
+          "start": 0.275,
+          "end": 0.5,
+          "globalStart": 71.275,
+          "globalEnd": 71.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.65,
+          "globalStart": 71.5,
+          "globalEnd": 71.65
+        },
+        {
+          "text": "the",
+          "start": 0.65,
+          "end": 0.75,
+          "globalStart": 71.65,
+          "globalEnd": 71.75
+        },
+        {
+          "text": "web",
+          "start": 0.75,
+          "end": 0.975,
+          "globalStart": 71.75,
+          "globalEnd": 71.975
+        },
+        {
+          "text": "companion",
+          "start": 0.975,
+          "end": 1.725,
+          "globalStart": 71.975,
+          "globalEnd": 72.725
+        },
+        {
+          "text": ",",
+          "start": 1.725,
+          "end": 1.8625,
+          "globalStart": 72.725,
+          "globalEnd": 72.8625
+        },
+        {
+          "text": "running",
+          "start": 1.8625,
+          "end": 2.275,
+          "globalStart": 72.8625,
+          "globalEnd": 73.275
+        },
+        {
+          "text": "in",
+          "start": 2.275,
+          "end": 2.3625,
+          "globalStart": 73.275,
+          "globalEnd": 73.3625
+        },
+        {
+          "text": "the",
+          "start": 2.3625,
+          "end": 2.45,
+          "globalStart": 73.3625,
+          "globalEnd": 73.45
+        },
+        {
+          "text": "browser",
+          "start": 2.45,
+          "end": 3.3,
+          "globalStart": 73.45,
+          "globalEnd": 74.3
+        },
+        {
+          "text": ".",
+          "start": 3.3,
+          "end": 3.4375,
+          "globalStart": 74.3,
+          "globalEnd": 74.4375
+        },
+        {
+          "text": "You",
+          "start": 3.4375,
+          "end": 3.575,
+          "globalStart": 74.4375,
+          "globalEnd": 74.575
+        },
+        {
+          "text": "can",
+          "start": 3.575,
+          "end": 3.725,
+          "globalStart": 74.575,
+          "globalEnd": 74.725
+        },
+        {
+          "text": "rehearse",
+          "start": 3.725,
+          "end": 4.175,
+          "globalStart": 74.725,
+          "globalEnd": 75.175
+        },
+        {
+          "text": "the",
+          "start": 4.175,
+          "end": 4.3125,
+          "globalStart": 75.175,
+          "globalEnd": 75.3125
+        },
+        {
+          "text": "same",
+          "start": 4.3125,
+          "end": 4.65,
+          "globalStart": 75.3125,
+          "globalEnd": 75.65
+        },
+        {
+          "text": "workflow",
+          "start": 4.65,
+          "end": 5.3375,
+          "globalStart": 75.65,
+          "globalEnd": 76.3375
+        },
+        {
+          "text": "and",
+          "start": 5.3375,
+          "end": 5.475,
+          "globalStart": 76.3375,
+          "globalEnd": 76.475
+        },
+        {
+          "text": "keep",
+          "start": 5.475,
+          "end": 5.6625,
+          "globalStart": 76.475,
+          "globalEnd": 76.6625
+        },
+        {
+          "text": "a",
+          "start": 5.6625,
+          "end": 5.7625,
+          "globalStart": 76.6625,
+          "globalEnd": 76.7625
+        },
+        {
+          "text": "record",
+          "start": 5.7625,
+          "end": 6.15,
+          "globalStart": 76.7625,
+          "globalEnd": 77.15
+        },
+        {
+          "text": "between",
+          "start": 6.15,
+          "end": 6.5,
+          "globalStart": 77.15,
+          "globalEnd": 77.5
+        },
+        {
+          "text": "visits",
+          "start": 6.5,
+          "end": 7.35,
+          "globalStart": 77.5,
+          "globalEnd": 78.35
+        },
+        {
+          "text": ".",
+          "start": 7.35,
+          "end": 7.45,
+          "globalStart": 78.35,
+          "globalEnd": 78.45
+        },
+        {
+          "text": "It",
+          "start": 7.45,
+          "end": 7.5875,
+          "globalStart": 78.45,
+          "globalEnd": 78.5875
+        },
+        {
+          "text": "does",
+          "start": 7.5875,
+          "end": 7.775,
+          "globalStart": 78.5875,
+          "globalEnd": 78.775
+        },
+        {
+          "text": "not",
+          "start": 7.775,
+          "end": 8.0375,
+          "globalStart": 78.775,
+          "globalEnd": 79.0375
+        },
+        {
+          "text": "synchronize",
+          "start": 8.0375,
+          "end": 8.6625,
+          "globalStart": 79.0375,
+          "globalEnd": 79.6625
+        },
+        {
+          "text": "automatically",
+          "start": 8.6625,
+          "end": 9.525,
+          "globalStart": 79.6625,
+          "globalEnd": 80.525
+        },
+        {
+          "text": "with",
+          "start": 9.525,
+          "end": 9.6625,
+          "globalStart": 80.525,
+          "globalEnd": 80.6625
+        },
+        {
+          "text": "the",
+          "start": 9.6625,
+          "end": 9.75,
+          "globalStart": 80.6625,
+          "globalEnd": 80.75
+        },
+        {
+          "text": "Lens",
+          "start": 9.75,
+          "end": 10.6,
+          "globalStart": 80.75,
+          "globalEnd": 81.6
+        },
+        {
+          "text": ".",
+          "start": 10.6,
+          "end": 10.7375,
+          "globalStart": 81.6,
+          "globalEnd": 81.7375
+        },
+        {
+          "text": "The",
+          "start": 10.7375,
+          "end": 10.8875,
+          "globalStart": 81.7375,
+          "globalEnd": 81.8875
+        },
+        {
+          "text": "two",
+          "start": 10.8875,
+          "end": 11.1,
+          "globalStart": 81.8875,
+          "globalEnd": 82.1
+        },
+        {
+          "text": "experiences",
+          "start": 11.1,
+          "end": 11.95,
+          "globalStart": 82.1,
+          "globalEnd": 82.95
+        },
+        {
+          "text": "have",
+          "start": 11.95,
+          "end": 12.1875,
+          "globalStart": 82.95,
+          "globalEnd": 83.1875
+        },
+        {
+          "text": "separate",
+          "start": 12.1875,
+          "end": 12.575,
+          "globalStart": 83.1875,
+          "globalEnd": 83.575
+        },
+        {
+          "text": "sessions",
+          "start": 12.575,
+          "end": 13.5,
+          "globalStart": 83.575,
+          "globalEnd": 84.5
+        },
+        {
+          "text": ".",
+          "start": 13.5,
+          "end": 13.6,
+          "globalStart": 84.5,
+          "globalEnd": 84.6
+        },
+        {
+          "text": "The",
+          "start": 13.6,
+          "end": 13.7,
+          "globalStart": 84.6,
+          "globalEnd": 84.7
+        },
+        {
+          "text": "companion",
+          "start": 13.7,
+          "end": 14.3,
+          "globalStart": 84.7,
+          "globalEnd": 85.3
+        },
+        {
+          "text": "provides",
+          "start": 14.3,
+          "end": 14.7125,
+          "globalStart": 85.3,
+          "globalEnd": 85.7125
+        },
+        {
+          "text": "a",
+          "start": 14.7125,
+          "end": 14.775,
+          "globalStart": 85.7125,
+          "globalEnd": 85.775
+        },
+        {
+          "text": "place",
+          "start": 14.775,
+          "end": 15.1375,
+          "globalStart": 85.775,
+          "globalEnd": 86.1375
+        },
+        {
+          "text": "to",
+          "start": 15.1375,
+          "end": 15.275,
+          "globalStart": 86.1375,
+          "globalEnd": 86.275
+        },
+        {
+          "text": "review",
+          "start": 15.275,
+          "end": 15.95,
+          "globalStart": 86.275,
+          "globalEnd": 86.95
+        },
+        {
+          "text": "and",
+          "start": 15.95,
+          "end": 16.175,
+          "globalStart": 86.95,
+          "globalEnd": 87.175
+        },
+        {
+          "text": "save",
+          "start": 16.175,
+          "end": 16.55,
+          "globalStart": 87.175,
+          "globalEnd": 87.55
+        },
+        {
+          "text": "those",
+          "start": 16.55,
+          "end": 16.8125,
+          "globalStart": 87.55,
+          "globalEnd": 87.8125
+        },
+        {
+          "text": "job",
+          "start": 16.8125,
+          "end": 17.1,
+          "globalStart": 87.8125,
+          "globalEnd": 88.1
+        },
+        {
+          "text": "records",
+          "start": 17.1,
+          "end": 17.875,
+          "globalStart": 88.1,
+          "globalEnd": 88.875
+        },
+        {
+          "text": ".",
+          "start": 17.875,
+          "end": 18.025,
+          "globalStart": 88.875,
+          "globalEnd": 89.025
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "07-web-save",
+      "start": 89.325,
+      "end": 106.325,
+      "text": "Start as a guest, or sign in to save a job. Record a few parts, then save the session to your account. After reloading the page, load that saved job and carry on from the same point. Accounts keep saved jobs separate. Guest work needs explicit saving or export.",
+      "speed": 1.0,
+      "synthesisText": "Start as a guest, or sign in to save a job. Record a few parts, then save the session to your account. After reloading the page, load that saved job and carry on from the same point. Accounts keep saved jobs separate. Guest work needs explicit saving or export.",
+      "duration": 17.0,
+      "peak": 0.5762196779251099,
+      "sha256": "c8d463cb0910e86059ac8b835dc554cf5ad2d301dd49d2f7212e24d09bba6e67",
+      "tokens": [
+        {
+          "text": "Start",
+          "start": 0.275,
+          "end": 0.55,
+          "globalStart": 89.6,
+          "globalEnd": 89.875
+        },
+        {
+          "text": "as",
+          "start": 0.55,
+          "end": 0.6625,
+          "globalStart": 89.875,
+          "globalEnd": 89.9875
+        },
+        {
+          "text": "a",
+          "start": 0.6625,
+          "end": 0.725,
+          "globalStart": 89.9875,
+          "globalEnd": 90.05
+        },
+        {
+          "text": "guest",
+          "start": 0.725,
+          "end": 1.15,
+          "globalStart": 90.05,
+          "globalEnd": 90.475
+        },
+        {
+          "text": ",",
+          "start": 1.15,
+          "end": 1.225,
+          "globalStart": 90.475,
+          "globalEnd": 90.55
+        },
+        {
+          "text": "or",
+          "start": 1.225,
+          "end": 1.4,
+          "globalStart": 90.55,
+          "globalEnd": 90.725
+        },
+        {
+          "text": "sign",
+          "start": 1.4,
+          "end": 1.7125,
+          "globalStart": 90.725,
+          "globalEnd": 91.0375
+        },
+        {
+          "text": "in",
+          "start": 1.7125,
+          "end": 1.875,
+          "globalStart": 91.0375,
+          "globalEnd": 91.2
+        },
+        {
+          "text": "to",
+          "start": 1.875,
+          "end": 2.0,
+          "globalStart": 91.2,
+          "globalEnd": 91.325
+        },
+        {
+          "text": "save",
+          "start": 2.0,
+          "end": 2.2375,
+          "globalStart": 91.325,
+          "globalEnd": 91.5625
+        },
+        {
+          "text": "a",
+          "start": 2.2375,
+          "end": 2.3125,
+          "globalStart": 91.5625,
+          "globalEnd": 91.6375
+        },
+        {
+          "text": "job",
+          "start": 2.3125,
+          "end": 3.0,
+          "globalStart": 91.6375,
+          "globalEnd": 92.325
+        },
+        {
+          "text": ".",
+          "start": 3.0,
+          "end": 3.1625,
+          "globalStart": 92.325,
+          "globalEnd": 92.4875
+        },
+        {
+          "text": "Record",
+          "start": 3.1625,
+          "end": 3.5375,
+          "globalStart": 92.4875,
+          "globalEnd": 92.8625
+        },
+        {
+          "text": "a",
+          "start": 3.5375,
+          "end": 3.6,
+          "globalStart": 92.8625,
+          "globalEnd": 92.925
+        },
+        {
+          "text": "few",
+          "start": 3.6,
+          "end": 3.8,
+          "globalStart": 92.925,
+          "globalEnd": 93.125
+        },
+        {
+          "text": "parts",
+          "start": 3.8,
+          "end": 4.3,
+          "globalStart": 93.125,
+          "globalEnd": 93.625
+        },
+        {
+          "text": ",",
+          "start": 4.3,
+          "end": 4.375,
+          "globalStart": 93.625,
+          "globalEnd": 93.7
+        },
+        {
+          "text": "then",
+          "start": 4.375,
+          "end": 4.6125,
+          "globalStart": 93.7,
+          "globalEnd": 93.9375
+        },
+        {
+          "text": "save",
+          "start": 4.6125,
+          "end": 4.9125,
+          "globalStart": 93.9375,
+          "globalEnd": 94.2375
+        },
+        {
+          "text": "the",
+          "start": 4.9125,
+          "end": 5.0125,
+          "globalStart": 94.2375,
+          "globalEnd": 94.3375
+        },
+        {
+          "text": "session",
+          "start": 5.0125,
+          "end": 5.425,
+          "globalStart": 94.3375,
+          "globalEnd": 94.75
+        },
+        {
+          "text": "to",
+          "start": 5.425,
+          "end": 5.5125,
+          "globalStart": 94.75,
+          "globalEnd": 94.8375
+        },
+        {
+          "text": "your",
+          "start": 5.5125,
+          "end": 5.65,
+          "globalStart": 94.8375,
+          "globalEnd": 94.975
+        },
+        {
+          "text": "account",
+          "start": 5.65,
+          "end": 6.45,
+          "globalStart": 94.975,
+          "globalEnd": 95.775
+        },
+        {
+          "text": ".",
+          "start": 6.45,
+          "end": 6.5875,
+          "globalStart": 95.775,
+          "globalEnd": 95.9125
+        },
+        {
+          "text": "After",
+          "start": 6.5875,
+          "end": 6.875,
+          "globalStart": 95.9125,
+          "globalEnd": 96.2
+        },
+        {
+          "text": "reloading",
+          "start": 6.875,
+          "end": 7.2875,
+          "globalStart": 96.2,
+          "globalEnd": 96.6125
+        },
+        {
+          "text": "the",
+          "start": 7.2875,
+          "end": 7.375,
+          "globalStart": 96.6125,
+          "globalEnd": 96.7
+        },
+        {
+          "text": "page",
+          "start": 7.375,
+          "end": 7.925,
+          "globalStart": 96.7,
+          "globalEnd": 97.25
+        },
+        {
+          "text": ",",
+          "start": 7.925,
+          "end": 8.0625,
+          "globalStart": 97.25,
+          "globalEnd": 97.3875
+        },
+        {
+          "text": "load",
+          "start": 8.0625,
+          "end": 8.375,
+          "globalStart": 97.3875,
+          "globalEnd": 97.7
+        },
+        {
+          "text": "that",
+          "start": 8.375,
+          "end": 8.6125,
+          "globalStart": 97.7,
+          "globalEnd": 97.9375
+        },
+        {
+          "text": "saved",
+          "start": 8.6125,
+          "end": 9.0125,
+          "globalStart": 97.9375,
+          "globalEnd": 98.3375
+        },
+        {
+          "text": "job",
+          "start": 9.0125,
+          "end": 9.4,
+          "globalStart": 98.3375,
+          "globalEnd": 98.725
+        },
+        {
+          "text": "and",
+          "start": 9.4,
+          "end": 9.5375,
+          "globalStart": 98.725,
+          "globalEnd": 98.8625
+        },
+        {
+          "text": "carry",
+          "start": 9.5375,
+          "end": 9.875,
+          "globalStart": 98.8625,
+          "globalEnd": 99.2
+        },
+        {
+          "text": "on",
+          "start": 9.875,
+          "end": 10.125,
+          "globalStart": 99.2,
+          "globalEnd": 99.45
+        },
+        {
+          "text": "from",
+          "start": 10.125,
+          "end": 10.2625,
+          "globalStart": 99.45,
+          "globalEnd": 99.5875
+        },
+        {
+          "text": "the",
+          "start": 10.2625,
+          "end": 10.35,
+          "globalStart": 99.5875,
+          "globalEnd": 99.675
+        },
+        {
+          "text": "same",
+          "start": 10.35,
+          "end": 10.625,
+          "globalStart": 99.675,
+          "globalEnd": 99.95
+        },
+        {
+          "text": "point",
+          "start": 10.625,
+          "end": 11.325,
+          "globalStart": 99.95,
+          "globalEnd": 100.65
+        },
+        {
+          "text": ".",
+          "start": 11.325,
+          "end": 11.4625,
+          "globalStart": 100.65,
+          "globalEnd": 100.7875
+        },
+        {
+          "text": "Accounts",
+          "start": 11.4625,
+          "end": 11.9125,
+          "globalStart": 100.7875,
+          "globalEnd": 101.2375
+        },
+        {
+          "text": "keep",
+          "start": 11.9125,
+          "end": 12.2125,
+          "globalStart": 101.2375,
+          "globalEnd": 101.5375
+        },
+        {
+          "text": "saved",
+          "start": 12.2125,
+          "end": 12.6125,
+          "globalStart": 101.5375,
+          "globalEnd": 101.9375
+        },
+        {
+          "text": "jobs",
+          "start": 12.6125,
+          "end": 12.9875,
+          "globalStart": 101.9375,
+          "globalEnd": 102.3125
+        },
+        {
+          "text": "separate",
+          "start": 12.9875,
+          "end": 13.7,
+          "globalStart": 102.3125,
+          "globalEnd": 103.025
+        },
+        {
+          "text": ".",
+          "start": 13.7,
+          "end": 13.8375,
+          "globalStart": 103.025,
+          "globalEnd": 103.1625
+        },
+        {
+          "text": "Guest",
+          "start": 13.8375,
+          "end": 14.1625,
+          "globalStart": 103.1625,
+          "globalEnd": 103.4875
+        },
+        {
+          "text": "work",
+          "start": 14.1625,
+          "end": 14.4,
+          "globalStart": 103.4875,
+          "globalEnd": 103.725
+        },
+        {
+          "text": "needs",
+          "start": 14.4,
+          "end": 14.7,
+          "globalStart": 103.725,
+          "globalEnd": 104.025
+        },
+        {
+          "text": "explicit",
+          "start": 14.7,
+          "end": 15.2875,
+          "globalStart": 104.025,
+          "globalEnd": 104.6125
+        },
+        {
+          "text": "saving",
+          "start": 15.2875,
+          "end": 15.7875,
+          "globalStart": 104.6125,
+          "globalEnd": 105.1125
+        },
+        {
+          "text": "or",
+          "start": 15.7875,
+          "end": 15.95,
+          "globalStart": 105.1125,
+          "globalEnd": 105.275
+        },
+        {
+          "text": "export",
+          "start": 15.95,
+          "end": 16.75,
+          "globalStart": 105.275,
+          "globalEnd": 106.075
+        },
+        {
+          "text": ".",
+          "start": 16.75,
+          "end": 16.9,
+          "globalStart": 106.075,
+          "globalEnd": 106.225
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "08-web-portable",
+      "start": 106.525,
+      "end": 125.675,
+      "text": "Export creates a portable record. Import checks the file before opening it as a new session. A broken file leaves your current work untouched. Saved revisions stop an older browser tab from silently overwriting a newer job. Portable files also support deliberate backups and handoffs.",
+      "speed": 1.0,
+      "synthesisText": "Export creates a portable record. Import checks the file before opening it as a new session. A broken file leaves your current work untouched. Saved revisions stop an older browser tab from silently overwriting a newer job. Portable files also support deliberate backups and handoffs.",
+      "duration": 19.15,
+      "peak": 0.5103492736816406,
+      "sha256": "f9f4e6e734cdef7307529013021cfa4b8bd79f6a67e84a105aa5220c86f3b32f",
+      "tokens": [
+        {
+          "text": "Export",
+          "start": 0.275,
+          "end": 0.7875,
+          "globalStart": 106.8,
+          "globalEnd": 107.3125
+        },
+        {
+          "text": "creates",
+          "start": 0.7875,
+          "end": 1.175,
+          "globalStart": 107.3125,
+          "globalEnd": 107.7
+        },
+        {
+          "text": "a",
+          "start": 1.175,
+          "end": 1.25,
+          "globalStart": 107.7,
+          "globalEnd": 107.775
+        },
+        {
+          "text": "portable",
+          "start": 1.25,
+          "end": 1.7,
+          "globalStart": 107.775,
+          "globalEnd": 108.225
+        },
+        {
+          "text": "record",
+          "start": 1.7,
+          "end": 2.425,
+          "globalStart": 108.225,
+          "globalEnd": 108.95
+        },
+        {
+          "text": ".",
+          "start": 2.425,
+          "end": 2.5625,
+          "globalStart": 108.95,
+          "globalEnd": 109.0875
+        },
+        {
+          "text": "Import",
+          "start": 2.5625,
+          "end": 3.0625,
+          "globalStart": 109.0875,
+          "globalEnd": 109.5875
+        },
+        {
+          "text": "checks",
+          "start": 3.0625,
+          "end": 3.375,
+          "globalStart": 109.5875,
+          "globalEnd": 109.9
+        },
+        {
+          "text": "the",
+          "start": 3.375,
+          "end": 3.5125,
+          "globalStart": 109.9,
+          "globalEnd": 110.0375
+        },
+        {
+          "text": "file",
+          "start": 3.5125,
+          "end": 3.9,
+          "globalStart": 110.0375,
+          "globalEnd": 110.425
+        },
+        {
+          "text": "before",
+          "start": 3.9,
+          "end": 4.2625,
+          "globalStart": 110.425,
+          "globalEnd": 110.7875
+        },
+        {
+          "text": "opening",
+          "start": 4.2625,
+          "end": 4.675,
+          "globalStart": 110.7875,
+          "globalEnd": 111.2
+        },
+        {
+          "text": "it",
+          "start": 4.675,
+          "end": 4.925,
+          "globalStart": 111.2,
+          "globalEnd": 111.45
+        },
+        {
+          "text": "as",
+          "start": 4.925,
+          "end": 5.075,
+          "globalStart": 111.45,
+          "globalEnd": 111.6
+        },
+        {
+          "text": "a",
+          "start": 5.075,
+          "end": 5.175,
+          "globalStart": 111.6,
+          "globalEnd": 111.7
+        },
+        {
+          "text": "new",
+          "start": 5.175,
+          "end": 5.3625,
+          "globalStart": 111.7,
+          "globalEnd": 111.8875
+        },
+        {
+          "text": "session",
+          "start": 5.3625,
+          "end": 6.2,
+          "globalStart": 111.8875,
+          "globalEnd": 112.725
+        },
+        {
+          "text": ".",
+          "start": 6.2,
+          "end": 6.3375,
+          "globalStart": 112.725,
+          "globalEnd": 112.8625
+        },
+        {
+          "text": "A",
+          "start": 6.3375,
+          "end": 6.45,
+          "globalStart": 112.8625,
+          "globalEnd": 112.975
+        },
+        {
+          "text": "broken",
+          "start": 6.45,
+          "end": 6.9125,
+          "globalStart": 112.975,
+          "globalEnd": 113.4375
+        },
+        {
+          "text": "file",
+          "start": 6.9125,
+          "end": 7.3875,
+          "globalStart": 113.4375,
+          "globalEnd": 113.9125
+        },
+        {
+          "text": "leaves",
+          "start": 7.3875,
+          "end": 7.6875,
+          "globalStart": 113.9125,
+          "globalEnd": 114.2125
+        },
+        {
+          "text": "your",
+          "start": 7.6875,
+          "end": 7.8375,
+          "globalStart": 114.2125,
+          "globalEnd": 114.3625
+        },
+        {
+          "text": "current",
+          "start": 7.8375,
+          "end": 8.2,
+          "globalStart": 114.3625,
+          "globalEnd": 114.725
+        },
+        {
+          "text": "work",
+          "start": 8.2,
+          "end": 8.4625,
+          "globalStart": 114.725,
+          "globalEnd": 114.9875
+        },
+        {
+          "text": "untouched",
+          "start": 8.4625,
+          "end": 9.5,
+          "globalStart": 114.9875,
+          "globalEnd": 116.025
+        },
+        {
+          "text": ".",
+          "start": 9.5,
+          "end": 9.6625,
+          "globalStart": 116.025,
+          "globalEnd": 116.1875
+        },
+        {
+          "text": "Saved",
+          "start": 9.6625,
+          "end": 10.05,
+          "globalStart": 116.1875,
+          "globalEnd": 116.575
+        },
+        {
+          "text": "revisions",
+          "start": 10.05,
+          "end": 10.875,
+          "globalStart": 116.575,
+          "globalEnd": 117.4
+        },
+        {
+          "text": "stop",
+          "start": 10.875,
+          "end": 11.1875,
+          "globalStart": 117.4,
+          "globalEnd": 117.7125
+        },
+        {
+          "text": "an",
+          "start": 11.1875,
+          "end": 11.3125,
+          "globalStart": 117.7125,
+          "globalEnd": 117.8375
+        },
+        {
+          "text": "older",
+          "start": 11.3125,
+          "end": 11.7,
+          "globalStart": 117.8375,
+          "globalEnd": 118.225
+        },
+        {
+          "text": "browser",
+          "start": 11.7,
+          "end": 12.125,
+          "globalStart": 118.225,
+          "globalEnd": 118.65
+        },
+        {
+          "text": "tab",
+          "start": 12.125,
+          "end": 12.525,
+          "globalStart": 118.65,
+          "globalEnd": 119.05
+        },
+        {
+          "text": "from",
+          "start": 12.525,
+          "end": 12.75,
+          "globalStart": 119.05,
+          "globalEnd": 119.275
+        },
+        {
+          "text": "silently",
+          "start": 12.75,
+          "end": 13.275,
+          "globalStart": 119.275,
+          "globalEnd": 119.8
+        },
+        {
+          "text": "overwriting",
+          "start": 13.275,
+          "end": 13.925,
+          "globalStart": 119.8,
+          "globalEnd": 120.45
+        },
+        {
+          "text": "a",
+          "start": 13.925,
+          "end": 14.025,
+          "globalStart": 120.45,
+          "globalEnd": 120.55
+        },
+        {
+          "text": "newer",
+          "start": 14.025,
+          "end": 14.3,
+          "globalStart": 120.55,
+          "globalEnd": 120.825
+        },
+        {
+          "text": "job",
+          "start": 14.3,
+          "end": 15.0,
+          "globalStart": 120.825,
+          "globalEnd": 121.525
+        },
+        {
+          "text": ".",
+          "start": 15.0,
+          "end": 15.1625,
+          "globalStart": 121.525,
+          "globalEnd": 121.6875
+        },
+        {
+          "text": "Portable",
+          "start": 15.1625,
+          "end": 15.6625,
+          "globalStart": 121.6875,
+          "globalEnd": 122.1875
+        },
+        {
+          "text": "files",
+          "start": 15.6625,
+          "end": 16.1875,
+          "globalStart": 122.1875,
+          "globalEnd": 122.7125
+        },
+        {
+          "text": "also",
+          "start": 16.1875,
+          "end": 16.575,
+          "globalStart": 122.7125,
+          "globalEnd": 123.1
+        },
+        {
+          "text": "support",
+          "start": 16.575,
+          "end": 17.0,
+          "globalStart": 123.1,
+          "globalEnd": 123.525
+        },
+        {
+          "text": "deliberate",
+          "start": 17.0,
+          "end": 17.425,
+          "globalStart": 123.525,
+          "globalEnd": 123.95
+        },
+        {
+          "text": "backups",
+          "start": 17.425,
+          "end": 17.925,
+          "globalStart": 123.95,
+          "globalEnd": 124.45
+        },
+        {
+          "text": "and",
+          "start": 17.925,
+          "end": 18.05,
+          "globalStart": 124.45,
+          "globalEnd": 124.575
+        },
+        {
+          "text": "handoffs",
+          "start": 18.05,
+          "end": 18.9,
+          "globalStart": 124.575,
+          "globalEnd": 125.425
+        },
+        {
+          "text": ".",
+          "start": 18.9,
+          "end": 19.05,
+          "globalStart": 125.425,
+          "globalEnd": 125.575
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "09-boundaries",
+      "start": 125.875,
+      "end": 146.375,
+      "text": "The goal is less reconstruction after an interruption. That still needs testing with repairers, including the time spent recording. Glasses comfort and physical alignment also need device testing. Mats, photographs and a plain reverse checklist are the baselines to beat. This demonstration shows the software behavior.",
+      "speed": 1.0,
+      "synthesisText": "The goal is less reconstruction after an interruption. That still needs testing with repairers, including the time spent recording. Glasses comfort and physical alignment also need device testing. Mats, photographs and a plain reverse checklist are the baselines to beat. This demonstration shows the software behavior.",
+      "duration": 20.5,
+      "peak": 0.49708160758018494,
+      "sha256": "0b8713f9662b44cbd0e8a9e8fd293aab2235c5432ac955ab5410adaef7275215",
+      "tokens": [
+        {
+          "text": "The",
+          "start": 0.275,
+          "end": 0.3875,
+          "globalStart": 126.15,
+          "globalEnd": 126.2625
+        },
+        {
+          "text": "goal",
+          "start": 0.3875,
+          "end": 0.7875,
+          "globalStart": 126.2625,
+          "globalEnd": 126.6625
+        },
+        {
+          "text": "is",
+          "start": 0.7875,
+          "end": 0.9625,
+          "globalStart": 126.6625,
+          "globalEnd": 126.8375
+        },
+        {
+          "text": "less",
+          "start": 0.9625,
+          "end": 1.225,
+          "globalStart": 126.8375,
+          "globalEnd": 127.1
+        },
+        {
+          "text": "reconstruction",
+          "start": 1.225,
+          "end": 2.1125,
+          "globalStart": 127.1,
+          "globalEnd": 127.9875
+        },
+        {
+          "text": "after",
+          "start": 2.1125,
+          "end": 2.4375,
+          "globalStart": 127.9875,
+          "globalEnd": 128.3125
+        },
+        {
+          "text": "an",
+          "start": 2.4375,
+          "end": 2.5125,
+          "globalStart": 128.3125,
+          "globalEnd": 128.3875
+        },
+        {
+          "text": "interruption",
+          "start": 2.5125,
+          "end": 3.525,
+          "globalStart": 128.3875,
+          "globalEnd": 129.4
+        },
+        {
+          "text": ".",
+          "start": 3.525,
+          "end": 3.6625,
+          "globalStart": 129.4,
+          "globalEnd": 129.5375
+        },
+        {
+          "text": "That",
+          "start": 3.6625,
+          "end": 3.95,
+          "globalStart": 129.5375,
+          "globalEnd": 129.825
+        },
+        {
+          "text": "still",
+          "start": 3.95,
+          "end": 4.225,
+          "globalStart": 129.825,
+          "globalEnd": 130.1
+        },
+        {
+          "text": "needs",
+          "start": 4.225,
+          "end": 4.5375,
+          "globalStart": 130.1,
+          "globalEnd": 130.4125
+        },
+        {
+          "text": "testing",
+          "start": 4.5375,
+          "end": 4.9625,
+          "globalStart": 130.4125,
+          "globalEnd": 130.8375
+        },
+        {
+          "text": "with",
+          "start": 4.9625,
+          "end": 5.1,
+          "globalStart": 130.8375,
+          "globalEnd": 130.975
+        },
+        {
+          "text": "repairers",
+          "start": 5.1,
+          "end": 5.975,
+          "globalStart": 130.975,
+          "globalEnd": 131.85
+        },
+        {
+          "text": ",",
+          "start": 5.975,
+          "end": 6.075,
+          "globalStart": 131.85,
+          "globalEnd": 131.95
+        },
+        {
+          "text": "including",
+          "start": 6.075,
+          "end": 6.5375,
+          "globalStart": 131.95,
+          "globalEnd": 132.4125
+        },
+        {
+          "text": "the",
+          "start": 6.5375,
+          "end": 6.6375,
+          "globalStart": 132.4125,
+          "globalEnd": 132.5125
+        },
+        {
+          "text": "time",
+          "start": 6.6375,
+          "end": 7.0,
+          "globalStart": 132.5125,
+          "globalEnd": 132.875
+        },
+        {
+          "text": "spent",
+          "start": 7.0,
+          "end": 7.2375,
+          "globalStart": 132.875,
+          "globalEnd": 133.1125
+        },
+        {
+          "text": "recording",
+          "start": 7.2375,
+          "end": 8.15,
+          "globalStart": 133.1125,
+          "globalEnd": 134.025
+        },
+        {
+          "text": ".",
+          "start": 8.15,
+          "end": 8.2875,
+          "globalStart": 134.025,
+          "globalEnd": 134.1625
+        },
+        {
+          "text": "Glasses",
+          "start": 8.2875,
+          "end": 8.8375,
+          "globalStart": 134.1625,
+          "globalEnd": 134.7125
+        },
+        {
+          "text": "comfort",
+          "start": 8.8375,
+          "end": 9.3875,
+          "globalStart": 134.7125,
+          "globalEnd": 135.2625
+        },
+        {
+          "text": "and",
+          "start": 9.3875,
+          "end": 9.5375,
+          "globalStart": 135.2625,
+          "globalEnd": 135.4125
+        },
+        {
+          "text": "physical",
+          "start": 9.5375,
+          "end": 9.925,
+          "globalStart": 135.4125,
+          "globalEnd": 135.8
+        },
+        {
+          "text": "alignment",
+          "start": 9.925,
+          "end": 10.525,
+          "globalStart": 135.8,
+          "globalEnd": 136.4
+        },
+        {
+          "text": "also",
+          "start": 10.525,
+          "end": 10.925,
+          "globalStart": 136.4,
+          "globalEnd": 136.8
+        },
+        {
+          "text": "need",
+          "start": 10.925,
+          "end": 11.175,
+          "globalStart": 136.8,
+          "globalEnd": 137.05
+        },
+        {
+          "text": "device",
+          "start": 11.175,
+          "end": 11.6,
+          "globalStart": 137.05,
+          "globalEnd": 137.475
+        },
+        {
+          "text": "testing",
+          "start": 11.6,
+          "end": 12.45,
+          "globalStart": 137.475,
+          "globalEnd": 138.325
+        },
+        {
+          "text": ".",
+          "start": 12.45,
+          "end": 12.6,
+          "globalStart": 138.325,
+          "globalEnd": 138.475
+        },
+        {
+          "text": "Mats",
+          "start": 12.6,
+          "end": 13.175,
+          "globalStart": 138.475,
+          "globalEnd": 139.05
+        },
+        {
+          "text": ",",
+          "start": 13.175,
+          "end": 13.2875,
+          "globalStart": 139.05,
+          "globalEnd": 139.1625
+        },
+        {
+          "text": "photographs",
+          "start": 13.2875,
+          "end": 14.025,
+          "globalStart": 139.1625,
+          "globalEnd": 139.9
+        },
+        {
+          "text": "and",
+          "start": 14.025,
+          "end": 14.1375,
+          "globalStart": 139.9,
+          "globalEnd": 140.0125
+        },
+        {
+          "text": "a",
+          "start": 14.1375,
+          "end": 14.2125,
+          "globalStart": 140.0125,
+          "globalEnd": 140.0875
+        },
+        {
+          "text": "plain",
+          "start": 14.2125,
+          "end": 14.6,
+          "globalStart": 140.0875,
+          "globalEnd": 140.475
+        },
+        {
+          "text": "reverse",
+          "start": 14.6,
+          "end": 15.0125,
+          "globalStart": 140.475,
+          "globalEnd": 140.8875
+        },
+        {
+          "text": "checklist",
+          "start": 15.0125,
+          "end": 15.55,
+          "globalStart": 140.8875,
+          "globalEnd": 141.425
+        },
+        {
+          "text": "are",
+          "start": 15.55,
+          "end": 15.6375,
+          "globalStart": 141.425,
+          "globalEnd": 141.5125
+        },
+        {
+          "text": "the",
+          "start": 15.6375,
+          "end": 15.725,
+          "globalStart": 141.5125,
+          "globalEnd": 141.6
+        },
+        {
+          "text": "baselines",
+          "start": 15.725,
+          "end": 16.35,
+          "globalStart": 141.6,
+          "globalEnd": 142.225
+        },
+        {
+          "text": "to",
+          "start": 16.35,
+          "end": 16.45,
+          "globalStart": 142.225,
+          "globalEnd": 142.325
+        },
+        {
+          "text": "beat",
+          "start": 16.45,
+          "end": 17.125,
+          "globalStart": 142.325,
+          "globalEnd": 143.0
+        },
+        {
+          "text": ".",
+          "start": 17.125,
+          "end": 17.275,
+          "globalStart": 143.0,
+          "globalEnd": 143.15
+        },
+        {
+          "text": "This",
+          "start": 17.275,
+          "end": 17.525,
+          "globalStart": 143.15,
+          "globalEnd": 143.4
+        },
+        {
+          "text": "demonstration",
+          "start": 17.525,
+          "end": 18.4125,
+          "globalStart": 143.4,
+          "globalEnd": 144.2875
+        },
+        {
+          "text": "shows",
+          "start": 18.4125,
+          "end": 18.8,
+          "globalStart": 144.2875,
+          "globalEnd": 144.675
+        },
+        {
+          "text": "the",
+          "start": 18.8,
+          "end": 18.9375,
+          "globalStart": 144.675,
+          "globalEnd": 144.8125
+        },
+        {
+          "text": "software",
+          "start": 18.9375,
+          "end": 19.4,
+          "globalStart": 144.8125,
+          "globalEnd": 145.275
+        },
+        {
+          "text": "behavior",
+          "start": 19.4,
+          "end": 20.25,
+          "globalStart": 145.275,
+          "globalEnd": 146.125
+        },
+        {
+          "text": ".",
+          "start": 20.25,
+          "end": 20.4,
+          "globalStart": 146.125,
+          "globalEnd": 146.275
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    },
+    {
+      "id": "10-close",
+      "start": 146.575,
+      "end": 156.1,
+      "text": "PartCue was created by Shivam Gupta with AI assistance. It helps you follow your own record, one part at a time. Every part has a way home.",
+      "speed": 1.0,
+      "synthesisText": "Part Cue was created by Shivam Gupta with AI assistance. It helps you follow your own record, one part at a time. Every part has a way home.",
+      "duration": 9.525,
+      "peak": 0.4502396285533905,
+      "sha256": "00af4efb42ec4311cbaf72ecbe6434c69d51c36c6e6755ae7cdf74460087e56a",
+      "tokens": [
+        {
+          "text": "Part",
+          "start": 0.25,
+          "end": 0.525,
+          "globalStart": 146.825,
+          "globalEnd": 147.1
+        },
+        {
+          "text": "Cue",
+          "start": 0.525,
+          "end": 0.75,
+          "globalStart": 147.1,
+          "globalEnd": 147.325
+        },
+        {
+          "text": "was",
+          "start": 0.75,
+          "end": 0.925,
+          "globalStart": 147.325,
+          "globalEnd": 147.5
+        },
+        {
+          "text": "created",
+          "start": 0.925,
+          "end": 1.35,
+          "globalStart": 147.5,
+          "globalEnd": 147.925
+        },
+        {
+          "text": "by",
+          "start": 1.35,
+          "end": 1.5375,
+          "globalStart": 147.925,
+          "globalEnd": 148.1125
+        },
+        {
+          "text": "Shivam",
+          "start": 1.5375,
+          "end": 1.875,
+          "globalStart": 148.1125,
+          "globalEnd": 148.45
+        },
+        {
+          "text": "Gupta",
+          "start": 1.875,
+          "end": 2.325,
+          "globalStart": 148.45,
+          "globalEnd": 148.9
+        },
+        {
+          "text": "with",
+          "start": 2.325,
+          "end": 2.5125,
+          "globalStart": 148.9,
+          "globalEnd": 149.0875
+        },
+        {
+          "text": "AI",
+          "start": 2.5125,
+          "end": 2.9,
+          "globalStart": 149.0875,
+          "globalEnd": 149.475
+        },
+        {
+          "text": "assistance",
+          "start": 2.9,
+          "end": 3.925,
+          "globalStart": 149.475,
+          "globalEnd": 150.5
+        },
+        {
+          "text": ".",
+          "start": 3.925,
+          "end": 4.05,
+          "globalStart": 150.5,
+          "globalEnd": 150.625
+        },
+        {
+          "text": "It",
+          "start": 4.05,
+          "end": 4.2,
+          "globalStart": 150.625,
+          "globalEnd": 150.775
+        },
+        {
+          "text": "helps",
+          "start": 4.2,
+          "end": 4.45,
+          "globalStart": 150.775,
+          "globalEnd": 151.025
+        },
+        {
+          "text": "you",
+          "start": 4.45,
+          "end": 4.5875,
+          "globalStart": 151.025,
+          "globalEnd": 151.1625
+        },
+        {
+          "text": "follow",
+          "start": 4.5875,
+          "end": 4.95,
+          "globalStart": 151.1625,
+          "globalEnd": 151.525
+        },
+        {
+          "text": "your",
+          "start": 4.95,
+          "end": 5.1,
+          "globalStart": 151.525,
+          "globalEnd": 151.675
+        },
+        {
+          "text": "own",
+          "start": 5.1,
+          "end": 5.35,
+          "globalStart": 151.675,
+          "globalEnd": 151.925
+        },
+        {
+          "text": "record",
+          "start": 5.35,
+          "end": 5.925,
+          "globalStart": 151.925,
+          "globalEnd": 152.5
+        },
+        {
+          "text": ",",
+          "start": 5.925,
+          "end": 6.0375,
+          "globalStart": 152.5,
+          "globalEnd": 152.6125
+        },
+        {
+          "text": "one",
+          "start": 6.0375,
+          "end": 6.275,
+          "globalStart": 152.6125,
+          "globalEnd": 152.85
+        },
+        {
+          "text": "part",
+          "start": 6.275,
+          "end": 6.55,
+          "globalStart": 152.85,
+          "globalEnd": 153.125
+        },
+        {
+          "text": "at",
+          "start": 6.55,
+          "end": 6.6375,
+          "globalStart": 153.125,
+          "globalEnd": 153.2125
+        },
+        {
+          "text": "a",
+          "start": 6.6375,
+          "end": 6.7,
+          "globalStart": 153.2125,
+          "globalEnd": 153.275
+        },
+        {
+          "text": "time",
+          "start": 6.7,
+          "end": 7.425,
+          "globalStart": 153.275,
+          "globalEnd": 154.0
+        },
+        {
+          "text": ".",
+          "start": 7.425,
+          "end": 7.5625,
+          "globalStart": 154.0,
+          "globalEnd": 154.1375
+        },
+        {
+          "text": "Every",
+          "start": 7.5625,
+          "end": 7.9,
+          "globalStart": 154.1375,
+          "globalEnd": 154.475
+        },
+        {
+          "text": "part",
+          "start": 7.9,
+          "end": 8.225,
+          "globalStart": 154.475,
+          "globalEnd": 154.8
+        },
+        {
+          "text": "has",
+          "start": 8.225,
+          "end": 8.3875,
+          "globalStart": 154.8,
+          "globalEnd": 154.9625
+        },
+        {
+          "text": "a",
+          "start": 8.3875,
+          "end": 8.45,
+          "globalStart": 154.9625,
+          "globalEnd": 155.025
+        },
+        {
+          "text": "way",
+          "start": 8.45,
+          "end": 8.675,
+          "globalStart": 155.025,
+          "globalEnd": 155.25
+        },
+        {
+          "text": "home",
+          "start": 8.675,
+          "end": 9.275,
+          "globalStart": 155.25,
+          "globalEnd": 155.85
+        },
+        {
+          "text": ".",
+          "start": 9.275,
+          "end": 9.425,
+          "globalStart": 155.85,
+          "globalEnd": 156.0
+        }
+      ],
+      "captionTiming": "predicted word times; inspect by listening before final publish"
+    }
+  ],
+  "asrValidation": {
+    "engine": "faster-whisper",
+    "version": "1.2.1",
+    "model": "Systran/faster-whisper-small.en",
+    "modelRevision": "d1d751a5f8271d482d14ca55d9e2deeebbae577f",
+    "modelLicense": "mit",
+    "source": "https://github.com/SYSTRAN/faster-whisper",
+    "reportFile": "narration-v2-asr.json",
+    "initialPrompt": null,
+    "referenceWordCount": 381,
+    "strictWordErrorRate": 0.013123359580052493,
+    "brandAwareWordErrorRate": 0.0026246719160104987,
+    "differences": [
+      "PartCue transcribed as Part Q twice",
+      "glasses transcribed as glass's once"
+    ],
+    "omittedWords": 0,
+    "criticalTerms": {
+      "partcue": {
+        "expected": 2,
+        "recognized": 2
+      },
+      "lens": {
+        "expected": 4,
+        "recognized": 4
+      },
+      "cyan": {
+        "expected": 1,
+        "recognized": 1
+      },
+      "tray": {
+        "expected": 1,
+        "recognized": 1
+      },
+      "shivam": {
+        "expected": 1,
+        "recognized": 1
+      },
+      "gupta": {
+        "expected": 1,
+        "recognized": 1
+      }
+    },
+    "longestLowEnergyGapSeconds": 1.98,
+    "limitation": "ASR differences can be recognition/spelling errors. This cannot prove naturalness or replace a human listening review."
+  },
+  "captionNormalization": "Punctuation attaches to the preceding caption; punctuation-only cue end extends the preceding caption. All spoken words and word-cue start times are preserved."
+}

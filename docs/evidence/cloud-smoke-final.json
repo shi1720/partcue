@@ -1,0 +1,93 @@
+{
+  "kind": "disposable production cloud smoke",
+  "startedAt": "2026-10-20T13:17:00.087Z",
+  "hosting": "https://partcue.web.app",
+  "results": [
+    {
+      "name": "deployed public app and release are reachable",
+      "status": "pass",
+      "durationMs": 407
+    },
+    {
+      "name": "two disposable production accounts register",
+      "status": "pass",
+      "durationMs": 3106
+    },
+    {
+      "name": "logout, login and current identity work",
+      "status": "pass",
+      "durationMs": 664
+    },
+    {
+      "name": "save, list and get round-trip the validated snapshot",
+      "status": "pass",
+      "durationMs": 5258
+    },
+    {
+      "name": "update commits one revision and rejects duplicate create",
+      "status": "pass",
+      "durationMs": 5564
+    },
+    {
+      "name": "concurrent saves allow one winner and refuse stale overwrite",
+      "status": "pass",
+      "durationMs": 5847
+    },
+    {
+      "name": "same session id is isolated under each owner",
+      "status": "pass",
+      "durationMs": 5208
+    },
+    {
+      "name": "deployed rules refuse cross-owner read, list, update and delete",
+      "status": "pass",
+      "durationMs": 2321
+    },
+    {
+      "name": "revision-checked deletion preserves the other owner",
+      "status": "pass",
+      "durationMs": 8537
+    },
+    {
+      "name": "custom job references and imported job identity round-trip through real cloud storage",
+      "status": "pass",
+      "durationMs": 9206
+    },
+    {
+      "name": "deletion removes repair data and Auth profiles while retaining minimal markers",
+      "status": "pass",
+      "durationMs": 22525
+    },
+    {
+      "name": "stale tokens cannot delete or reset a marker or atomically recreate a job",
+      "status": "pass",
+      "durationMs": 8652
+    }
+  ],
+  "cleanup": {
+    "createdAccounts": 2,
+    "deletedAuthProfiles": 2,
+    "repairDataDeleted": true,
+    "minimalMarkersRetained": 2,
+    "complete": true,
+    "retainedMarkerContains": "schemaVersion, sessionCount0, deletingtrue, null mutationId, timestamps; no email, display name, job ids or repair content"
+  },
+  "status": "pass",
+  "release": {
+    "version": "1.1.0",
+    "commit": "4fecff759913f6cb7757ff7accf4793b3c353fab"
+  },
+  "finishedAt": "2026-10-20T13:18:17.469Z",
+  "deletionVerification": [
+    {
+      "minimalFieldsVerified": true,
+      "repairCollectionEmpty": true,
+      "readMethod": "previously issued Firebase ID token"
+    },
+    {
+      "minimalFieldsVerified": true,
+      "repairCollectionEmpty": true,
+      "readMethod": "previously issued Firebase ID token"
+    }
+  ]
+}

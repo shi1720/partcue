@@ -1,0 +1,334 @@
+{
+  "editPlanSha256": "4a883bd6b67b758db3c32bf80228e1618e8a74a3a3ce6908c2829d41d739f9ef",
+  "captureCommit": "0d3277c",
+  "captureNote": "Actual Chrome CDP captures before later cosmetic loading-text changes. Browser feature excerpts are edited by topic, not presented as one continuous interaction.",
+  "captionPolicy": "Sentence punctuation attaches to the preceding cue; standalone punctuation intervals extend that cue. Spoken words and word-cue start times are preserved.",
+  "version": 2,
+  "product": "PartCue",
+  "duration": 156.5,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "creator": "Shivam Gupta",
+  "voice": "Synthetic stock AI guide; no voice cloning",
+  "timebaseNote": "Original elapsed timing resampled to 30fps; each edit boundary is quantized to the nearest frame (at most 1/60s). No playback speed change.",
+  "sourceRules": [
+    "Native opening 0..71 continuous at 1x",
+    "Full browser viewport; captured excerpts at 1x",
+    "Spatial source 123..143.7 continuous at 1x",
+    "Closing captured return image, explicitly labeled"
+  ],
+  "inputs": {
+    "native": {
+      "file": "partcue-workflow-final.mp4",
+      "sha256": "9889abb754937be5dd4e92606c719a660a636e443b125127694edd1c1575352f"
+    },
+    "spatial": {
+      "file": "partcue-spatial.mp4",
+      "sha256": "5fb535e8a0f5ddc918f67714a81da76962e5840f8b8339a031f60a59d8ebe515"
+    },
+    "closing": {
+      "file": "lens-return.png",
+      "sha256": "39028bfd44a996948adf07e571121e9e090a5dce846d42397085f77061c0ebab"
+    },
+    "narration": {
+      "file": "partcue-guide-v2.wav",
+      "sha256": "013f73adce4b1cbf2bf2dc2dddf8afcf05147fed6837c22f97724e74b8d94271"
+    },
+    "narrationManifest": {
+      "file": "narration-v2.json",
+      "sha256": "892c8c9c978a68ab23b6832d154812c508d9d213346dd1f19a8c454f8ae9c486"
+    }
+  },
+  "browserClips": [
+    {
+      "capture": "chrome-return",
+      "manifestSha256": "302192f94896329f6b35de5a108b084a1fa2d6c61f173fc504197a23b445698b",
+      "frameCount": 20,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": null,
+      "capturedDuration": 4.637977123260498,
+      "sourceStart": 0.0,
+      "sourceEnd": 4.637977123260498,
+      "outputStart": 71.0,
+      "outputEnd": 75.6379771232605,
+      "title": "Rehearse the return."
+    },
+    {
+      "capture": "chrome-complete",
+      "manifestSha256": "047f9c30bd12faddc33610bceeb815b26927e9cb5d3c061022a3e3c23f2dc823",
+      "frameCount": 102,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": null,
+      "capturedDuration": 6.013549089431763,
+      "sourceStart": 0.0,
+      "sourceEnd": 6.013549089431763,
+      "outputStart": 75.6379771232605,
+      "outputEnd": 81.65152621269226,
+      "title": "Keep the record."
+    },
+    {
+      "capture": "chrome-help",
+      "manifestSha256": "50dbd684c6e304b9e64952892ce875633f8dc5dad1db6541b17b28830c0a8e1f",
+      "frameCount": 9,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": null,
+      "capturedDuration": 4.3781211376190186,
+      "sourceStart": 0.0,
+      "sourceEnd": 4.3781211376190186,
+      "outputStart": 81.65152621269226,
+      "outputEnd": 86.02964735031128,
+      "title": "Two experiences. Separate sessions."
+    },
+    {
+      "capture": "chrome-final-result",
+      "manifestSha256": "1185c3fdac71a329dbe023b6482fdd9406ec7a4f37d69774e2d91ae54825b56e",
+      "frameCount": 1,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": "chrome-complete/manifest.json",
+      "capturedDuration": 7.315999984741211,
+      "sourceStart": 0.0,
+      "sourceEnd": 3.29535264968872,
+      "outputStart": 86.02964735031128,
+      "outputEnd": 89.325,
+      "title": "A record between visits."
+    },
+    {
+      "capture": "chrome-sign-in",
+      "manifestSha256": "d4f35bc4efa552ee351d284d3eba89891a0b928d9ff860c2782f52ad1a4382f9",
+      "frameCount": 11,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 2.7778940200805664,
+      "sourceStart": 0.0,
+      "sourceEnd": 2.7778940200805664,
+      "outputStart": 89.325,
+      "outputEnd": 92.10289402008057,
+      "title": "An account for saved jobs."
+    },
+    {
+      "capture": "chrome-record-save",
+      "manifestSha256": "5f8694cc66339527d2eb244de812d8adb89f75af20f66aa3ef7879278b28b1f0",
+      "frameCount": 119,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 8.784499406814575,
+      "sourceStart": 1.1248940200805748,
+      "sourceEnd": 4.9345,
+      "outputStart": 92.10289402008057,
+      "outputEnd": 95.9125,
+      "title": "Record, then save."
+    },
+    {
+      "capture": "chrome-reload",
+      "manifestSha256": "b21c0e2c78c8a8b2437ef5449b82a39fe1de508c97394b874c1386cdf8e6e1d3",
+      "frameCount": 26,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 5.3173582553863525,
+      "sourceStart": 0.0,
+      "sourceEnd": 1.5875,
+      "outputStart": 95.9125,
+      "outputEnd": 97.5,
+      "title": "Return to your bench."
+    },
+    {
+      "capture": "chrome-open-saved",
+      "manifestSha256": "ad7045ff58bade382bc009a8079d9ffb8546f420880d7dbb089a28fba8effb6e",
+      "frameCount": 27,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 6.019031763076782,
+      "sourceStart": 0.8,
+      "sourceEnd": 2.3,
+      "outputStart": 97.5,
+      "outputEnd": 99.0,
+      "title": "Choose a saved job."
+    },
+    {
+      "capture": "chrome-load-job",
+      "manifestSha256": "17bcbc8b06b556027bcbab217e7ff003e4fd69d8cca961c1e8eaae4bea90f24b",
+      "frameCount": 32,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 6.275070667266846,
+      "sourceStart": 0.0,
+      "sourceEnd": 3.2,
+      "outputStart": 99.0,
+      "outputEnd": 102.2,
+      "title": "Continue from the saved point."
+    },
+    {
+      "capture": "chrome-load-job",
+      "manifestSha256": "17bcbc8b06b556027bcbab217e7ff003e4fd69d8cca961c1e8eaae4bea90f24b",
+      "frameCount": 32,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 6.275070667266846,
+      "sourceStart": 3.2,
+      "sourceEnd": 6.275070667266846,
+      "outputStart": 102.2,
+      "outputEnd": 105.27507066726685,
+      "title": "Saved and ready to continue."
+    },
+    {
+      "capture": "chrome-reload",
+      "manifestSha256": "b21c0e2c78c8a8b2437ef5449b82a39fe1de508c97394b874c1386cdf8e6e1d3",
+      "frameCount": 26,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 5.3173582553863525,
+      "sourceStart": 4.0674289226531855,
+      "sourceEnd": 5.3173582553863525,
+      "outputStart": 105.27507066726685,
+      "outputEnd": 106.525,
+      "title": "Saved and ready to continue."
+    },
+    {
+      "capture": "chrome-export-verified",
+      "manifestSha256": "19c9b93d48eb9c8d29a05ddf3bf7633ddfec7d217a57150d294f75c420e4b403",
+      "frameCount": 7,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": null,
+      "capturedDuration": 3.3619160652160645,
+      "sourceStart": 0.0,
+      "sourceEnd": 3.3619160652160645,
+      "outputStart": 106.525,
+      "outputEnd": 109.88691606521607,
+      "title": "A portable record."
+    },
+    {
+      "capture": "chrome-import",
+      "manifestSha256": "e67bd814c4b05e23ea7449c7d14b54ace48e0e344ee269e0decae9e6eee1aabf",
+      "frameCount": 9,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 2.5141777992248535,
+      "sourceStart": 0.0,
+      "sourceEnd": 2.5141777992248535,
+      "outputStart": 109.88691606521607,
+      "outputEnd": 112.40109386444092,
+      "title": "Open a validated copy."
+    },
+    {
+      "capture": "chrome-invalid-verified",
+      "manifestSha256": "eb8c935d661055936a3d5b5b6aa5aacd9c6d699e9faf24a38690882733b1dc77",
+      "frameCount": 25,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": null,
+      "capturedDuration": 4.913816213607788,
+      "sourceStart": 0.0,
+      "sourceEnd": 4.913816213607788,
+      "outputStart": 112.40109386444092,
+      "outputEnd": 117.31491007804871,
+      "title": "A broken file leaves work intact."
+    },
+    {
+      "capture": "chrome-open-saved",
+      "manifestSha256": "ad7045ff58bade382bc009a8079d9ffb8546f420880d7dbb089a28fba8effb6e",
+      "frameCount": 27,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "manifest filesystem mtime (approximate capture stop)",
+      "unchangedResultSeed": null,
+      "capturedDuration": 6.019031763076782,
+      "sourceStart": 1.8,
+      "sourceEnd": 6.019031763076782,
+      "outputStart": 117.31491007804871,
+      "outputEnd": 121.5339418411255,
+      "title": "Backups and deliberate handoffs."
+    },
+    {
+      "capture": "chrome-final-result",
+      "manifestSha256": "1185c3fdac71a329dbe023b6482fdd9406ec7a4f37d69774e2d91ae54825b56e",
+      "frameCount": 1,
+      "dimensions": [
+        1728,
+        1200
+      ],
+      "captureStopMethod": "explicit capture stop",
+      "unchangedResultSeed": "chrome-complete/manifest.json",
+      "capturedDuration": 7.315999984741211,
+      "sourceStart": 2.9749418411254895,
+      "sourceEnd": 7.315999984741211,
+      "outputStart": 121.5339418411255,
+      "outputEnd": 125.87499998474124,
+      "title": "A place to come back to."
+    }
+  ],
+  "output": {
+    "file": "partcue-product-demo.mp4",
+    "sha256": "71a534990d51d813dfb74edba7c6c6f9b0d8d00d0edebc1790fae541a61c9957",
+    "duration": 156.5,
+    "fullDecodePassed": true
+  },
+  "createdAt": "2026-10-20T13:07:49.766529+00:00",
+  "renderDeploymentCommit": "dd6b458",
+  "publishedDeploymentCommit": "4fecff759913f6cb7757ff7accf4793b3c353fab",
+  "publishedDeploymentNote": "Later custom-job and deletion-lock release tested separately. This video shows the earlier captured practice and account flows, not the custom-job form.",
+  "portableReproductionPlan": {
+    "file": "demo/product-web-edit.json",
+    "sha256": "63a3f9cd2dcee79c97337f1c721e6e8b44e0a2ef455bbc0f4b1295de50210b8a",
+    "note": "Same source intervals and captions as the recorded plan, with manifest paths mapped into demo/raw/browser. Original recorded plan is retained separately."
+  }
+}

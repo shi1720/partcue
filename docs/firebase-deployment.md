@@ -1,12 +1,12 @@
 # PartCue hosted workbench
 
-Canonical app: https://partcue.web.app
+Canonical app: [partcue.web.app](https://partcue.web.app)
 
-The browser companion uses Firebase Hosting, Firebase Authentication and Cloud Firestore. It has real email/password accounts and private saved sessions. The separate SPECS Lens keeps its own session in Lens Studio. There is no automatic synchronization between the two experiences.
+Version 1.1 uses Firebase Hosting, Firebase Authentication and Cloud Firestore for email/password accounts and private saved browser sessions. The optional local Node/SQLite mode remains available. The SPECS Lens is a separate session-only artifact; there is no automatic Lens/cloud synchronization.
 
 ## Reproduce a deployment
 
-Use Node 22.16 or later in the Node 22 release line, npm, Git and JDK 21. The test wrapper detects Homebrew's JDK 21 on Apple Silicon; otherwise set `JAVA_HOME`.
+Use Node 22.16+ within the Node 22 line, npm, Git and JDK 21. The emulator wrapper detects Homebrew JDK 21 on Apple Silicon; otherwise set `JAVA_HOME`.
 
 ```sh
 npm ci
@@ -16,28 +16,33 @@ npm run test:firebase
 npm run deploy:firebase
 ```
 
-`deploy:firebase` runs the checks again, builds a clean `dist/hosting`, deploys rules, indexes and the `partcue` Hosting site, then checks the live release manifest. `npm run deploy:firebase -- --build-only` performs every local gate without publishing. Firebase CLI must already be authenticated with access to the project.
+`deploy:firebase` runs both test suites again, builds clean `dist/hosting` assets, deploys Firestore rules/indexes and the `partcue` Hosting site, then requests the live release manifest and checks its product identifier. `npm run deploy:firebase -- --build-only` runs the same local gates without publishing. The Firebase CLI must already be authenticated with permission to deploy this project. The manifest check is a deployment smoke check, not an end-to-end account test.
 
-The existing Google Cloud project retains its immutable internal ID `benchback`; its display name is PartCue. Hosting uses a separate site ID, `partcue`, so the public URL is clean. No paid billing account is attached. Hosting, Auth and the Standard Firestore database use the Spark/free-tier configuration. Quotas can still interrupt service; the app offers JSON export when cloud storage is unavailable. This configuration avoids Cloud Functions and Cloud Storage.
+The Google Cloud project retains its immutable internal ID `benchback`; its display name is PartCue. Hosting uses site ID `partcue` for the clean public URL. The project uses the Spark/free configuration without an attached paid billing account, Cloud Functions or Cloud Storage. Quotas may still interrupt service. The per-account session limit does not prevent total-project abuse.
+
+For another operator's project, register a Firebase web app, enable email/password Auth and Firestore, configure the Auth password policy (12 minimum, 128 maximum) and authorized domains, then deliberately update `.firebaserc`, `firebase.json`, `firebase.web-config.json` and the guarded deployment target in `tools/deploy-firebase.mjs`. A hosting deployment alone does not configure Auth policies. Do not deploy open Firestore rules to make a test pass.
 
 ## Storage and account behavior
 
-- Guest work stays in memory and a tab-scoped recovery copy. Reload restores it. Closing the tab removes that recovery copy. Export JSON to keep a portable backup.
-- Save is explicit. Accounts can store up to 50 sessions, enforced by Firestore rules and an atomic owner counter.
-- Email verification and password reset use Firebase's email actions. Passwords require 12 to 128 characters in both the UI and the project's Auth password policy.
-- Loading a saved session restores the saved snapshot. A delayed load cannot replace newer edits. A delayed list from another account cannot display its titles.
-- Updates use optimistic revisions. A stale tab receives a conflict and must export its current work or reload the saved version. No silent overwrite.
-- Account deletion reauthenticates before removing saved sessions and the Auth account. An interrupted deletion can be retried. Export first; deletion is permanent.
-- No analytics or advertising SDK is included. Firebase handles authentication and private cloud storage.
+- Guest work remains in the tab, with a tab-scoped recovery copy when browser storage is available. Export JSON for portable retention.
+- Save is explicit. Rules and an atomic owner counter enforce at most 50 private sessions per account.
+- Firebase email actions support password reset and optional verification. New accounts are unverified and may save; actual mailbox delivery is separate from emulator action generation. The Console currently reports that email template updates are unavailable for this project, so default sender/action URLs retain the internal `benchback.firebaseapp.com` domain. The app itself is hosted and branded at `partcue.web.app`. No successful template change is claimed.
+- Saved-session updates compare and increment revisions. A conflict preserves current work for export or deliberate reload. Delayed loads cannot replace newer edits, and delayed data from an earlier account is discarded.
+- Server reads/transactions fail explicitly when offline or quota-limited. There is no queued offline cloud-save acknowledgement.
+- Deletion reauthenticates, locks the UID, deletes all session content and clears the last mutation ID before deleting the Auth account. If interrupted while Auth still exists, retry deletion.
+- A minimal private deletion marker remains indefinitely at the old UID: `schemaVersion:1`, `sessionCount:0`, `deleting:true`, `mutationId:null`, `createdAt`, `updatedAt`. No repair JSON, job titles/IDs, email or name remains in it. Clients cannot delete/reset this marker; it prevents stale tabs or valid old tokens from recreating jobs.
+- No analytics or advertising SDK is included. User-exported JSON copies are outside the app's deletion control.
 
-Firestore rules enforce ownership, exact storage envelopes, timestamp types, payload bounds, valid summaries, revision increments and session quota transactions. Full domain validation runs in the shared TypeScript core before writes and after restores. Rules cannot execute that core or parse the opaque JSON. A malicious account owner could damage their own stored snapshot; another account cannot read or write it, and the UI rejects invalid restored content.
+Rules enforce the owner path, exact storage envelope, typed summary, UTF-8 payload bound, timestamps, revision increments and counter/session transaction. Full domain validation runs in the shared TypeScript core before writes and after restore. Rules cannot execute that core or parse opaque JSON. An owner can damage their own saved JSON with a modified SDK client; another UID cannot access it, and the app rejects invalid restored content. See [architecture](architecture.md).
 
-## Public configuration and secrets
+## Public configuration and release contents
 
-`firebase.web-config.json` contains Firebase's public web app configuration, not an administrative credential. Security depends on Auth and deployed Firestore rules. No service account, OAuth token, private key or QA password belongs in this repo. See [Firebase's configuration guidance](https://firebase.google.com/docs/projects/learn-more#config-files-objects).
+`firebase.web-config.json` is public Firebase app configuration, not an administrative credential. Security depends on Authentication and deployed rules. Never commit service accounts, OAuth tokens, private keys, QA passwords or local account databases. See [Firebase configuration guidance](https://firebase.google.com/docs/projects/learn-more#config-files-objects).
 
-Hosting serves content over HTTPS with a restrictive CSP, no framing, no camera/microphone/location permission, and content-hashed static assets. The deployment contains only generated web assets, a 404 page and a public release manifest. It does not upload the local SQLite database, Lens cache, test accounts or raw recordings.
+`npm run build` selects the local HTTP adapter. `npm run build:hosting` injects public Firebase configuration into the hosted build. Hosting serves HTTPS, content-hashed assets, a restrictive CSP, denied framing and disabled camera/microphone/location permissions. The release contains generated web assets, a 404 page and a public release manifest. It does not upload SQLite data, Lens caches, private editor logs, test credentials or raw recordings. Cloud Firestore is separate from these static assets.
 
-## Verification scope
+## Verification and operating limits
 
-The automated local and cloud-emulator suites exercise the production code and rules. Live browser verification and the live cloud smoke-test report are recorded separately in `docs/hosted-validation.md`. Email action generation is tested with the Auth emulator; actual mailbox delivery and physical glasses comfort are separate checks. A working web companion does not substitute for the Lens Studio preview requirement.
+`npm run test:firebase` exercises the actual adapter against Firebase Auth and Firestore emulators with the checked-in rules. All 12 tests pass at this revision, including owner isolation, stale revisions, quota forgery, concurrent first saves/deletes, reauthentication, deletion retention and stale-token recreation denial. The ordinary core/local suite and live Lens checks remain separate. Live browser/cloud smoke evidence is recorded in the hosted validation report; deployment must be followed by a real cloud-account smoke check.
+
+The runtime dependency audit reported zero known advisories at the v1.1 checkpoint. The development Firebase CLI retains seven known transitive advisories and must be used only with trusted checked-in inputs; see [security and deployment](security-and-deployment.md). This release has no automatic cloud backup/restore operation, MFA flow, independent penetration test or paid production support claim. The next validation steps are user and physical-glasses pilots, plus operational hardening before sensitive or paid use.

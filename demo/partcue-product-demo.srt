@@ -1,0 +1,227 @@
+1
+00:00:00,275 --> 00:00:02,938
+After an interruption, two similar screws can become
+
+2
+00:00:02,938 --> 00:00:04,162
+a guessing game.
+
+3
+00:00:04,162 --> 00:00:07,012
+PartCue keeps their pickup and origin visible beside
+
+4
+00:00:07,012 --> 00:00:09,475
+the work. This is the actual Lens Studio
+
+5
+00:00:09,475 --> 00:00:12,388
+preview. The bench is simulated, with four
+
+6
+00:00:12,388 --> 00:00:15,050
+authored parts and predefined origins.
+
+7
+00:00:15,050 --> 00:00:17,425
+Select each part and its tray well, then
+
+8
+00:00:17,425 --> 00:00:18,838
+record the removal.
+
+9
+00:00:18,838 --> 00:00:21,100
+Every mark is an explicit choice, so the
+
+10
+00:00:21,100 --> 00:00:23,875
+return follows your own recorded sequence.
+
+11
+00:00:24,325 --> 00:00:27,525
+Now the last recorded part becomes the first return.
+
+12
+00:00:27,525 --> 00:00:30,150
+Amber marks the pickup, cyan marks its
+
+13
+00:00:30,150 --> 00:00:33,675
+origin. A wrong choice cannot advance the record.
+
+14
+00:00:35,250 --> 00:00:38,650
+The correct selection and confirmation move forward once.
+
+15
+00:00:38,650 --> 00:00:40,862
+Pause clears the work cues.
+
+16
+00:00:40,862 --> 00:00:43,400
+Resume restores the same next part.
+
+17
+00:00:43,400 --> 00:00:45,875
+Undo brings back the previous return, so a
+
+18
+00:00:45,875 --> 00:00:48,075
+correction does not lose context.
+
+19
+00:00:49,250 --> 00:00:52,325
+Confirm the remaining parts, and the path disappears
+
+20
+00:00:52,325 --> 00:00:55,025
+when all four returns are accounted for.
+
+21
+00:00:55,025 --> 00:00:57,412
+These are user confirmations.
+
+22
+00:00:57,412 --> 00:01:00,600
+The Lens does not verify physical installation.
+
+23
+00:01:01,300 --> 00:01:04,725
+Restart asks for confirmation before clearing the session.
+
+24
+00:01:04,725 --> 00:01:07,175
+The Lens keeps its own session.
+
+25
+00:01:07,175 --> 00:01:10,375
+The separate companion handles saved job records.
+
+26
+00:01:11,275 --> 00:01:13,450
+Here is the web companion, running in the
+
+27
+00:01:13,450 --> 00:01:16,475
+browser. You can rehearse the same workflow and
+
+28
+00:01:16,475 --> 00:01:18,450
+keep a record between visits.
+
+29
+00:01:18,450 --> 00:01:21,738
+It does not synchronize automatically with the Lens.
+
+30
+00:01:21,738 --> 00:01:24,600
+The two experiences have separate sessions.
+
+31
+00:01:24,600 --> 00:01:27,550
+The companion provides a place to review and save
+
+32
+00:01:27,550 --> 00:01:29,025
+those job records.
+
+33
+00:01:29,600 --> 00:01:31,325
+Start as a guest, or sign in to
+
+34
+00:01:31,325 --> 00:01:32,488
+save a job.
+
+35
+00:01:32,488 --> 00:01:34,750
+Record a few parts, then save the session
+
+36
+00:01:34,750 --> 00:01:35,912
+to your account.
+
+37
+00:01:35,912 --> 00:01:38,725
+After reloading the page, load that saved job
+
+38
+00:01:38,725 --> 00:01:40,788
+and carry on from the same point.
+
+39
+00:01:40,788 --> 00:01:43,162
+Accounts keep saved jobs separate.
+
+40
+00:01:43,162 --> 00:01:46,225
+Guest work needs explicit saving or export.
+
+41
+00:01:46,800 --> 00:01:49,088
+Export creates a portable record.
+
+42
+00:01:49,088 --> 00:01:51,700
+Import checks the file before opening it as a
+
+43
+00:01:51,700 --> 00:01:54,725
+new session. A broken file leaves your current
+
+44
+00:01:54,725 --> 00:01:58,650
+work untouched. Saved revisions stop an older browser
+
+45
+00:01:58,650 --> 00:02:01,688
+tab from silently overwriting a newer job.
+
+46
+00:02:01,688 --> 00:02:05,575
+Portable files also support deliberate backups and handoffs.
+
+47
+00:02:06,150 --> 00:02:09,538
+The goal is less reconstruction after an interruption.
+
+48
+00:02:09,538 --> 00:02:12,512
+That still needs testing with repairers, including the
+
+49
+00:02:12,512 --> 00:02:14,162
+time spent recording.
+
+50
+00:02:14,162 --> 00:02:17,475
+Glasses comfort and physical alignment also need device
+
+51
+00:02:17,475 --> 00:02:20,888
+testing. Mats, photographs and a plain reverse
+
+52
+00:02:20,888 --> 00:02:23,150
+checklist are the baselines to beat.
+
+53
+00:02:23,150 --> 00:02:26,275
+This demonstration shows the software behavior.
+
+54
+00:02:26,825 --> 00:02:29,475
+PartCue was created by Shivam Gupta with AI
+
+55
+00:02:29,475 --> 00:02:32,500
+assistance. It helps you follow your own record,
+
+56
+00:02:32,500 --> 00:02:34,138
+one part at a time.
+
+57
+00:02:34,138 --> 00:02:36,000
+Every part has a way home.

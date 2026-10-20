@@ -43,7 +43,7 @@ For a polished demo, use a stylized low-voltage wireless mouse or controller hou
 
 [Snap's preview panel documentation](https://www.developers.snap.com/spectacles/get-started/start-building/preview-panel) supports simulated Spectacles rendering and an interactive preview. The installed Devpost `plan-lens` reference is stricter: live camera recognition cannot be demonstrated, voice/AI needs a button or fixed fallback, and cross-session memory cannot be shown. Build within those declared limits.
 
-- Keep world-relative origin and tray cues at roughly 0.5–1 m, slightly below eye level. Keep their spread narrow enough to see both comfortably; use a small directional cue if the destination leaves view.
+- Keep world-relative origin and tray cues at roughly 0.5-1 m, slightly below eye level. Keep their spread narrow enough to see both comfortably; use a small directional cue if the destination leaves view.
 - Standard pinch targets, mouse-clickable in preview, provide every action. Voice is optional future convenience.
 - Preview should visibly identify **“Simulated bench · manual confirmations.”** Capture uses clicks; do not label scripted geometry “camera recognition.”
 - Demonstrate movement around the bench: the route stays with the spatial workspace, showing why this is more than a floating webpage.
@@ -55,7 +55,7 @@ For a polished demo, use a stylized low-voltage wireless mouse or controller hou
 
 **Proposed paid value:** less reconstruction after interruption, handoff between technicians, and a traceable record of what was removed. The hackathon's same-session reverse flow is the beachhead; production adoption additionally needs durable job history, reliable alignment recovery, privacy controls, and device testing.
 
-**Price experiment, not established WTP:** test $15–25 per active bench per month, bring your own glasses, with a free single-job mode. At $20/month and an assumed $20/hour labor value, saving 60 minutes monthly would cover the software price; this excludes hardware, onboarding, support, and tax, and is illustrative arithmetic only. Do not use this as an ROI finding.
+**Price experiment, not established WTP:** test $15-25 per active bench per month, bring your own glasses, with a free single-job mode. At $20/month and an assumed $20/hour labor value, saving 60 minutes monthly would cover the software price; this excludes hardware, onboarding, support, and tax, and is illustrative arithmetic only. Do not use this as an ROI finding.
 
 **Pilot design:** observe five technicians reassembling low-risk practice devices with their current method, a plain reverse checklist, and PartCue's spatial cue mode, with counterbalanced order. The checklist comparison isolates any benefit of AR from the benefit of having a record. Track time, correct origin/quantity, interruptions recovered, confirmation overhead, and user-rated confidence. Ask for a paid pilot commitment after showing their own results. The product fails its hypothesis if recording overhead exceeds later savings or users prefer labeled bags/mats.
 

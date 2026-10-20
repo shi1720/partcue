@@ -1,26 +1,24 @@
-PartCue — Every part has a way home.
+Two similar screws. Two different homes. After an interruption, which part belongs where?
 
-A SPECS Lens by Shivam Gupta, built with AI assistance for Learn AR with SPECS.
+PartCue keeps each recorded pickup and origin connected, then guides your teardown in reverse, one explicit confirmation at a time.
 
-After an interruption, two similar screws can turn a repair into a memory test. PartCue records a manually chosen origin and tray well for each removal, then pairs an amber pickup cue with a cyan origin cue as you return parts in reverse order.
+Try the web workbench: https://partcue.web.app
+Source and project files: https://github.com/shi1720/partcue
 
-This video shows the actual CLAD-built Lens running in Lens Studio 5.24.1 preview. The bench and enclosure are simulated. Inputs are replayed through actual SIK/UIKit interactables using a LEAF demo scenario. Marks and return confirmations are explicit; there is no camera recognition or automatic placement inspection. This is preview footage, not a recording from glasses.
+0:00 Record a teardown in the actual Lens Studio preview
+0:24 Follow the paired pickup and origin cues
+0:35 Pause, resume and undo
+0:49 Confirm the return and restart deliberately
+1:11 Explore the separate web companion
+1:29 Sign in, save, reload and restore a job
+1:46 Export, import and recover from an invalid file
+2:06 Move around the spatial preview
+2:27 Every part has a way home
 
-Source, Lens Studio project, Devpost planning documents and reproducible validation:
-https://github.com/shi1720/partcue
+Created by Shivam Gupta with AI coding assistance.
 
-Validation: 34 software checks and seven functional/IK Lens preview scenarios, including IK tray selection and confirmation with scripted fallback disabled. The public source's clean CI also passes all 34 checks:
-https://github.com/shi1720/partcue/actions/runs/39416731639
+This video shows actual Lens Studio preview footage and captured excerpts from the hosted browser companion. The demonstrated enclosure has four authored parts and predefined origins. Marking and quantity confirmations are manual. Physical placement is not automatically verified. The Lens and browser companion keep separate sessions and do not synchronize automatically.
 
-Hardware tracking, comfort and real repair outcomes remain untested. Four authored parts and predefined origins make up this preview fixture. The Lens keeps the current session in memory. A separate local companion supports accounts and saved rehearsals; it does not sync to the Lens.
+The browser workbench has real Firebase accounts and private saved sessions. The software has been tested; physical glasses comfort, alignment and repair benefits still need device and user testing.
 
-Commercial hypothesis: independent repair and training benches; $20 per bench per month is a proposed pricing test, not validated demand. The next pilot compares total task time, including marking, against mats, photos and a plain reverse checklist.
-
-Created by Shivam Gupta with AI coding assistance. Product geometry and sound cues are original for this project; Snap packages retain their applicable notices.
-
-Narration is a generic synthetic guide generated locally with Piper and the en_US-ljspeech-high model. It is not Shivam Gupta's voice; no voice cloning was used. The transcript, generation settings, hashes and license references are in the repository's demo/narration-provenance.json. The video permanently labels synthetic narration and marks repeated excerpts as REPLAY.
-
-0:00 Two similar screws, two different homes
-0:28 Continuous Lens workflow: record, return and recover
-1:39 Continuous viewpoint check and next-pair transition
-2:00 Validation and the repair-bench pilot hypothesis
+Narration uses Kokoro's generic af_heart stock voice. It does not imitate Shivam or another person. Captions are visible in the video and supplied as a subtitle track. Voice, code and asset provenance are documented in the repository. No customer data or real repair footage is included.
