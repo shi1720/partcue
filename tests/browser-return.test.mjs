@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
+import { isManualJob, manualReferences, partDisplayName } from '../web/manual-job.js';
 import { createSession, applyCommand, nextPart } from '../dist/core/index.js';
 
 // Execute the shipped browser transition function, not a duplicate adapter implementation.
@@ -13,7 +14,7 @@ test('actual browser wrong-pickup handler clears stale confirmation and requires
   let clock=1000,state=createSession({id:'browser-regression'},clock++);
   for(const command of [{type:'start'},...['a','b'].map(id=>({type:'recordPart',part:{id,label:`Part ${id}`,count:1,originCm:{x:0,y:0,z:0},trayCm:{x:10,y:0,z:0}}})),{type:'beginReturn'}])state=applyCommand(state,command,clock++).state;
   const countInput={value:'1'},commands=[],notices=[];
-  const context=vm.createContext({state,applyCommand:(s,c,t)=>{commands.push(c.type);return applyCommand(s,c,t);},nextPart,now:()=>clock++,notice:(text,kind)=>notices.push({text,kind}),trayName:()=> 'B',render:()=>{},clearNotice:()=>{},$:id=>{assert.equal(id,'confirm-count');return countInput;}});
+  const context=vm.createContext({isManualJob,manualReferences,partDisplayName,state,applyCommand:(s,c,t)=>{commands.push(c.type);return applyCommand(s,c,t);},nextPart,now:()=>clock++,notice:(text,kind)=>notices.push({text,kind}),trayName:()=> 'B',render:()=>{},clearNotice:()=>{},$:id=>{assert.equal(id,'confirm-count');return countInput;}});
   vm.runInContext(source.slice(begin,end),context);
   assert.equal(context.transition({type:'selectReturn',partId:'b'}),true);
   assert.equal(context.state.pendingReturnId,'b');

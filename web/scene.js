@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { FIXTURE, TRAYS } from "./fixture.js";
 import { cameraViewForSession, routeControlPoints } from "./scene-view.js";
+import { isManualJob } from "./manual-job.js";
 
 /** Procedural, simulated workbench. All stored positions use centimetres. */
 export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
@@ -98,8 +99,8 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     return mesh;
   }
   // Bevelled corners are represented with layered plates: all assets are procedural.
-  box(scene, 124, 1.8, 88, floorMat, 1, -2.6, 0);
-  box(scene, 125, 0.5, 89, edgeMat, 1, -3.6, 0);
+  const floorPlate = box(scene, 124, 1.8, 88, floorMat, 1, -2.6, 0);
+  const floorEdge = box(scene, 125, 0.5, 89, edgeMat, 1, -3.6, 0);
   const grid = new THREE.GridHelper(120, 24, 0x34525a, 0x27424b);
   grid.position.set(1, -1.64, 0);
   grid.material.transparent = true;
@@ -170,11 +171,19 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     pickables.push(hit);
   });
   const parts = new Map();
-  function makePart(id, index = 0) {
+  let manualScene = false;
+  function makePart(id, index = 0, generic = false) {
     const group = new THREE.Group();
+    const ownedMaterials = [];
+    const ownMaterial = (color, options) => {
+      const result = material(color, options); ownedMaterials.push(result); return result;
+    };
     group.userData = { partId: id };
     scene.add(group);
-    if (id.startsWith("screw-")) {
+    if (generic) {
+      cylinder(group, 2.2, 1.8, index % 2 ? goldMat : mintMat);
+      cylinder(group, 0.8, 2, darkMat);
+    } else if (id.startsWith("screw-")) {
       const long = id === "screw-long";
       cylinder(group, 0.62, long ? 4.7 : 2.8, metalMat, 0, long ? 0.1 : 0.7, 0);
       cylinder(group, 1.55, 0.85, metalMat, 0, 2.2, 0);
@@ -183,7 +192,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
       for (let i = 0; i < 5; i++)
         cylinder(group, 0.73, 0.12, baseMat, 0, -0.9 + i * 0.48, 0);
     } else if (id === "lid") {
-      const lidMat = material(0x70858c, {
+      const lidMat = ownMaterial(0x70858c, {
         metalness: 0.6,
         roughness: 0.36,
         transparent: true,
@@ -195,7 +204,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
         16.8,
         0.24,
         18.9,
-        material(0x5b7a80, {
+        ownMaterial(0x5b7a80, {
           metalness: 0.48,
           roughness: 0.4,
           transparent: true,
@@ -261,7 +270,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
         pickables.push(child);
       }
     });
-    parts.set(id, { group, target: new THREE.Vector3() });
+    parts.set(id, { group, target: new THREE.Vector3(), ownedMaterials, generic });
     return parts.get(id);
   }
   FIXTURE.forEach((p, i) => {
@@ -490,7 +499,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
         ),
         camera,
       );
-      const hits = raycaster.intersectObjects(pickables, false);
+      const hits = raycaster.intersectObjects(pickables.filter((object) => !manualScene || !object.userData.trayId), false);
       if (hits.length) {
         const data = hits[0].object.userData;
         if (data.partId) onPart(data.partId);
@@ -576,9 +585,37 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
     moveCamera();
     invalidate();
   }
+  function removePart(id, entry) {
+    entry.group.traverse((child) => {
+      if (child.isMesh) {
+        child.geometry.dispose();
+        const index = pickables.indexOf(child);
+        if (index !== -1) pickables.splice(index, 1);
+      }
+    });
+    entry.ownedMaterials?.forEach((material) => material.dispose());
+    scene.remove(entry.group);
+    parts.delete(id);
+  }
+  function setSceneMode(manual) {
+    device.visible = !manual;
+    trayGroups.forEach((group) => { group.visible = !manual; });
+    const width = manual ? 1.25 : 1;
+    for (const surface of [floorPlate, floorEdge, edges, grid]) surface.scale.x = width;
+    if (manualScene === manual) return;
+    for (const [id, entry] of parts) removePart(id, entry);
+    manualScene = manual;
+    if (!manual) FIXTURE.forEach((part, index) => {
+      const entry = makePart(part.id, index);
+      entry.group.position.set(part.originCm.x, part.originCm.y, part.originCm.z);
+      entry.target.copy(entry.group.position);
+    });
+  }
   function update(state, selectedPartId, selectedTrayId) {
     sceneState = state;
     fitView(state);
+    const manual = isManualJob(state);
+    setSceneMode(manual);
     const records = new Map(
       state.parts.map((p, index) => [
         p.id,
@@ -588,22 +625,12 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
         },
       ]),
     );
-    // Switching imported sessions releases stale geometry and hit targets.
+    // Release geometry and hit targets when a record is undone or a job is switched.
     for (const [id, entry] of parts) {
-      if (!records.has(id) && !FIXTURE.some((p) => p.id === id)) {
-        entry.group.traverse((child) => {
-          if (child.isMesh) {
-            child.geometry.dispose();
-            const index = pickables.indexOf(child);
-            if (index !== -1) pickables.splice(index, 1);
-          }
-        });
-        scene.remove(entry.group);
-        parts.delete(id);
-      }
+      if (!records.has(id) && (manual || !FIXTURE.some((part) => part.id === id))) removePart(id, entry);
     }
-    state.parts.forEach((p, index) => {
-      if (!parts.has(p.id)) makePart(p.id, index);
+    state.parts.forEach((part, index) => {
+      if (!parts.has(part.id)) makePart(part.id, index, manual);
     });
     parts.forEach((entry, id) => {
       const record = records.get(id),
@@ -619,7 +646,7 @@ export function createBenchScene(canvas, { onPart, onTray, onUnavailable }) {
           : (record?.part.originCm ?? fixture.originCm);
       entry.target.set(point.x, point.y, point.z);
       // Stored parts sit above the well so screws remain visible rather than below it.
-      if (record && !record.returned && id.startsWith("screw-"))
+      if (!manual && record && !record.returned && id.startsWith("screw-"))
         entry.target.y += 1;
     });
     clearMarkers();

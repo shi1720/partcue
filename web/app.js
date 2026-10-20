@@ -12,6 +12,7 @@ import { createBenchScene } from "./scene.js";
 import { ApiClient } from "./api.js";
 import { FirebaseApiClient } from "./firebase-api.js";
 import { FIREBASE_CONFIG } from "./firebase-config.js";
+import { isManualJob, createManualPart, manualReferences, partDisplayName, sessionIdForMode, importedSessionIdentity } from "./manual-job.js";
 
 const $ = (id) => document.getElementById(id);
 const node = (tag, className, text) => {
@@ -87,12 +88,14 @@ function transition(command) {
     const expected = nextPart(state);
     if (result.error.code === "WRONG_PART" && expected)
       notice(
-        `Next is ${expected.label} from tray ${trayName(expected.trayCm)}. Select it again, return it to the cyan origin, then confirm the quantity. Leave other parts in their trays.`,
+        isManualJob(state)
+          ? `Next is ${partDisplayName(expected)} from ${manualReferences(expected).tray}. Select it again, return it to ${manualReferences(expected).origin}, then confirm the quantity. Leave other parts in their containers.`
+          : `Next is ${expected.label} from tray ${trayName(expected.trayCm)}. Select it again, return it to the cyan origin, then confirm the quantity. Leave other parts in their trays.`,
         "error",
       );
     else if (result.error.code === "WRONG_COUNT" && expected)
       notice(
-        `Check the quantity. Confirm ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at the saved origin.`,
+        `Check the quantity. Confirm ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at ${isManualJob(state) ? manualReferences(expected).origin : "the saved origin"}.`,
         "error",
       );
     else notice(`${result.error.message} ${result.error.recovery}`, "error");
@@ -115,7 +118,7 @@ function occupiedTray(tray) {
 function makePartButton(part, options = {}) {
   const button = node(
     "button",
-    `part-option${options.selected ? " selected" : ""}${options.recorded ? " recorded" : ""}`,
+    `part-option${options.selected ? " selected" : ""}${options.recorded ? " recorded" : ""}${options.next ? " next-return" : ""}`,
   );
   button.type = "button";
   button.dataset.partId = part.id;
@@ -123,7 +126,7 @@ function makePartButton(part, options = {}) {
   button.setAttribute("aria-pressed", String(Boolean(options.selected)));
   button.setAttribute(
     "aria-label",
-    `${part.label}${options.recorded ? " · recorded" : ""}${options.returned ? " · returned" : ""}`,
+    `${part.label}${options.next ? " · next to return" : ""}${options.recorded ? " · recorded" : ""}${options.returned ? " · returned" : ""}`,
   );
   button.append(node("span", "part-shape", part.shape ?? "◉"));
   const text = node("span", "part-text");
@@ -145,6 +148,10 @@ function makePartButton(part, options = {}) {
 }
 function selectPart(partId) {
   if (state.phase === "recording") {
+    if (isManualJob(state)) {
+      notice("Add the next removed part using its name and references. To correct the latest record, use Undo last mark.");
+      return;
+    }
     if (!FIXTURE.some((p) => p.id === partId)) {
       notice(
         "This imported part is already recorded. Begin the reverse return to work through it.",
@@ -173,6 +180,7 @@ function selectPart(partId) {
     notice("Your bench is paused. Resume the session to select a part.");
 }
 function selectTray(trayId) {
+  if (isManualJob(state)) return;
   if (state.phase !== "recording") {
     if (state.phase === "setup")
       notice("Start a teardown first, then mark a part and choose its tray.");
@@ -213,7 +221,29 @@ function render() {
   const focusTray = previousFocus?.dataset?.trayId;
   const p = progress(state),
     expected = nextPart(state),
-    phase = state.phase;
+    phase = state.phase,
+    manual = isManualJob(state);
+  $("scene-shell").classList.toggle("manual-job-scene", manual);
+  $("workspace").classList.toggle("manual-job", manual);
+  $("scene-mode").textContent = manual ? "Job diagram" : "Browser rehearsal";
+  $("scene-description").textContent = manual ? "manual references" : "simulated bench";
+  $("scene-input").textContent = manual ? "positions illustrative" : "manual marking";
+  $("bench-canvas").setAttribute("aria-label", manual ? "Illustrative job diagram. Select a recorded part here or use the part buttons. Diagram positions are not physical measurements." : "Interactive simulated workbench. Use the part and tray buttons to operate with a keyboard.");
+  $("diagram-origin-label").textContent = manual ? "ORIGIN REFERENCES" : "ORIGIN / ENCLOSURE";
+  $("diagram-tray-label").textContent = manual ? "NAMED CONTAINERS" : "TRAYS / A to D";
+  $("practice-record-fields").hidden = manual;
+  $("manual-part-form").hidden = !manual;
+  $("open-workbench-link").textContent = manual ? "Open your workbench ↗" : "Try the practice bench ↗";
+  $("plan-job").disabled = booting || networkBusy;
+  $("plan-job-setup").disabled = booting || networkBusy;
+  $("load-example").hidden = manual;
+  $("plan-job-setup").hidden = manual;
+  $("start-session").textContent = manual ? "Start recording parts ↗" : "Start a teardown ↗";
+  $("setup-origin-help").textContent = manual ? "Write where each removed part belongs." : "Choose a part on the enclosure.";
+  $("setup-tray-help").textContent = manual ? "Name the tray, bag or container you use." : "Choose a free tray and record it.";
+  $("setup-return-help").textContent = "Return in reverse. Confirm each step.";
+  $("record-manual-part").disabled = state.parts.length >= LIMITS.parts;
+  $("manual-limit").hidden = state.parts.length < LIMITS.parts;
   $("session-title").textContent = state.title;
   $("account-label").textContent = user
     ? user.name || user.email
@@ -243,7 +273,7 @@ function render() {
   $("sessions-open").disabled = booting || networkBusy;
   $("workspace").inert = Boolean(booting && initialDraft);
   $("workspace").setAttribute("aria-busy", String(booting));
-  $("new-session").disabled = networkBusy;
+  $("new-session").disabled = booting || networkBusy;
   $("import-session").disabled = networkBusy;
   $("saved-sessions").querySelectorAll("button").forEach((button) => { button.disabled = networkBusy; });
   $("persistence-note").textContent = user
@@ -276,6 +306,15 @@ function render() {
       "You confirmed every recorded part in reverse order. Keep the session for next time, or start a fresh bench.",
     ],
   }[phase];
+  if (manual && phase === "setup") {
+    copy[1] = "Your parts.\nYour way back.";
+    copy[2] = "Record your own parts with written origin and container references. The diagram organizes your sequence; it does not measure or recognize your workspace.";
+  } else if (manual && phase === "recording") {
+    copy[1] = "Name it.\nKeep its place.";
+    copy[2] = "Record each part group as you remove it. Use references you can identify later, such as a hinge mount and a labeled bag.";
+  } else if (manual && phase === "returning") {
+    copy[2] = "Use your written references to find the next part and its origin. The route is illustrative. Confirm the exact quantity after returning it.";
+  }
   $("phase-badge").textContent = copy[0];
   $("guide-title").textContent = copy[1];
   $("guide-title").classList.toggle("has-newlines", true);
@@ -285,7 +324,9 @@ function render() {
     phase === "complete" ||
     (phase === "paused" && state.resumePhase === "returning");
   $("step-index").textContent =
-    `${String(inReturn ? p.returnedGroups : state.parts.length).padStart(2, "0")} / ${String(inReturn ? state.parts.length : Math.max(FIXTURE.length, state.parts.length)).padStart(2, "0")}`;
+    manual && !inReturn
+      ? `${state.parts.length} / 100 groups`
+      : `${String(inReturn ? p.returnedGroups : state.parts.length).padStart(2, "0")} / ${String(inReturn ? state.parts.length : Math.max(FIXTURE.length, state.parts.length)).padStart(2, "0")}`;
   document
     .querySelector(".control-panel")
     .classList.toggle(
@@ -339,26 +380,32 @@ function render() {
   $("record-count").disabled = !selectedPartId;
   $("record-note").disabled = !selectedPartId;
   if (phase === "returning" && expected) {
-    $("next-label").textContent = expected.label;
-    $("next-note").textContent = expected.note ?? "";
+    const references = manual ? manualReferences(expected) : null;
+    $("next-label").textContent = partDisplayName(expected);
+    $("next-note").textContent = references ? references.note : expected.note ?? "";
     $("next-tray").textContent =
-      `Tray ${trayName(expected.trayCm)} · ${expected.count} ${expected.count === 1 ? "piece" : "pieces"}`;
+      `${references ? references.tray : `Tray ${trayName(expected.trayCm)}`} · ${expected.count} ${expected.count === 1 ? "piece" : "pieces"}`;
+    $("next-origin").textContent = references ? references.origin : "Saved origin";
+    $("location-summary").textContent = manual ? "Your manual references" : "Recorded locations";
     $("next-coordinates").textContent =
-      `TRAY ${formatCm(expected.trayCm)}\nORIGIN ${formatCm(expected.originCm)}`;
+      references ? `CONTAINER: ${references.tray}\nORIGIN: ${references.origin}\nDiagram positions are illustrative, not measurements.` : `TRAY ${formatCm(expected.trayCm)}\nORIGIN ${formatCm(expected.originCm)}`;
     $("confirm-form").hidden = state.pendingReturnId !== expected.id;
     $("confirm-count-label").textContent =
-      `Confirm ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at the saved origin`;
+      `Confirm ${expected.count} ${expected.count === 1 ? "piece" : "pieces"} at ${references ? references.origin : "the saved origin"}`;
+    const returnChoices = state.parts.map((part, index) => ({ part, index }));
+    if (manual) returnChoices.reverse();
     $("return-parts").replaceChildren(
-      ...state.parts.map((part, index) =>
+      ...returnChoices.map(({ part, index }) =>
         makePartButton(
-          { ...part, shape: FIXTURE.find((f) => f.id === part.id)?.shape },
+          { ...part, label: partDisplayName(part), shape: manual ? "◉" : FIXTURE.find((f) => f.id === part.id)?.shape },
           {
             selected: state.pendingReturnId === part.id,
+            next: manual && expected.id === part.id,
             returned: index >= state.parts.length - state.returnedCount,
             subtitle:
               index >= state.parts.length - state.returnedCount
                 ? "Returned"
-                : `Tray ${trayName(part.trayCm)} · ${part.count} ${part.count === 1 ? "piece" : "pieces"}`,
+                : `${manual ? `${manualReferences(part).tray} → ${manualReferences(part).origin}` : `Tray ${trayName(part.trayCm)}`} · ${part.count} ${part.count === 1 ? "piece" : "pieces"}`,
           },
         ),
       ),
@@ -366,7 +413,7 @@ function render() {
   }
   $("pause-description").textContent =
     state.resumePhase === "returning" && expected
-      ? `Next when you return: ${expected.label} from tray ${trayName(expected.trayCm)}. Select it again after resuming to confirm its placement.`
+      ? `Next when you return: ${partDisplayName(expected)} from ${manual ? manualReferences(expected).tray : `tray ${trayName(expected.trayCm)}`}. Select it again after resuming to confirm its placement.`
       : "Your recorded origins and trays are preserved. Resume to continue recording from the same point.";
   $("complete-description").textContent =
     `You confirmed ${p.totalPieces} ${p.totalPieces === 1 ? "piece" : "pieces"} across ${p.totalGroups} part ${p.totalGroups === 1 ? "group" : "groups"} at their saved origins. No missing step in your recorded sequence.`;
@@ -409,14 +456,17 @@ function render() {
       );
       li.append(
         meta,
-        node("strong", "sequence-name", part.label),
+        node("strong", "sequence-name", partDisplayName(part)),
         node(
           "span",
           "sequence-detail",
-          `${part.count} ${part.count === 1 ? "piece" : "pieces"} · Tray ${trayName(part.trayCm)}`,
+          `${part.count} ${part.count === 1 ? "piece" : "pieces"} · ${manual ? manualReferences(part).tray : `Tray ${trayName(part.trayCm)}`}`,
         ),
       );
-      li.title = `${part.label}. ${part.count} ${part.count === 1 ? "piece" : "pieces"}. Origin ${formatCm(part.originCm)}. Tray ${formatCm(part.trayCm)}.${part.note ? ` Note: ${part.note}` : ""}`;
+      const references = manual ? manualReferences(part) : null;
+      li.title = references
+        ? `${references.name}. ${part.count} ${part.count === 1 ? "piece" : "pieces"}. Origin: ${references.origin}. Container: ${references.tray}.${references.note ? ` Note: ${references.note}` : ""}`
+        : `${part.label}. ${part.count} ${part.count === 1 ? "piece" : "pieces"}. Origin ${formatCm(part.originCm)}. Tray ${formatCm(part.trayCm)}.${part.note ? ` Note: ${part.note}` : ""}`;
       return li;
     });
   $("sequence-list").replaceChildren(...items);
@@ -441,6 +491,12 @@ function render() {
           : phase === "paused"
             ? "Session paused · Save or export before closing"
             : "Drag to orbit · Scroll to zoom · Select a part to begin";
+  if (manual) $("scene-hint").textContent = phase === "returning"
+    ? "Amber: your container · Cyan: your origin reference · Diagram only"
+    : phase === "paused" ? "Job paused · Your references are kept"
+    : phase === "complete" ? "Every recorded return confirmed · Diagram only"
+    : state.parts.length ? "Illustrative diagram · Drag to orbit · Written references guide the real work"
+    : "Your part groups appear here as you record them · Positions are illustrative";
   benchScene.update(state, selectedPartId, selectedTrayId);
   rememberDraft();
   // Replacing a button list must not send keyboard users back to the page start.
@@ -523,6 +579,8 @@ function useSnapshot(snapshot, savedRevision = null) {
   $("record-count").value = "1";
   $("record-note").value = "";
   $("confirm-count").value = "";
+  $("manual-part-form").reset();
+  $("manual-error").hidden = true;
   clearNotice();
   render();
 }
@@ -795,8 +853,33 @@ $("record-part").addEventListener("click", () => {
     (nextChoice ?? $("begin-return")).focus();
   }
 });
+function recordManualPart(event) {
+  event.preventDefault();
+  if (!isManualJob(state) || state.phase !== "recording") return;
+  $("manual-error").hidden = true;
+  try {
+    const part = createManualPart({
+      name: $("manual-name").value,
+      origin: $("manual-origin").value,
+      tray: $("manual-tray").value,
+      count: Number($("manual-count").value),
+      note: $("manual-note").value,
+    }, crypto.randomUUID(), state.parts.length);
+    if (transition({ type: "recordPart", part })) {
+      $("manual-part-form").reset();
+      $("manual-name").focus();
+      notice(`${partDisplayName(part)} recorded. Your written references are kept with this part.`, "success");
+    }
+  } catch (error) {
+    $("manual-error").textContent = error.message;
+    $("manual-error").hidden = false;
+  }
+}
+$("manual-part-form").addEventListener("submit", recordManualPart);
+for (const field of ["manual-name", "manual-origin", "manual-tray", "manual-count", "manual-note"])
+  $(field).addEventListener("input", () => { $("manual-error").hidden = true; });
 $("begin-return").addEventListener("click", async () => {
-  const remaining = FIXTURE.filter(
+  const remaining = isManualJob(state) ? 0 : FIXTURE.filter(
     (p) => !state.parts.some((r) => r.id === p.id),
   ).length;
   if (
@@ -869,8 +952,11 @@ $("save-session").addEventListener("click", saveSession);
 $("complete-save").addEventListener("click", saveSession);
 $("sessions-open").addEventListener("click", listSessions);
 function openNew() {
-  if (networkBusy) return;
-  $("new-title").value = "Mechanical enclosure";
+  if (networkBusy || booting) return;
+  $("new-kind").value = "custom";
+  $("new-title").value = "My repair job";
+  $("new-title").placeholder = "My repair job";
+  $("new-mode-help").textContent = "Use your own part names and location references. The diagram is illustrative.";
   $("new-warning").textContent = isUnprotected()
     ? "Your current bench has unsaved changes. Save or export it first, or create a new session to replace it in this tab."
     : "Your saved sessions stay available in your account. A fresh session starts with a new id.";
@@ -880,6 +966,17 @@ function openNew() {
 }
 $("new-session").addEventListener("click", openNew);
 $("complete-new").addEventListener("click", openNew);
+$("plan-job").addEventListener("click", openNew);
+$("plan-job-setup").addEventListener("click", openNew);
+$("new-kind").addEventListener("change", () => {
+  const manual = $("new-kind").value === "custom";
+  if (["My repair job", "Mechanical enclosure", ""].includes($("new-title").value))
+    $("new-title").value = manual ? "My repair job" : "Mechanical enclosure";
+  $("new-title").placeholder = manual ? "My repair job" : "Mechanical enclosure";
+  $("new-mode-help").textContent = manual
+    ? "Use your own part names and location references. The diagram is illustrative."
+    : "Learn the flow with four predefined parts and four trays on a simulated enclosure.";
+});
 $("new-title").addEventListener("input", () =>
   $("new-title").setCustomValidity(""),
 );
@@ -894,13 +991,13 @@ $("new-form").addEventListener("submit", (event) => {
   }
   try {
     const snapshot = createSession(
-      { id: id(), title: $("new-title").value.trim() },
+      { id: sessionIdForMode($("new-kind").value === "custom", crypto.randomUUID()), title: $("new-title").value.trim() },
       Date.now(),
     );
     useSnapshot(snapshot);
     $("new-dialog").close();
     notice(
-      "A fresh session is ready. Start the teardown when you are ready.",
+      isManualJob(snapshot) ? "Your job is ready. Start recording parts as you remove them, using references you can find again." : "The practice enclosure is ready. Start the teardown when you are ready.",
       "success",
     );
   } catch (error) {
@@ -924,7 +1021,7 @@ $("import-file").addEventListener("change", async () => {
   }
   try {
     const snapshot = parseSession(await file.text());
-    snapshot.id = id();
+    snapshot.id = importedSessionIdentity(snapshot, crypto.randomUUID());
     snapshot.title = `${snapshot.title.slice(0, 69)} (imported)`;
     if (
       isUnprotected() &&
@@ -951,7 +1048,7 @@ $("auth-open").addEventListener("click", () => openAuth());
 $("help-open").addEventListener("click", () => $("help-dialog").showModal());
 $("load-example").addEventListener("click", () => {
   let example = createSession({ id: id(), title: "Enclosure | recorded example" }, Date.now());
-  for (const command of [{ type: "start" }, ...FIXTURE.map((part, index) => ({ type: "recordPart", part: { id: part.id, label: part.label, originCm: { ...part.originCm }, trayCm: { ...TRAYS[index].position }, count: part.count, note: index === 0 ? "Short screw belongs in the first mounting hole" : "" } })), { type: "beginReturn" }]) {
+  for (const command of [{ type: "start" }, ...FIXTURE.map((part, index) => ({ type: "recordPart", part: { id: part.id, label: part.label, originCm: { ...part.originCm }, trayCm: { ...TRAYS[index].position }, count: part.count, ...(index === 0 ? { note: "Short screw belongs in the first mounting hole" } : {}) } })), { type: "beginReturn" }]) {
     const result = applyCommand(example, command, Math.max(Date.now(), example.updatedAt));
     if (!result.ok) { notice("The example could not be loaded. Start a fresh teardown instead.", "error"); return; }
     example = result.state;

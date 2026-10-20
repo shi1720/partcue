@@ -1,6 +1,9 @@
 import test,{after} from 'node:test';
 import assert from 'node:assert/strict';
 import {deleteApp} from 'firebase/app';
+import {readFile} from 'node:fs/promises';
+import {initializeTestEnvironment} from '@firebase/rules-unit-testing';
+import {doc,collection,query,limit,getDocFromServer,getDocsFromServer} from 'firebase/firestore';
 import {FirebaseApiClient} from '../../web/firebase-api.js';
 import {createSession} from '../../dist/core/index.js';
 const projectId=process.env.GCLOUD_PROJECT??'demo-partcue';
@@ -32,6 +35,13 @@ test('real Auth emulator registration/login/reset/profile/deletion preserves the
   const uid=client.accountId;
   await client.deleteAccount('Replacement strong password 456');
   assert.equal(client.auth.currentUser,null);assert.equal(client.accountId,null);
+  const env=await initializeTestEnvironment({projectId,firestore:{host:'127.0.0.1',port:8088,rules:await readFile(new URL('../../firestore.rules',import.meta.url),'utf8')}});
+  try {
+    const stale=env.authenticatedContext(uid).firestore(),marker=(await getDocFromServer(doc(stale,'users',uid))).data();
+    assert.deepEqual(Object.keys(marker).sort(),['schemaVersion','sessionCount','mutationId','deleting','createdAt','updatedAt'].sort());
+    assert.equal(marker.deleting,true);assert.equal(marker.sessionCount,0);assert.equal(marker.mutationId,null);
+    assert.equal((await getDocsFromServer(query(collection(stale,'users',uid,'sessions'),limit(50)))).empty,true);
+  } finally {await env.cleanup();}
   await assert.rejects(()=>client.request('/api/auth/login','POST',{email,password:'Replacement strong password 456'}),e=>e.code==='INVALID_CREDENTIALS');
 });
 

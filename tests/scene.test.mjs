@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import * as THREE from 'three';
 import { cameraViewForSession, routeControlPoints } from '../web/scene-view.js';
 import { FIXTURE, TRAYS } from '../web/fixture.js';
+import { isManualJob } from '../web/manual-job.js';
 
 const source = await readFile(new URL('../web/scene.js', import.meta.url), 'utf8');
 const actualFunction = (begin, end) => {
@@ -15,10 +16,10 @@ const actualFunction = (begin, end) => {
 const part = { id: 'custom-washer', originCm: { x: -20, y: 3, z: 0 }, trayCm: { x: 20, y: 2, z: 0 } };
 
 test('actual scene update clears cues while paused and restores the same pair on resume', () => {
-  const routes = [], markers = [], parts = new Map();
+  const routes = [], markers = [], modes = [], genericKinds = [], parts = new Map();
   const context = vm.createContext({
-    parts, FIXTURE: [], TRAYS: [], sceneState: null, fitView() {},
-    makePart(id) { parts.set(id, { group: { visible: true }, target: { set() {} } }); },
+    parts, FIXTURE: [], TRAYS: [], sceneState: null, fitView() {}, isManualJob, setSceneMode(mode) { modes.push(mode); },
+    makePart(id, index, generic) { genericKinds.push(generic); parts.set(id, { group: { visible: true }, target: { set() {} } }); },
     clearMarkers() { markers.length = 0; },
     route(origin, tray) { markers.push('route'); routes.push([origin, tray]); },
     ring() { markers.push('ring'); }, invalidate() {},
@@ -27,6 +28,8 @@ test('actual scene update clears cues while paused and restores the same pair on
   const session = { phase: 'returning', resumePhase: null, parts: [part], returnedCount: 0 };
   context.update(session, null, null);
   assert.equal(markers.length, 1);
+  assert.deepEqual(modes, [true]);
+  assert.deepEqual(genericKinds, [true]);
   context.update({ ...session, phase: 'paused', resumePhase: 'returning' }, null, null);
   assert.equal(markers.length, 0, 'pause removes active route and rings');
   context.update(session, null, null);
@@ -82,7 +85,7 @@ test('second touch cannot replace an orbit gesture or accidentally select a part
   const context = vm.createContext({
     THREE: { ...THREE, Raycaster: class { setFromCamera() {} intersectObjects() { return [{ object: { userData: { partId: 'custom' } } }]; } } },
     canvas: { addEventListener: (type, fn) => listeners.set(type, fn), setPointerCapture() {}, getBoundingClientRect: () => ({ left: 0, top: 0, width: 400, height: 400 }) },
-    angle: 0.36, elevation: 0.84, camera: {}, pickables: [], moveCamera() {}, invalidate() {},
+    angle: 0.36, elevation: 0.84, camera: {}, pickables: [], manualScene: false, moveCamera() {}, invalidate() {},
     onPart: id => selections.push(id), onTray() {},
   });
   vm.runInContext(actualFunction('  const raycaster =', '  canvas.addEventListener(\n    "wheel",'), context);
@@ -133,4 +136,29 @@ test('actual fit/reset handlers apply imported bounds, preserve orbit between se
   c.fitView(normal); c.distance = 200;
   c.fitView({ ...normal, parts: [{ ...FIXTURE[0], trayCm: TRAYS[0].position }] });
   assert.equal(c.distance, 200, 'recording the fixture preserves a chosen zoom');
+});
+
+test('manual scene mode hides authored geometry and clears fixture meshes, then practice restores them', () => {
+  const surface = () => ({ scale: { x: 1 } });
+  const device = { visible: true }, trays = new Map([['A', { visible: true }], ['B', { visible: true }]]), parts = new Map();
+  const made = [], removed = [];
+  const c = vm.createContext({
+    device, trayGroups: trays, floorPlate: surface(), floorEdge: surface(), edges: surface(), grid: surface(),
+    manualScene: false, parts, FIXTURE,
+    removePart(id) { removed.push(id); parts.delete(id); },
+    makePart(id, index, generic = false) {
+      made.push({ id, generic });
+      const entry = { group: { position: { set() {} } }, target: { copy() {} } }; parts.set(id, entry); return entry;
+    },
+  });
+  for (const part of FIXTURE) parts.set(part.id, {});
+  vm.runInContext(actualFunction('  function setSceneMode(', '  function update(state,'), c);
+  c.setSceneMode(true);
+  assert.equal(device.visible, false); assert.ok([...trays.values()].every(tray => !tray.visible));
+  assert.equal(parts.size, 0); assert.equal(removed.length, FIXTURE.length);
+  assert.equal(c.floorPlate.scale.x, 1.25);
+  c.setSceneMode(false);
+  assert.equal(device.visible, true); assert.ok([...trays.values()].every(tray => tray.visible));
+  assert.equal(parts.size, FIXTURE.length); assert.ok(made.every(part => !part.generic));
+  assert.equal(c.floorPlate.scale.x, 1);
 });

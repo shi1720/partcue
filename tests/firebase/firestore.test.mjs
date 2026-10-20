@@ -69,7 +69,7 @@ test('50-session cap is rule-enforced and deletion atomically frees one slot',as
   assert.equal((await store.list()).sessions.length,50);
 });
 
-test('account deletion locks new writes, is retryable, and removes all saved documents and metadata',async()=>{
+test('account deletion locks new writes, is retryable, and retains only an empty deletion marker',async()=>{
   const alice=db('alice'),store=createCloudSessionStore(alice,'alice');await store.create(snapshot('one'));await store.create(snapshot('two'));
   await updateDoc(doc(alice,'users','alice'),{deleting:true,updatedAt:serverTimestamp()});
   await assert.rejects(()=>store.create(snapshot('new')),error=>error.code==='ACCOUNT_DELETING');
@@ -77,8 +77,29 @@ test('account deletion locks new writes, is retryable, and removes all saved doc
   await assertFails(updateDoc(doc(alice,'users','alice'),{deleting:false,updatedAt:serverTimestamp()}));
   await assertFails(deleteDoc(doc(alice,'users','alice')));
   await store.remove('one',undefined,true);await store.eraseAll();
-  assert.equal((await getDocFromServer(doc(alice,'users','alice'))).exists(),false);
+  const marker=(await getDocFromServer(doc(alice,'users','alice'))).data();
+  assert.deepEqual(Object.keys(marker).sort(),['schemaVersion','sessionCount','mutationId','deleting','createdAt','updatedAt'].sort());
+  assert.equal(marker.deleting,true);assert.equal(marker.sessionCount,0);assert.equal(marker.mutationId,null);
   assert.equal((await getDocsFromServer(query(collection(alice,'users','alice','sessions'),limit(50)))).empty,true);
+});
+
+test('old authenticated tabs cannot recreate jobs, reset, or delete the marker after account cleanup',async()=>{
+  // The old UID context models an ID token issued before Auth account deletion.
+  const alice=db('old-token'),store=createCloudSessionStore(alice,'old-token');
+  await store.create(snapshot('private-job-name'));await store.eraseAll();
+  await assert.rejects(()=>store.create(snapshot('recreated')),error=>error.code==='ACCOUNT_DELETING');
+  await assertFails(rawCreate(alice,'old-token','raw-recreated'));
+  await assertFails(deleteDoc(doc(alice,'users','old-token')));
+  await assertFails(updateDoc(doc(alice,'users','old-token'),{deleting:false,updatedAt:serverTimestamp()}));
+  await assertFails(setDoc(doc(alice,'users','old-token'),{schemaVersion:1,sessionCount:0,mutationId:null,deleting:false,createdAt:serverTimestamp(),updatedAt:serverTimestamp()}));
+  await assertFails(getDocFromServer(doc(db('another-owner'),'users','old-token')));
+  assert.equal((await store.list()).sessions.length,0);
+  const marker=(await getDocFromServer(doc(alice,'users','old-token'))).data();
+  assert.equal(marker.mutationId,null,'the last job id is erased too');
+  await store.eraseAll();assert.equal((await store.list()).sessions.length,0,'cleanup retries remain safe');
+  const empty=createCloudSessionStore(db('never-saved'),'never-saved');
+  await empty.eraseAll();
+  await assert.rejects(()=>empty.create(snapshot()),error=>error.code==='ACCOUNT_DELETING','accounts that never saved still retain the stale-token lock');
 });
 
 test('opaque JSON is bounded by rules and full domain validation rejects a private corrupted snapshot on restore',async()=>{

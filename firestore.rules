@@ -41,18 +41,24 @@ service cloud.firestore {
     function startsDeletion(d,prior) {
       return !prior.deleting && d.deleting && d.sessionCount == prior.sessionCount && d.mutationId == prior.mutationId;
     }
+    function finishesDeletion(d,prior) {
+      return prior.deleting && d.deleting && prior.sessionCount == 0
+        && d.sessionCount == 0 && d.mutationId == null;
+    }
     match /users/{uid} {
       allow get: if owner(uid);
       allow list: if false;
       allow create: if owner(uid) && validMeta(request.resource.data)
         && request.resource.data.sessionCount == 0 && request.resource.data.mutationId == null
-        && request.resource.data.deleting == false && request.resource.data.createdAt == request.time;
+        && request.resource.data.createdAt == request.time;
       allow update: if owner(uid) && validMeta(request.resource.data)
         && request.resource.data.createdAt == resource.data.createdAt
         && (createsOne(uid,request.resource.data,resource.data)
           || deletesOne(uid,request.resource.data,resource.data)
-          || startsDeletion(request.resource.data,resource.data));
-      allow delete: if owner(uid) && resource.data.deleting == true && resource.data.sessionCount == 0;
+          || startsDeletion(request.resource.data,resource.data)
+          || finishesDeletion(request.resource.data,resource.data));
+      // Keep a minimal deletion marker so a still-valid old token cannot recreate jobs.
+      allow delete: if false;
       match /sessions/{id} {
         allow get: if owner(uid);
         allow list: if owner(uid) && request.query.limit != null && request.query.limit <= 50;

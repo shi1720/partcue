@@ -1,8 +1,9 @@
 import { FIXTURE, TRAYS, samePosition } from "./fixture.js";
+import { isManualJob } from "./manual-job.js";
 
 /** Fits portable cm snapshots without changing the authored fixture's default view. */
 export function cameraViewForSession(state, aspect = 1.35) {
-  const custom = state.parts.some((part) => {
+  const custom = isManualJob(state) || state.parts.some((part) => {
     const fixture = FIXTURE.find((candidate) => candidate.id === part.id);
     return !fixture || !samePosition(part.originCm, fixture.originCm) ||
       !TRAYS.some((tray) => samePosition(part.trayCm, tray.position));
@@ -12,9 +13,9 @@ export function cameraViewForSession(state, aspect = 1.35) {
     minDistance: 95, maxDistance: 230, far: 600,
     fogNear: 170, fogFar: 310, zoom: Math.min(1, aspect / 1.35),
   };
-  const points = state.parts.flatMap((part) => [
+  const points = state.parts.length ? state.parts.flatMap((part) => [
     part.originCm, part.trayCm, ...routeControlPoints(part.originCm, part.trayCm),
-  ]);
+  ]) : [{ x: -44, y: 2.5, z: -24 }, { x: 44, y: 2.5, z: 24 }];
   const lower = { x: Infinity, y: Infinity, z: Infinity };
   const upper = { x: -Infinity, y: -Infinity, z: -Infinity };
   for (const point of points) for (const axis of ["x", "y", "z"]) {

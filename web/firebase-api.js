@@ -140,11 +140,13 @@ export function createCloudSessionStore(db, uid, { assertAccount = () => {} } = 
     remove,
     async eraseAll() {
       assertAccount();
-      await runTransaction(db,async tx=>{assertAccount();const meta=await tx.get(owner);if(meta.exists()&&!meta.data().deleting)tx.update(owner,{deleting:true,updatedAt:serverTimestamp()});});
+      await runTransaction(db,async tx=>{assertAccount();const meta=await tx.get(owner);if(!meta.exists())tx.set(owner,{schemaVersion:1,sessionCount:0,mutationId:null,deleting:true,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});else if(!meta.data().deleting)tx.update(owner,{deleting:true,updatedAt:serverTimestamp()});});
       const documents=await getDocsFromServer(query(sessions,limit(CLOUD_SESSION_LIMIT)));assertAccount();
       // Each transaction is two documents, safely below Firestore's per-write/rules limits.
       for(const item of documents.docs)await remove(item.id,undefined,true);
-      await runTransaction(db,async tx=>{assertAccount();const meta=await tx.get(owner);if(meta.exists()){if(meta.data().sessionCount!==0)fail('DELETE_INCOMPLETE','Some saved sessions remain. Retry account deletion to finish.',409);tx.delete(owner);}});
+      // Auth deletion does not immediately invalidate every previously issued token.
+      // Retain only the irreversible lock, clearing the last job id as well as its JSON.
+      await runTransaction(db,async tx=>{assertAccount();const meta=await tx.get(owner);if(!meta.exists()||meta.data().sessionCount!==0)fail('DELETE_INCOMPLETE','Some saved sessions remain. Retry account deletion to finish.',409);tx.update(owner,{mutationId:null,updatedAt:serverTimestamp()});});
       assertAccount();
     },
   };

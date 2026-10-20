@@ -45,7 +45,7 @@
         </div>
         <div class="intro-note">
           <span class="note-number">01 / 04</span>
-          <p>A small repair.<br />A little less to remember.</p><a class="intro-link" href="#workspace">Open your workbench ↗</a>
+          <p>A small repair.<br />A little less to remember.</p><button id="plan-job" class="button button-primary plan-job-cta" type="button">Plan your own job ↗</button><a id="open-workbench-link" class="intro-link" href="#workspace">Try the practice bench ↗</a>
         </div>
       </section>
       <section
@@ -105,21 +105,21 @@
                 <span class="principle-number">1</span>
                 <p>
                   <strong>Mark the origin</strong
-                  ><span>Choose a part on the enclosure.</span>
+                  ><span id="setup-origin-help">Choose a part on the enclosure.</span>
                 </p>
               </div>
               <div class="principle">
                 <span class="principle-number">2</span>
                 <p>
                   <strong>Give it a home</strong
-                  ><span>Choose a free tray and record it.</span>
+                  ><span id="setup-tray-help">Choose a free tray and record it.</span>
                 </p>
               </div>
               <div class="principle">
                 <span class="principle-number">3</span>
                 <p>
                   <strong>Follow the way back</strong
-                  ><span>Return in reverse. Confirm each step.</span>
+                  ><span id="setup-return-help">Return in reverse. Confirm each step.</span>
                 </p>
               </div>
               <button
@@ -127,9 +127,21 @@
                 class="button button-primary button-full"
               >
                 Start a teardown <span aria-hidden="true">↗</span>
-              </button><button id="load-example" class="button button-text button-full">Explore a recorded example ↗</button>
+              </button><button id="load-example" class="button button-text button-full">Explore a recorded example ↗</button><button id="plan-job-setup" class="button button-outline button-full" type="button">Plan your own job ↗</button>
             </div>
             <div id="record-panel" hidden>
+              <form id="manual-part-form" class="manual-part-form" hidden aria-describedby="manual-record-help">
+                <p id="manual-record-help" class="manual-help">Name each removed part and the two places you want to remember. Diagram positions are illustrative, not physical measurements.</p>
+                <label for="manual-name">Part name <input id="manual-name" maxlength="80" required placeholder="e.g. Left hinge screws" autocomplete="off" /></label>
+                <label for="manual-origin">Origin reference <input id="manual-origin" maxlength="48" required placeholder="e.g. Upper left hinge mount" autocomplete="off" /></label>
+                <label for="manual-tray">Tray or container <input id="manual-tray" maxlength="32" required placeholder="e.g. Blue tray A" autocomplete="off" /></label>
+                <div class="manual-detail-fields"><label for="manual-count">Pieces <input id="manual-count" type="number" inputmode="numeric" min="1" max="100" step="1" value="1" required /></label><label for="manual-note">Note (optional)<input id="manual-note" maxlength="96" placeholder="e.g. Keep washers together" autocomplete="off" /></label></div>
+                <p id="manual-error" class="form-error" role="alert" hidden></p>
+                <p id="manual-limit" class="field-help" role="status" hidden>This job has 100 part groups. Start the return, or undo the last group to make a correction.</p>
+                <button id="record-manual-part" class="button button-primary button-full" type="submit">Record this part <span aria-hidden="true">＋</span></button>
+              </form>
+              <div id="practice-record-fields">
+
               <div class="field-heading">
                 <label>01 <span>Choose the removed part</span></label
                 ><span class="tiny-label">MANUAL</span>
@@ -176,8 +188,8 @@
                 class="button button-primary button-full"
                 disabled
               >
-                Record part <span aria-hidden="true">＋</span></button
-              ><button
+                Record part <span aria-hidden="true">＋</span></button>
+              </div><button
                 id="begin-return"
                 class="button button-text button-full"
                 disabled
@@ -193,10 +205,10 @@
                 <div class="route-label">
                   <span class="amber-dot"></span><span id="next-tray">Tray</span
                   ><span aria-hidden="true">→</span
-                  ><span class="cyan-dot"></span><span>Saved origin</span>
+                  ><span class="cyan-dot"></span><span id="next-origin">Saved origin</span>
                 </div>
                 <details class="location-details">
-                  <summary>Recorded locations</summary>
+                  <summary id="location-summary">Recorded locations</summary>
                   <p id="next-coordinates" class="coordinates"></p>
                 </details>
               </div>
@@ -282,11 +294,11 @@
           <div class="scene-column">
             <div id="scene-shell" class="scene-shell">
               <div class="scene-caption">
-                <span class="live-square"></span><span>Browser rehearsal</span
+                <span class="live-square"></span><span id="scene-mode">Browser rehearsal</span
                 ><span class="scene-caption-divider">/</span
-                ><span>simulated bench</span
+                ><span id="scene-description">simulated bench</span
                 ><span class="scene-caption-divider">/</span
-                ><span>manual marking</span>
+                ><span id="scene-input">manual marking</span>
               </div>
               <canvas
                 id="bench-canvas"
@@ -301,8 +313,8 @@
                 </p>
               </div>
               <div class="bench-locations">
-                <span><span class="cyan-dot"></span> ORIGIN / ENCLOSURE</span
-                ><span><span class="amber-dot"></span> TRAYS / A to D</span>
+                <span><span class="cyan-dot"></span> <span id="diagram-origin-label">ORIGIN / ENCLOSURE</span></span
+                ><span><span class="amber-dot"></span> <span id="diagram-tray-label">TRAYS / A to D</span></span>
               </div>
               <div class="scene-bottom">
                 <p id="scene-hint">
@@ -393,8 +405,8 @@
           moment you forget where that one screw came from.
         </p>
         <p>
-          This is the browser companion rehearsal. The separate SPECS Lens runs
-          in Lens Studio preview. Saved rehearsals do not sync to the Lens.<br /><span id="persistence-note"
+          Use manual references for your own jobs, or try the simulated practice bench. The separate SPECS Lens runs
+          in Lens Studio preview. Browser jobs do not sync to the Lens.<br /><span id="persistence-note"
             >Guest work lives in this tab. Export it before closing, or sign in
             to save.</span
           >
@@ -514,19 +526,21 @@
       </div>
       <h2 id="new-dialog-title">What are you<br />working on?</h2>
       <form id="new-form">
-        <label for="new-title">Session title</label
+        <label for="new-kind">Job type</label><select id="new-kind"><option value="custom">Your own parts</option><option value="practice">Practice enclosure</option></select>
+        <p id="new-mode-help" class="field-help">Use your own part names and location references. The diagram is illustrative.</p>
+        <label for="new-title">Job title</label
         ><input
           id="new-title"
           required
           maxlength="80"
-          value="Mechanical enclosure"
-          placeholder="Mechanical enclosure"
+          value="My repair job"
+          placeholder="My repair job"
         />
         <p id="new-warning" class="field-help">
           Export or save your current work before starting a new session.
         </p>
         <button class="button button-primary button-full" type="submit">
-          Create session <span aria-hidden="true">＋</span>
+          Create job <span aria-hidden="true">＋</span>
         </button>
       </form>
     </dialog>
@@ -564,9 +578,9 @@
     <dialog id="help-dialog" class="modal help-modal" aria-labelledby="help-title">
       <div class="modal-top"><span class="eyebrow">A LITTLE LESS TO REMEMBER</span><button class="close-modal icon-button" aria-label="Close help">×</button></div>
       <h2 id="help-title">Two places.<br />One way back.</h2>
-      <p>PartCue keeps a manual memory of where each part came from and where you put it. Start with the interactive enclosure, or explore a recorded example.</p>
-      <div class="help-steps"><p><strong>1. Record</strong> Choose a removed part and a free tray. Add its quantity and a note.</p><p><strong>2. Return</strong> Follow the sequence in reverse. Amber marks the pickup. Cyan marks the saved origin.</p><p><strong>3. Confirm</strong> Select the next part, put it back, and confirm the exact quantity. Pause or undo whenever needed.</p><p><strong>4. Keep</strong> Save privately to your account, or export a JSON backup. Import gives each copy a new identity.</p></div>
-      <p class="modal-footnote">This browser workbench is a simulation with four predefined parts. Your marks and confirmations drive the sequence. It does not recognize real objects or verify physical assembly. The separate SPECS Lens runs in Lens Studio; browser saves do not restore Lens anchors.</p>
+      <p>PartCue keeps a manual memory of where each part came from and where you put it. Plan your own job with named references, or learn the flow with the practice enclosure.</p>
+      <div class="help-steps"><p><strong>1. Record</strong> Name the removed part, its origin reference and its container. Add the quantity and an optional note. In practice mode, choose a predefined part and tray instead.</p><p><strong>2. Return</strong> Follow the sequence in reverse. Amber marks the pickup. Cyan marks the saved origin.</p><p><strong>3. Confirm</strong> Select the next part, put it back, and confirm the exact quantity. Pause or undo whenever needed.</p><p><strong>4. Keep</strong> Save privately to your account, or export a JSON backup. Import gives each copy a new identity.</p></div>
+      <p class="modal-footnote">Custom jobs use your own written references and an illustrative diagram, with up to 100 part groups. Practice uses four predefined parts. Your records and confirmations drive the sequence. PartCue does not measure positions, recognize real objects or verify physical assembly. The separate SPECS Lens runs in Lens Studio; browser saves do not restore Lens anchors.</p>
       <button class="close-modal button button-primary button-full">Back to the workbench ↗</button>
     </dialog>
     <dialog id="account-dialog" class="modal" aria-labelledby="account-title">
@@ -575,7 +589,7 @@
       <p id="account-email" class="account-email"></p><p id="verification-status" class="field-help"></p>
       <div class="account-controls"><button id="verify-email" class="button button-outline">Send verification email</button><button id="refresh-account" class="button button-text">Check verification</button></div>
       <p id="account-status" class="field-help" role="status"></p>
-      <details class="privacy-details"><summary>Privacy and your data</summary><p>Session titles, notes, quantities and positions are stored privately in Firebase under your account. Save is explicit. Export JSON for your own backup. This browser tab keeps a temporary recovery copy until you sign out or close the tab. No analytics or advertising trackers are included.</p><p>Up to 50 saved sessions per account. Avoid putting sensitive information in your notes.</p></details>
+      <details class="privacy-details"><summary>Privacy and your data</summary><p>Session titles, notes, quantities and positions are stored privately in Firebase under your account. Save is explicit. Export JSON for your own backup. This browser tab keeps a temporary recovery copy until you sign out or close the tab. No analytics or advertising trackers are included.</p><p>Up to 50 saved sessions per account. Avoid putting sensitive information in your notes.</p><p>Deleting removes your saved sessions and sign-in. A minimal deletion marker without your email or job content is retained to prevent an old tab from restoring deleted work.</p></details>
       <details class="danger-zone"><summary>Delete my account and saved sessions</summary><p>This permanently removes your cloud sessions and account. Export any work you need first. Enter your current password to confirm ownership.</p><label for="delete-password">Current password</label><input id="delete-password" type="password" autocomplete="current-password" maxlength="128" /><button id="delete-account" class="button button-danger button-full">Delete account and saved sessions</button></details>
     </dialog>
   </body>

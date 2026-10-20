@@ -2551,3 +2551,84 @@ h1 span {
 #account-label { max-width: 170px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 @media (max-width: 600px) { .site-header { height: auto; min-height: 80px; flex-wrap: wrap; padding: 18px 0; gap: 12px; } .account-actions { margin-left: auto; gap: 7px; flex-wrap: wrap; justify-content: flex-end; } #account-label { max-width: 110px; font-size: 10px; } .intro-note .intro-link { display: none; } .modal { max-height: 90dvh; overflow-y: auto; } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Manual jobs keep the same calm workbench language, with written references first. */
+.plan-job-cta {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  min-height: 42px;
+  font-size: 12px;
+  padding: 11px 16px;
+}
+.intro-note .intro-link { display: block; }
+#plan-job-setup { margin-top: 8px; }
+.manual-part-form { display: grid; gap: 12px; }
+.manual-part-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink, #19313b);
+  font-size: 12px;
+  font-weight: 600;
+}
+.manual-part-form label > span { font-size: 10px; font-weight: 400; color: #6c797b; }
+.manual-part-form input, #new-kind {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  border: 1px solid #d5ddd8;
+  border-radius: 8px;
+  background: #fffefa;
+  color: #19313b;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 10px 11px;
+}
+.manual-part-form input:focus, #new-kind:focus {
+  outline: 2px solid #2a8c89;
+  outline-offset: 2px;
+}
+.manual-part-form input::placeholder { color: #80908f; font-size: 11px; }
+.manual-help { color: #617473; font-size: 11px; line-height: 1.6; margin: 0 0 1px; }
+.manual-detail-fields { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 10px; align-items: start; }
+.manual-detail-fields label > span { display: inline; margin-top: -3px; margin-bottom: -2px; }
+.manual-detail-fields label:has(span) { gap: 4px; }
+.manual-job #begin-return { margin-top: 9px; }
+.manual-job .step-index { white-space: nowrap; font-size: 10px; }
+#return-parts { max-height: 290px; overflow-y: auto; overscroll-behavior: contain; padding: 3px; margin-left: -3px; margin-right: -3px; }
+.manual-job #return-parts { grid-template-columns: 1fr; max-height: 230px; }
+.manual-job .part-option { min-height: 64px; height: auto; }
+.manual-job .part-text { min-width: 0; }
+.manual-job .part-text strong, .manual-job .part-text > span { white-space: normal; overflow-wrap: anywhere; }
+.manual-job .part-text > span { line-height: 1.45; font-size: 10px; }
+.manual-job .next-part-card h4 { overflow-wrap: anywhere; }
+.manual-job .route-label { flex-wrap: wrap; row-gap: 6px; line-height: 1.5; }
+.manual-job #next-tray, .manual-job #next-origin { overflow-wrap: anywhere; max-width: 100%; }
+.manual-job .coordinates { white-space: pre-line; overflow-wrap: anywhere; font-family: inherit; line-height: 1.6; }
+.manual-job .sequence-name, .manual-job .sequence-detail { overflow-wrap: anywhere; }
+#new-kind { margin-bottom: 5px; }
+#new-mode-help { margin-bottom: 16px; }
+@media (max-width: 650px) {
+  .plan-job-cta { min-height: 42px; font-size: 12px; }
+  .manual-part-form { gap: 13px; }
+  .manual-part-form label { font-size: 13px; }
+  .manual-part-form input { font-size: 16px; min-height: 44px; }
+  .manual-help { font-size: 12px; }
+  .manual-job #return-parts { max-height: 280px; }
+  .manual-job .part-text strong { font-size: 13px; }
+  .manual-job .part-text > span { font-size: 11px; }
+  .manual-job .scene-caption { max-width: calc(100% - 26px); flex-wrap: wrap; gap: 5px; line-height: 1.6; }
+}
+.manual-job .part-option.next-return { border-color: #b58742; box-shadow: inset 3px 0 #d5a24d; }
+.manual-job .part-option.next-return.selected { border-color: #2c9690; box-shadow: inset 3px 0 #2c9690; }
+.intro-note { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; row-gap: 9px; flex-shrink: 0; }
+.intro-note .note-number { grid-column: 1; grid-row: 1 / 4; align-self: start; padding-top: 2px; }
+.intro-note p, .intro-note .plan-job-cta, .intro-note .intro-link { grid-column: 2; }
+.intro-note .plan-job-cta { margin: 0; white-space: nowrap; }
+.intro-note .intro-link { margin-top: 0; }
+@media (max-width: 850px) {
+  .intro { flex-wrap: wrap; align-items: flex-start; gap: 18px; }
+  .intro-note { display: flex; width: 100%; border-left: 0; padding: 0; gap: 14px; flex-wrap: wrap; }
+  .intro-note .note-number, .intro-note p { display: none; }
+  .intro-note .intro-link { display: inline-flex; align-items: center; min-height: 42px; }
+}
