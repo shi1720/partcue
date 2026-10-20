@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101d28" />
+    <meta
+      name="description"
+      content="PartCue remembers the way back. Rehearse a manual teardown and return each part in reverse order, with saved origins and tray positions."
+    />
+    <title>PartCue — Remember the way back.</title>
+    <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.bundle.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workbench</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="PartCue home"
+        ><img src="/mark.svg" width="36" height="36" alt="" /><span
+          >PartCue<span class="brand-dot">.</span></span
+        ></a
+      >
+      <div class="header-tag">
+        <span class="signal-dot"></span> A memory for your workbench
+      </div>
+      <div class="account-actions">
+        <span id="account-label">Guest rehearsal</span
+        ><button id="auth-open" class="button button-small button-outline">
+          Sign in</button
+        ><button id="logout" class="button button-small button-outline" hidden>
+          Sign out
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-heading">
+        <div>
+          <p class="eyebrow">HANDS ON. MIND AT EASE.</p>
+          <h1 id="page-heading">Remember the way <span>back.</span></h1>
+          <p class="intro-copy">
+            Mark where it came from. Park it in a tray. Find your way back, one
+            part at a time.
+          </p>
+        </div>
+        <div class="intro-note">
+          <span class="note-number">01—04</span>
+          <p>A small repair.<br />A little less to remember.</p>
+        </div>
+      </section>
+      <section
+        id="workspace"
+        class="workbench"
+        aria-label="PartCue browser rehearsal"
+        tabindex="-1"
+      >
+        <div class="bench-toolbar">
+          <div class="session-title">
+            <span class="session-symbol" aria-hidden="true">↗</span>
+            <div>
+              <p class="eyebrow">YOUR WORKBENCH</p>
+              <h2 id="session-title">Mechanical enclosure</h2>
+            </div>
+          </div>
+          <div class="toolbar-actions">
+            <span id="save-status" class="save-status">In memory only</span
+            ><button
+              id="save-session"
+              class="button button-small button-outline"
+            >
+              Save session</button
+            ><button
+              id="sessions-open"
+              class="icon-button"
+              aria-label="Open saved sessions"
+              title="Saved sessions"
+            >
+              ☷</button
+            ><button
+              id="new-session"
+              class="icon-button"
+              aria-label="New session"
+              title="New session"
+            >
+              ＋
+            </button>
+          </div>
+        </div>
+        <div class="bench-body">
+          <aside class="control-panel" aria-labelledby="guide-title">
+            <div class="phase-strip">
+              <span id="phase-badge" class="phase-badge"
+                >READY WHEN YOU ARE</span
+              ><span id="step-index" class="step-index">00 / 04</span>
+            </div>
+            <h3 id="guide-title" tabindex="-1">
+              Make room for<br />your next idea.
+            </h3>
+            <p id="guide-copy" class="guide-copy">
+              Try a battery-free mechanical enclosure. Every mark is made by
+              you. Every return follows your teardown in reverse.
+            </p>
+            <div id="setup-panel" class="setup-panel">
+              <div class="principle">
+                <span class="principle-number">1</span>
+                <p>
+                  <strong>Mark the origin</strong
+                  ><span>Choose a part on the enclosure.</span>
+                </p>
+              </div>
+              <div class="principle">
+                <span class="principle-number">2</span>
+                <p>
+                  <strong>Give it a home</strong
+                  ><span>Choose a free tray and record it.</span>
+                </p>
+              </div>
+              <div class="principle">
+                <span class="principle-number">3</span>
+                <p>
+                  <strong>Follow the way back</strong
+                  ><span>Return in reverse. Confirm each step.</span>
+                </p>
+              </div>
+              <button
+                id="start-session"
+                class="button button-primary button-full"
+              >
+                Start a teardown <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div id="record-panel" hidden>
+              <div class="field-heading">
+                <label>01 <span>Choose the removed part</span></label
+                ><span class="tiny-label">MANUAL</span>
+              </div>
+              <div
+                id="record-parts"
+                class="part-options"
+                role="group"
+                aria-label="Choose the removed part"
+              ></div>
+              <div class="field-heading">
+                <label>02 <span>Choose a free tray</span></label
+                ><span id="tray-selection" class="tiny-label"
+                  >NOT SELECTED</span
+                >
+              </div>
+              <div
+                id="tray-options"
+                class="tray-options"
+                role="group"
+                aria-label="Choose a free tray"
+              ></div>
+              <div class="record-fields">
+                <label
+                  >Pieces<input
+                    aria-describedby="guide-copy"
+                    id="record-count"
+                    type="number"
+                    inputmode="numeric"
+                    min="1"
+                    max="100"
+                    step="1"
+                    value="1" /></label
+                ><label class="note-field"
+                  >A note for later <span>(optional)</span
+                  ><input
+                    id="record-note"
+                    maxlength="240"
+                    placeholder="e.g. Flat edge faces outward"
+                /></label>
+              </div>
+              <button
+                id="record-part"
+                class="button button-primary button-full"
+                disabled
+              >
+                Record part <span aria-hidden="true">＋</span></button
+              ><button
+                id="begin-return"
+                class="button button-text button-full"
+                disabled
+              >
+                Ready to put it back? <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div id="return-panel" hidden>
+              <div class="next-part-card">
+                <p class="eyebrow">NEXT TO RETURN</p>
+                <h4 id="next-label">—</h4>
+                <p id="next-note" class="part-note"></p>
+                <div class="route-label">
+                  <span class="amber-dot"></span><span id="next-tray">Tray</span
+                  ><span aria-hidden="true">→</span
+                  ><span class="cyan-dot"></span><span>Saved origin</span>
+                </div>
+                <details class="location-details">
+                  <summary>Recorded locations</summary>
+                  <p id="next-coordinates" class="coordinates"></p>
+                </details>
+              </div>
+              <p class="selection-prompt">
+                Select the next part below or on the bench. A different part
+                stays blocked.
+              </p>
+              <div
+                id="return-parts"
+                class="part-options"
+                role="group"
+                aria-label="Choose the next part to return"
+              ></div>
+              <form id="confirm-form" class="confirmation" hidden>
+                <label for="confirm-count" id="confirm-count-label"
+                  >How many pieces did you return?</label
+                >
+                <div class="confirm-row">
+                  <input
+                    id="confirm-count"
+                    type="number"
+                    inputmode="numeric"
+                    min="1"
+                    max="100"
+                    step="1"
+                    required
+                    placeholder="Qty"
+                  /><button class="button button-primary" type="submit">
+                    Confirm return <span aria-hidden="true">✓</span>
+                  </button>
+                </div>
+                <p>
+                  Your confirmation records the return. PartCue does not
+                  verify placement.
+                </p>
+              </form>
+            </div>
+            <div id="paused-panel" class="pause-card" hidden>
+              <span class="pause-symbol" aria-hidden="true">Ⅱ</span>
+              <h4>Leave the pieces.<br />Keep your place.</h4>
+              <p id="pause-description">
+                Your sequence is preserved. Resume when you are ready.
+              </p>
+              <button
+                id="resume-session"
+                class="button button-primary button-full"
+              >
+                Resume session <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div id="complete-panel" class="complete-card" hidden>
+              <div class="complete-symbol" aria-hidden="true">✓</div>
+              <p class="eyebrow">A PLACE FOR EVERY PART</p>
+              <h4 id="completion-title" tabindex="-1">
+                All back<br />together.
+              </h4>
+              <p id="complete-description">
+                Every recorded part has been confirmed at its saved origin.
+              </p>
+              <button
+                id="complete-new"
+                class="button button-primary button-full"
+              >
+                Start something new <span aria-hidden="true">↗</span></button
+              ><button
+                id="complete-save"
+                class="button button-text button-full"
+              >
+                Save this session
+              </button>
+            </div>
+            <div class="panel-footer">
+              <div class="micro-legend">
+                <span class="cyan-dot"></span> Saved origin
+                <span class="amber-dot"></span> Tray position
+              </div>
+              <p>
+                Manual marks. Explicit confirmations.<br />Your judgment stays
+                in the loop.
+              </p>
+            </div>
+          </aside>
+          <div class="scene-column">
+            <div id="scene-shell" class="scene-shell">
+              <div class="scene-caption">
+                <span class="live-square"></span><span>Browser rehearsal</span
+                ><span class="scene-caption-divider">/</span
+                ><span>simulated bench</span
+                ><span class="scene-caption-divider">/</span
+                ><span>manual marking</span>
+              </div>
+              <canvas
+                id="bench-canvas"
+                aria-label="Interactive simulated workbench. Use the part and tray buttons to operate with a keyboard."
+                tabindex="0"
+              ></canvas>
+              <div id="scene-fallback" class="scene-fallback" hidden>
+                <strong>The workbench is available in 2D.</strong>
+                <p>
+                  3D rendering is unavailable on this device. All part, tray,
+                  and return controls below remain fully usable.
+                </p>
+              </div>
+              <div class="bench-locations">
+                <span><span class="cyan-dot"></span> ORIGIN / ENCLOSURE</span
+                ><span><span class="amber-dot"></span> TRAYS / A — D</span>
+              </div>
+              <div class="scene-bottom">
+                <p id="scene-hint">
+                  <span aria-hidden="true">◎</span> Drag to orbit · Scroll to
+                  zoom · Select a part to begin
+                </p>
+                <button
+                  id="reset-view"
+                  class="scene-button"
+                  title="Reset camera view"
+                >
+                  Reset view <span aria-hidden="true">↺</span>
+                </button>
+              </div>
+              <div class="view-watermark" aria-hidden="true">
+                PC / WORKSPACE 001
+              </div>
+            </div>
+            <div class="sequence-panel">
+              <div class="sequence-heading">
+                <div>
+                  <p class="eyebrow">THE WAY BACK</p>
+                  <h3 id="sequence-title">
+                    Your teardown becomes your return path.
+                  </h3>
+                </div>
+                <span id="sequence-count">0 parts recorded</span>
+              </div>
+              <div id="empty-sequence" class="empty-sequence">
+                <span aria-hidden="true">↶</span>
+                <p>
+                  Once you record a part, its place in the sequence appears
+                  here.
+                </p>
+              </div>
+              <ol id="sequence-list" class="sequence-list"></ol>
+              <div class="progress-row">
+                <progress
+                  id="session-progress"
+                  value="0"
+                  max="1"
+                  aria-label="Return progress"
+                ></progress
+                ><span id="progress-label">Ready to start</span>
+              </div>
+            </div>
+            <div class="utility-row">
+              <div class="utility-actions">
+                <button id="pause-session" class="button button-text" disabled>
+                  Ⅱ Pause</button
+                ><button id="undo-action" class="button button-text" disabled>
+                  ↶ Undo last mark</button
+                ><button id="reset-session" class="button button-text" disabled>
+                  Reset bench
+                </button>
+              </div>
+              <div class="utility-actions">
+                <button id="export-session" class="button button-text">
+                  Export JSON ↗</button
+                ><button id="import-session" class="button button-text">
+                  Import</button
+                ><input
+                  id="import-file"
+                  type="file"
+                  accept=".json,application/json"
+                  hidden
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          id="notification"
+          class="notification"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <span id="notification-text"></span
+          ><button id="dismiss-notification" aria-label="Dismiss message">
+            ×
+          </button>
+        </div>
+      </section>
+      <section class="below-bench">
+        <p>
+          <span class="foot-marker" aria-hidden="true">↳</span> Built for the
+          moment you forget where that one screw came from.
+        </p>
+        <p>
+          This is the browser companion rehearsal. The separate SPECS Lens runs
+          in Lens Studio preview. Saved rehearsals do not sync to the Lens.<br /><span id="persistence-note"
+            >Guest work lives in this tab. Export it before closing, or sign in
+            to save.</span
+          >
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>PARTCUE / A MEMORY FOR YOUR WORKBENCH</span
+      ><span>Designed & built by Shivam Gupta · Learn AR with SPECS</span>
+    </footer>
+    <dialog
+      id="auth-dialog"
+      class="modal auth-modal"
+      aria-labelledby="auth-title"
+      aria-describedby="auth-description"
+    >
+      <div class="modal-top">
+        <span class="eyebrow">KEEP YOUR PLACE</span
+        ><button
+          class="close-modal icon-button"
+          type="button"
+          aria-label="Close sign-in dialog"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="auth-title">Back to your bench.</h2>
+      <p id="auth-description">
+        Sign in to save sessions on this companion server.
+      </p>
+      <form id="auth-form">
+        <div id="name-field" hidden>
+          <label for="auth-name">Your name</label
+          ><input
+            id="auth-name"
+            name="name"
+            autocomplete="name"
+            maxlength="80"
+            placeholder="Shivam Gupta"
+          />
+        </div>
+        <label for="auth-email">Email</label
+        ><input
+          id="auth-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          maxlength="254"
+          placeholder="you@example.com"
+        /><label for="auth-password">Password</label
+        ><input
+          id="auth-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          minlength="12"
+          maxlength="128"
+          placeholder="At least 12 characters"
+        />
+        <p class="field-help">
+          Use 12–128 characters. Choose a password unique to this app.
+        </p>
+        <p id="auth-error" class="form-error" role="alert" hidden></p>
+        <button
+          id="auth-submit"
+          class="button button-primary button-full"
+          type="submit"
+        >
+          Sign in <span aria-hidden="true">↗</span>
+        </button>
+      </form>
+      <button id="auth-switch" class="button button-text button-full">
+        New here? Create an account
+      </button>
+      <p class="modal-footnote">
+        This account belongs to this server. No cloud sync, email verification,
+        or password recovery is configured.
+      </p>
+    </dialog>
+    <dialog
+      id="sessions-dialog"
+      class="modal sessions-modal"
+      aria-labelledby="sessions-title"
+      aria-describedby="sessions-description"
+    >
+      <div class="modal-top">
+        <span class="eyebrow">YOUR SAVED WORK</span
+        ><button
+          class="close-modal icon-button"
+          type="button"
+          aria-label="Close saved sessions"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="sessions-title">A place to return to.</h2>
+      <p id="sessions-description">
+        Load a saved session, or export your current work before switching.
+      </p>
+      <p id="sessions-status" class="field-help" role="status"></p>
+      <div id="saved-sessions" class="saved-sessions"></div>
+    </dialog>
+    <dialog
+      id="new-dialog"
+      class="modal"
+      aria-labelledby="new-dialog-title"
+      aria-describedby="new-warning"
+    >
+      <div class="modal-top">
+        <span class="eyebrow">A FRESH BENCH</span
+        ><button
+          class="close-modal icon-button"
+          type="button"
+          aria-label="Close new session dialog"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="new-dialog-title">What are you<br />working on?</h2>
+      <form id="new-form">
+        <label for="new-title">Session title</label
+        ><input
+          id="new-title"
+          required
+          maxlength="80"
+          value="Mechanical enclosure"
+          placeholder="Mechanical enclosure"
+        />
+        <p id="new-warning" class="field-help">
+          Export or save your current work before starting a new session.
+        </p>
+        <button class="button button-primary button-full" type="submit">
+          Create session <span aria-hidden="true">＋</span>
+        </button>
+      </form>
+    </dialog>
+    <dialog
+      id="confirm-dialog"
+      class="modal confirm-modal"
+      aria-labelledby="confirm-title"
+      aria-describedby="confirm-description"
+    >
+      <div class="modal-top">
+        <span class="eyebrow">ONE MOMENT</span
+        ><button
+          class="close-modal icon-button"
+          type="button"
+          aria-label="Cancel action"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="confirm-title">Continue?</h2>
+      <p id="confirm-description"></p>
+      <div class="dialog-actions">
+        <button id="confirm-cancel" class="button button-outline" type="button">
+          Cancel</button
+        ><button
+          id="confirm-accept"
+          class="button button-primary"
+          type="button"
+        >
+          Continue
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>

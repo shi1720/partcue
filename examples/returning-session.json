@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "units": "cm",
+  "id": "bench-18eb129b-1480-4e6e-afd0-f401db94d0ed",
+  "title": "Mechanical enclosure",
+  "phase": "returning",
+  "resumePhase": null,
+  "parts": [
+    {
+      "id": "screw-short",
+      "label": "Short screw",
+      "originCm": {
+        "x": -30,
+        "y": 5.4,
+        "z": -8
+      },
+      "trayCm": {
+        "x": 16,
+        "y": 1.8,
+        "z": -13
+      },
+      "count": 1,
+      "removedAt": 1792488840080
+    },
+    {
+      "id": "screw-long",
+      "label": "Long screw",
+      "originCm": {
+        "x": -14,
+        "y": 5.4,
+        "z": 8
+      },
+      "trayCm": {
+        "x": 40,
+        "y": 1.8,
+        "z": -13
+      },
+      "count": 1,
+      "removedAt": 1792488963513
+    },
+    {
+      "id": "lid",
+      "label": "Top cover",
+      "originCm": {
+        "x": -22,
+        "y": 5.3,
+        "z": 0
+      },
+      "trayCm": {
+        "x": 16,
+        "y": 1.8,
+        "z": 13
+      },
+      "count": 1,
+      "removedAt": 1792488964313
+    },
+    {
+      "id": "module",
+      "label": "Gear module",
+      "originCm": {
+        "x": -22,
+        "y": 2.3,
+        "z": 0
+      },
+      "trayCm": {
+        "x": 40,
+        "y": 1.8,
+        "z": 13
+      },
+      "count": 1,
+      "removedAt": 1792488965104
+    }
+  ],
+  "returnedCount": 2,
+  "pendingReturnId": null,
+  "createdAt": 1792488816521,
+  "updatedAt": 1792489085673,
+  "eventSeq": 22,
+  "events": [
+    {
+      "seq": 1,
+      "at": 1792488816521,
+      "type": "created"
+    },
+    {
+      "seq": 2,
+      "at": 1792488832672,
+      "type": "started"
+    },
+    {
+      "seq": 3,
+      "at": 1792488840080,
+      "type": "part-recorded",
+      "partId": "screw-short"
+    },
+    {
+      "seq": 4,
+      "at": 1792488963513,
+      "type": "part-recorded",
+      "partId": "screw-long"
+    },
+    {
+      "seq": 5,
+      "at": 1792488964313,
+      "type": "part-recorded",
+      "partId": "lid"
+    },
+    {
+      "seq": 6,
+      "at": 1792488965104,
+      "type": "part-recorded",
+      "partId": "module"
+    },
+    {
+      "seq": 7,
+      "at": 1792488965371,
+      "type": "return-started"
+    },
+    {
+      "seq": 8,
+      "at": 1792488996178,
+      "type": "return-selected",
+      "partId": "module"
+    },
+    {
+      "seq": 9,
+      "at": 1792489003016,
+      "type": "part-returned",
+      "partId": "module"
+    },
+    {
+      "seq": 10,
+      "at": 1792489003283,
+      "type": "paused"
+    },
+    {
+      "seq": 11,
+      "at": 1792489016150,
+      "type": "resumed"
+    },
+    {
+      "seq": 12,
+      "at": 1792489016408,
+      "type": "return-undone",
+      "partId": "module"
+    },
+    {
+      "seq": 13,
+      "at": 1792489016683,
+      "type": "return-selected",
+      "partId": "module"
+    },
+    {
+      "seq": 14,
+      "at": 1792489016959,
+      "type": "part-returned",
+      "partId": "module"
+    },
+    {
+      "seq": 15,
+      "at": 1792489017225,
+      "type": "return-selected",
+      "partId": "lid"
+    },
+    {
+      "seq": 16,
+      "at": 1792489017501,
+      "type": "part-returned",
+      "partId": "lid"
+    },
+    {
+      "seq": 17,
+      "at": 1792489017768,
+      "type": "return-selected",
+      "partId": "screw-long"
+    },
+    {
+      "seq": 18,
+      "at": 1792489018042,
+      "type": "part-returned",
+      "partId": "screw-long"
+    },
+    {
+      "seq": 19,
+      "at": 1792489018312,
+      "type": "return-selected",
+      "partId": "screw-short"
+    },
+    {
+      "seq": 20,
+      "at": 1792489018583,
+      "type": "part-returned",
+      "partId": "screw-short"
+    },
+    {
+      "seq": 21,
+      "at": 1792489058407,
+      "type": "return-undone",
+      "partId": "screw-short"
+    },
+    {
+      "seq": 22,
+      "at": 1792489085673,
+      "type": "return-undone",
+      "partId": "screw-long"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+You fixed the fault. Now two nearly identical screws are left on the bench. Which one goes where?
+
+I'm Shivam Gupta, and this is PartCue: every part has a way home.
+
+PartCue is a spatial memory of your own teardown. It is designed for repair benches where your hands are busy and your eyes should stay on the work.
+
+This demonstration runs in Lens Studio's preview. The enclosure and tray are simulated, and every part is marked manually. PartCue is not recognizing parts through a camera.
+
+First, I place the workspace. Then I select a part, choose an empty tray well, and record its removal. I do the same for the other parts. Each record connects a saved origin to a tray location, in the order I removed it.
+
+Now I choose Return parts. The last removal becomes the first return. The amber tray cue tells me where to pick up the part. The cyan origin cue shows where I marked it came from. The path connects them directly in the workspace.
+
+Watch what happens when I choose the wrong part. PartCue tells me which one is next, and progress stays unchanged. I select the expected part, put it back, and confirm. That confirmation is mine; it is not an automatic inspection.
+
+If I need to step away, I pause. The cues disappear. Resume brings me back to the same next part. Undo restores the previous return when I need to correct myself.
+
+At the end, every recorded part is accounted for and the active cues disappear. That means the recorded returns are confirmed, not that the device has passed a safety or function test.
+
+I built PartCue with AI assistance around one question: can spatial memory make reassembly easier than reconstructing notes and photos? The next step is testing recording overhead with repair technicians. Twenty dollars per bench per month is a pricing hypothesis, not validated demand.
+
+PartCue does not guess the repair. It helps you find your own way back.

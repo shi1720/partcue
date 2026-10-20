@@ -1,0 +1,16 @@
+PartCue — Every part has a way home.
+
+A SPECS Lens by Shivam Gupta, built with AI assistance for Learn AR with SPECS.
+
+After an interruption, two similar screws can turn a repair into a memory test. PartCue records a manually chosen origin and tray well for each removal, then pairs an amber pickup cue with a cyan origin cue as you return parts in reverse order.
+
+This video shows the actual CLAD-built Lens running in Lens Studio 5.24.1 preview. The bench and enclosure are simulated. Inputs are replayed through actual SIK/UIKit interactables using a LEAF demo scenario. Marks and return confirmations are explicit; there is no camera recognition or automatic placement inspection. This is preview footage, not a recording from glasses.
+
+Source, Lens Studio project, Devpost planning documents and reproducible validation:
+https://github.com/shi1720/partcue
+
+Validation: 32 software checks and six LEAF preview scenarios, including IK tray selection and confirmation with scripted fallback disabled. Hardware tracking, comfort and real repair outcomes remain untested. A separate local companion supports accounts and saved rehearsals; it does not sync to the Lens.
+
+Commercial hypothesis: independent repair and training benches; $20 per bench per month is a proposed pricing test, not validated demand. The next pilot compares total task time, including marking, against mats, photos and a plain reverse checklist.
+
+Created by Shivam Gupta with AI coding assistance. Product geometry and sound cues are original for this project; Snap packages retain their applicable notices.

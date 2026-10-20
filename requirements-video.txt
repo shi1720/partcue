@@ -1,0 +1,2 @@
+# Optional demo compositor dependency; ffmpeg/ffprobe are external tools.
+Pillow==10.4.0

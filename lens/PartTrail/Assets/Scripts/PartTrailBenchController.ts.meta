@@ -1,0 +1,74 @@
+- !<AssetImportMetadata/3249f226-241b-42b4-b189-b25edb3a3a4a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d367f85e-5733-4eef-b069-44a46ef3aee2
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d367f85e-5733-4eef-b069-44a46ef3aee2
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 03fdb230-08c1-415a-b6d1-64342de6f177
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/03fdb230-08c1-415a-b6d1-64342de6f177>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: da4611e3-c98e-4dfb-995e-5a259f0308f2
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cueSpeed: false
+    cues: false
+    enclosure: false
+    lid: false
+    longScrew: false
+    material: false
+    module: false
+    moveSeconds: false
+    shortScrew: false
+    tray: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      enclosure: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      tray: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      shortScrew: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      longScrew: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      lid: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      module: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      cues: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      moveSeconds: 0.380000
+      cueSpeed: 0.350000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"PartCue — original simulated mechanical bench"}'
+    - '// @input Asset.Material material {"hint":"Local vertex-color material from mesh-builder-scripting package"}'
+    - '// @input SceneObject enclosure {"hint":"Authored enclosure shell root"}'
+    - '// @input SceneObject tray {"hint":"Authored four-well tray root"}'
+    - '// @input SceneObject shortScrew {"hint":"Independent short screw root"}'
+    - '// @input SceneObject longScrew {"hint":"Independent long screw root"}'
+    - '// @input SceneObject lid {"hint":"Independent service lid root"}'
+    - '// @input SceneObject module {"hint":"Independent inner module root"}'
+    - '// @input SceneObject cues {"hint":"Authored active cue root"}'
+    - '// @input float moveSeconds = 0.38 {"hint":"Part movement duration in seconds", "widget":"slider", "min":0.15, "max":1, "step":0.05}'
+    - '// @input float cueSpeed = 0.35 {"hint":"Travel rate of the directional markers", "widget":"slider", "min":0.1, "max":1, "step":0.05}'

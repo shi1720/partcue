@@ -1,0 +1,24 @@
+{
+  "name": "partcue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An explicit, local-first teardown and reverse-return memory for glasses.",
+  "type": "module",
+  "scripts": {
+    "build:core": "tsc -p tsconfig.json",
+    "build:web": "node tools/build-web.mjs",
+    "build": "npm run build:core && npm run build:web",
+    "start": "node server/index.mjs",
+    "test": "npm run build:core && node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.16.0 <23"
+  }
+}

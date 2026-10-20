@@ -1,0 +1,114 @@
+{
+  "A": {
+    "observedAt": "2026-10-20T10:49:45.062Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":175,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395856\"},\"transform\":{\"localPosition\":{\"x\":-3.221282958984375,\"y\":11.133840560913086,\"z\":-2.170776128768921},\"worldPosition\":{\"x\":-3.221282958984375,\"y\":-28.866159439086914,\"z\":-102.1707763671875}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395849\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395852\"},\"transform\":{\"localPosition\":{\"x\":18.200000762939453,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":18.200000762939453,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"0 / 4 returned \u00b7 4 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672394083\",\"uniqueId\":\"3532141362204341837:2593987896672394148\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Inner module\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672393954\",\"uniqueId\":\"3532141362204341837:2593987896672394041\"}}]}}}"
+        }
+      ],
+      "isError": false
+    },
+    "captureRequestedAt": "20261020T104944Z",
+    "capture": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"height\":1590,\"maxDimension\":1600,\"message\":\"Screenshot saved to /Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/01-return-module-20261020T104944Z.png. Read the file to view the image.\",\"originalHeight\":1590,\"originalWidth\":1571,\"panelTitle\":\"Preview 2\",\"path\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/01-return-module-20261020T104944Z.png\",\"pluginId\":\"Snap.Plugin.Gui.PreviewPanel\",\"resized\":false,\"width\":1571}"
+        }
+      ],
+      "isError": false
+    },
+    "pose": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"cameraPose\":{\"position\":{\"x\":0,\"y\":0,\"z\":0},\"rotation\":{\"x\":341.74,\"y\":0,\"z\":0}},\"message\":\"Current camera pose\"}"
+        }
+      ],
+      "isError": false
+    },
+    "path": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/01-return-module-20261020T104944Z.png",
+    "archivedPath": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-before-seam-polish/01-return-module-20261020T104944Z.png"
+  },
+  "B": {
+    "observedAt": "2026-10-20T10:49:58.596Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":177,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395856\"},\"transform\":{\"localPosition\":{\"x\":5.142454624176025,\"y\":11.115007400512695,\"z\":-3.0021114349365234},\"worldPosition\":{\"x\":5.142454624176025,\"y\":-28.884992599487305,\"z\":-103.00211334228516}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395849\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395852\"},\"transform\":{\"localPosition\":{\"x\":18.200000762939453,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":18.200000762939453,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"0 / 4 returned \u00b7 4 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672394083\",\"uniqueId\":\"3532141362204341837:2593987896672394148\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Inner module\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672393954\",\"uniqueId\":\"3532141362204341837:2593987896672394041\"}}]}}}"
+        }
+      ],
+      "isError": false
+    },
+    "captureRequestedAt": "20261020T104957Z",
+    "capture": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"height\":1590,\"maxDimension\":1600,\"message\":\"Screenshot saved to /Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/02-return-module-moved-20261020T104957Z.png. Read the file to view the image.\",\"originalHeight\":1590,\"originalWidth\":1571,\"panelTitle\":\"Preview 2\",\"path\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/02-return-module-moved-20261020T104957Z.png\",\"pluginId\":\"Snap.Plugin.Gui.PreviewPanel\",\"resized\":false,\"width\":1571}"
+        }
+      ],
+      "isError": false
+    },
+    "move": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"cameraPose\":{\"position\":{\"x\":14,\"y\":-6,\"z\":6},\"rotation\":{\"x\":341.74,\"y\":0,\"z\":0}},\"message\":\"Position set to (14, -6, 6)\"}"
+        }
+      ],
+      "isError": false
+    },
+    "look": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"cameraPose\":{\"position\":{\"x\":14,\"y\":-6,\"z\":6},\"rotation\":{\"x\":345.83,\"y\":7.52,\"z\":360}},\"message\":\"Looking at (0, -33, -100)\"}"
+        }
+      ],
+      "isError": false
+    },
+    "path": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/02-return-module-moved-20261020T104957Z.png",
+    "archivedPath": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-before-seam-polish/02-return-module-moved-20261020T104957Z.png"
+  },
+  "C": {
+    "observedAt": "2026-10-20T10:51:16.987Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":172,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395856\"},\"transform\":{\"localPosition\":{\"x\":-10.187729835510254,\"y\":9.668672561645508,\"z\":-1.6403424739837646},\"worldPosition\":{\"x\":-10.187729835510254,\"y\":-30.331327438354492,\"z\":-101.64034271240234}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395849\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395852\"},\"transform\":{\"localPosition\":{\"x\":9.800000190734863,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":9.800000190734863,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"1 / 4 returned \u00b7 3 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672394083\",\"uniqueId\":\"3532141362204341837:2593987896672394148\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Lid\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672393954\",\"uniqueId\":\"3532141362204341837:2593987896672394041\"}}]}}}"
+        }
+      ],
+      "isError": false
+    },
+    "captureRequestedAt": "20261020T105116Z",
+    "capture": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"height\":1590,\"maxDimension\":1600,\"message\":\"Screenshot saved to /Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/03-next-lid-20261020T105116Z.png. Read the file to view the image.\",\"originalHeight\":1590,\"originalWidth\":1571,\"panelTitle\":\"Preview 2\",\"path\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/03-next-lid-20261020T105116Z.png\",\"pluginId\":\"Snap.Plugin.Gui.PreviewPanel\",\"resized\":false,\"width\":1571}"
+        }
+      ],
+      "isError": false
+    },
+    "path": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/03-next-lid-20261020T105116Z.png",
+    "archivedPath": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-before-seam-polish/03-next-lid-20261020T105116Z.png"
+  },
+  "cancel": {
+    "observedAt": "2026-10-20T10:51:26.411Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":179,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395856\"},\"transform\":{\"localPosition\":{\"x\":0.4074530601501465,\"y\":11.020243644714355,\"z\":-3.050185441970825},\"worldPosition\":{\"x\":0.4074530601501465,\"y\":-28.979755401611328,\"z\":-103.05018615722656}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395849\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672395852\"},\"transform\":{\"localPosition\":{\"x\":9.800000190734863,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":9.800000190734863,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"1 / 4 returned \u00b7 3 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672394083\",\"uniqueId\":\"3532141362204341837:2593987896672394148\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Lid\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672393954\",\"uniqueId\":\"3532141362204341837:2593987896672394041\"}}]}}}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  "note": "Actual continuous sequence after caption layout, before final floor seam inset. Superseded final captures will be separate."
+}

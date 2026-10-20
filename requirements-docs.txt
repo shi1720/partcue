@@ -1,0 +1,2 @@
+# PDF authoring dependency; Poppler is optional for visual QA.
+reportlab==4.4.9

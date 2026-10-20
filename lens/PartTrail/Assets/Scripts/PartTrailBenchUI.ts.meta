@@ -1,0 +1,68 @@
+- !<AssetImportMetadata/23b23fe5-52a5-4420-8d90-ff0d4bf429cf>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d69588ce-861c-43c3-9dc7-939d03ddc5ce
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d69588ce-861c-43c3-9dc7-939d03ddc5ce
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> a85dbe14-3854-4f6b-8614-9306daffc1f1
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/a85dbe14-3854-4f6b-8614-9306daffc1f1>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 2cb1f348-43c9-4284-8e24-f9ac100474d1
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    directionHint: false
+    originLabel: false
+    partPanel: false
+    pickupLabel: false
+    taskCard: false
+    textScale: false
+    toolbar: false
+    trayPanel: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - taskCard: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      partPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      trayPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      toolbar: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      originLabel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pickupLabel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      directionHint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      textScale: 1.150000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"PartCue — phase-focused UIKit view"}'
+    - '// @input SceneObject taskCard {"hint":"World attached task and permanent simulation label"}'
+    - '// @input SceneObject partPanel {"hint":"Recording-only part selection"}'
+    - '// @input SceneObject trayPanel {"hint":"Recording-only tray marking"}'
+    - '// @input SceneObject toolbar {"hint":"One primary action with small contextual controls"}'
+    - '// @input SceneObject originLabel {"hint":"Cyan origin label"}'
+    - '// @input SceneObject pickupLabel {"hint":"Amber pickup label"}'
+    - '// @input SceneObject directionHint {"hint":"Conditional out-of-view hint"}'
+    - '// @input float textScale = 1.15 {"hint":"Specs role typography scale", "widget":"slider", "min":0.8, "max":1.5, "step":0.05}'

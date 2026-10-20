@@ -1,0 +1,72 @@
+{
+  "observedAt": "2026-10-20T10:57:25.253Z",
+  "source": "official QueryRuntimeSceneTool, Preview 2, post-floor-inset",
+  "enclosure": {
+    "matches": [
+      {
+        "bounds": {
+          "center": {
+            "x": -12,
+            "y": -37,
+            "z": -100
+          },
+          "max": {
+            "x": -1,
+            "y": -34,
+            "z": -92
+          },
+          "min": {
+            "x": -23,
+            "y": -40,
+            "z": -108
+          }
+        },
+        "summary": {
+          "childCount": 0,
+          "componentTypes": [
+            "RenderMeshVisual"
+          ],
+          "enabled": true,
+          "name": "EnclosureShellMesh",
+          "parentName": "MechanicalEnclosure",
+          "parentUniqueId": "-1595888952358976800:-5838825817897852544",
+          "uniqueId": "3532141362204341837:2593987896672892354"
+        }
+      }
+    ]
+  },
+  "tray": {
+    "matches": [
+      {
+        "bounds": {
+          "center": {
+            "x": 14,
+            "y": -39.45000076293945,
+            "z": -100
+          },
+          "max": {
+            "x": 23,
+            "y": -38.5,
+            "z": -91
+          },
+          "min": {
+            "x": 5,
+            "y": -40.400001525878906,
+            "z": -109
+          }
+        },
+        "summary": {
+          "childCount": 0,
+          "componentTypes": [
+            "RenderMeshVisual"
+          ],
+          "enabled": true,
+          "name": "FourWellTrayMesh",
+          "parentName": "FourWellTray",
+          "parentUniqueId": "5835762687353372729:-5098999993906862252",
+          "uniqueId": "3532141362204341837:2593987896672892357"
+        }
+      }
+    ]
+  }
+}

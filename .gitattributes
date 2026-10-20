@@ -1,0 +1,9 @@
+*.pdf binary
+*.png binary
+*.wav binary
+*.mp4 binary
+*.lspkg binary
+*.lsc binary
+*.hdr binary
+# Vendor shader-graph serialization retains its original whitespace.
+*.graphShader -whitespace

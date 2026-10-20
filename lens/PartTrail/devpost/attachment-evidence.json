@@ -1,0 +1,134 @@
+{
+  "stage": "Final product, after caption and floor seam polish",
+  "observedSequence": "A -> camera sideways/downward -> B -> real tray PickupPart3 + PrimaryAction -> C -> SessionMenu + RestartSession + CancelRestart",
+  "A": {
+    "observedAt": "2026-10-20T10:54:32.004Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":177,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892459\"},\"transform\":{\"localPosition\":{\"x\":-2.798130512237549,\"y\":11.20567512512207,\"z\":-2.212836265563965},\"worldPosition\":{\"x\":-2.798130512237549,\"y\":-28.79432487487793,\"z\":-102.21283721923828}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892452\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892455\"},\"transform\":{\"localPosition\":{\"x\":18.200000762939453,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":18.200000762939453,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"0 / 4 returned · 4 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890686\",\"uniqueId\":\"3532141362204341837:2593987896672890751\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Inner module\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890557\",\"uniqueId\":\"3532141362204341837:2593987896672890644\"}}]}}}"
+        }
+      ],
+      "isError": false
+    },
+    "captureRequestedAt": "20261020T105432Z",
+    "capture": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"height\":1590,\"maxDimension\":1600,\"message\":\"Screenshot saved to /Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/01-return-module-20261020T105432Z.png. Read the file to view the image.\",\"originalHeight\":1590,\"originalWidth\":1571,\"panelTitle\":\"Preview 2\",\"path\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/01-return-module-20261020T105432Z.png\",\"pluginId\":\"Snap.Plugin.Gui.PreviewPanel\",\"resized\":false,\"width\":1571}"
+        }
+      ],
+      "isError": false
+    },
+    "pose": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"cameraPose\":{\"position\":{\"x\":0,\"y\":0,\"z\":0},\"rotation\":{\"x\":341.74,\"y\":0,\"z\":0}},\"message\":\"Current camera pose\"}"
+        }
+      ],
+      "isError": false
+    },
+    "path": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/01-return-module-20261020T105432Z.png"
+  },
+  "B": {
+    "observedAt": "2026-10-20T10:54:41.436Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":182,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892459\"},\"transform\":{\"localPosition\":{\"x\":-12.858009338378906,\"y\":7.942000389099121,\"z\":-1.2129087448120117},\"worldPosition\":{\"x\":-12.858009338378906,\"y\":-32.05799865722656,\"z\":-101.21290588378906}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892452\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892455\"},\"transform\":{\"localPosition\":{\"x\":18.200000762939453,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":18.200000762939453,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"0 / 4 returned · 4 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890686\",\"uniqueId\":\"3532141362204341837:2593987896672890751\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Inner module\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890557\",\"uniqueId\":\"3532141362204341837:2593987896672890644\"}}]}}}"
+        }
+      ],
+      "isError": false
+    },
+    "captureRequestedAt": "20261020T105441Z",
+    "capture": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"height\":1590,\"maxDimension\":1600,\"message\":\"Screenshot saved to /Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/02-return-module-moved-20261020T105441Z.png. Read the file to view the image.\",\"originalHeight\":1590,\"originalWidth\":1571,\"panelTitle\":\"Preview 2\",\"path\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/02-return-module-moved-20261020T105441Z.png\",\"pluginId\":\"Snap.Plugin.Gui.PreviewPanel\",\"resized\":false,\"width\":1571}"
+        }
+      ],
+      "isError": false
+    },
+    "move": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"cameraPose\":{\"position\":{\"x\":14,\"y\":-6,\"z\":6},\"rotation\":{\"x\":341.74,\"y\":0,\"z\":0}},\"message\":\"Position set to (14, -6, 6)\"}"
+        }
+      ],
+      "isError": false
+    },
+    "look": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"cameraPose\":{\"position\":{\"x\":14,\"y\":-6,\"z\":6},\"rotation\":{\"x\":345.83,\"y\":7.52,\"z\":360}},\"message\":\"Looking at (0, -33, -100)\"}"
+        }
+      ],
+      "isError": false
+    },
+    "path": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/02-return-module-moved-20261020T105441Z.png"
+  },
+  "C": {
+    "observedAt": "2026-10-20T10:54:59.561Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":180,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892459\"},\"transform\":{\"localPosition\":{\"x\":2.8937010765075684,\"y\":10.1157808303833,\"z\":-3.381016731262207},\"worldPosition\":{\"x\":2.8937010765075684,\"y\":-29.884220123291016,\"z\":-103.38101959228516}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892452\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892455\"},\"transform\":{\"localPosition\":{\"x\":9.800000190734863,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":9.800000190734863,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"1 / 4 returned · 3 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890686\",\"uniqueId\":\"3532141362204341837:2593987896672890751\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Lid\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890557\",\"uniqueId\":\"3532141362204341837:2593987896672890644\"}}]}}}"
+        }
+      ],
+      "isError": false
+    },
+    "captureRequestedAt": "20261020T105459Z",
+    "capture": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"height\":1590,\"maxDimension\":1600,\"message\":\"Screenshot saved to /Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/03-next-lid-20261020T105459Z.png. Read the file to view the image.\",\"originalHeight\":1590,\"originalWidth\":1571,\"panelTitle\":\"Preview 2\",\"path\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/03-next-lid-20261020T105459Z.png\",\"pluginId\":\"Snap.Plugin.Gui.PreviewPanel\",\"resized\":false,\"width\":1571}"
+        }
+      ],
+      "isError": false
+    },
+    "path": "/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/devpost/captures/partcue-final/03-next-lid-20261020T105459Z.png"
+  },
+  "cancel": {
+    "observedAt": "2026-10-20T10:55:10.014Z",
+    "query": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"_metadata\":{\"executionTimeMs\":175,\"previewName\":\"Preview 2\"},\"data\":{\"marker\":{\"matches\":[{\"summary\":{\"childCount\":1,\"componentTypes\":[],\"enabled\":true,\"name\":\"ReturnDirectionMarker0\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892459\"},\"transform\":{\"localPosition\":{\"x\":-11.781438827514648,\"y\":8.852797508239746,\"z\":-1.4282763004302979},\"worldPosition\":{\"x\":-11.781438827514648,\"y\":-31.147201538085938,\"z\":-101.42827606201172}}}]},\"origin\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892452\"},\"transform\":{\"localPosition\":{\"x\":-15,\"y\":7,\"z\":-1},\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}}]},\"pickup\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896672892455\"},\"transform\":{\"localPosition\":{\"x\":9.800000190734863,\"y\":6,\"z\":-4.300000190734863},\"worldPosition\":{\"x\":9.800000190734863,\"y\":-34,\"z\":-104.30000305175781}}}]},\"progress\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"1 / 4 returned · 3 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890686\",\"uniqueId\":\"3532141362204341837:2593987896672890751\"}}]},\"root\":{\"matches\":[{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100},\"worldRotation\":{\"w\":1,\"x\":0,\"y\":0,\"z\":0}}}]},\"task\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Lid\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896672890557\",\"uniqueId\":\"3532141362204341837:2593987896672890644\"}}]}}}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  "bounds": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"_metadata\":{\"executionTimeMs\":98,\"previewName\":\"Preview 2\"},\"data\":{\"enclosure\":{\"matches\":[{\"bounds\":{\"center\":{\"x\":-12,\"y\":-37,\"z\":-100},\"max\":{\"x\":-1,\"y\":-34,\"z\":-92},\"min\":{\"x\":-23,\"y\":-40,\"z\":-108}},\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"EnclosureShellMesh\",\"parentName\":\"MechanicalEnclosure\",\"parentUniqueId\":\"-1595888952358976800:-5838825817897852544\",\"uniqueId\":\"3532141362204341837:2593987896672892354\"}}]},\"tray\":{\"matches\":[{\"bounds\":{\"center\":{\"x\":14,\"y\":-39.45000076293945,\"z\":-100},\"max\":{\"x\":23,\"y\":-38.5,\"z\":-91},\"min\":{\"x\":5,\"y\":-40.400001525878906,\"z\":-109}},\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"FourWellTrayMesh\",\"parentName\":\"FourWellTray\",\"parentUniqueId\":\"5835762687353372729:-5098999993906862252\",\"uniqueId\":\"3532141362204341837:2593987896672892357\"}}]}}}"
+      }
+    ],
+    "isError": false
+  },
+  "comparison": {
+    "rootDeltaCm": 0,
+    "originDeltaCm": 0,
+    "pickupDeltaCm": 0,
+    "markerDeltaCm": 10.62321002474536,
+    "sameRuntimeMarkerId": true,
+    "taskBefore": "Return Inner module",
+    "taskAfter": "Return Lid",
+    "progressBefore": "0 / 4 returned · 4 remaining",
+    "progressAfter": "1 / 4 returned · 3 remaining",
+    "cancelPreservedTask": true,
+    "cancelPreservedProgress": true
+  }
+}
