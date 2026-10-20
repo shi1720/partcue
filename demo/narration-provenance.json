@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "status": "individual synthetic guide chunks; no timeline padding, mixing, or composition applied; align against captured Lens actions before publishing",
+  "narration_kind": "generic synthetic AI guide; not Shivam Gupta voice; no cloning or human-voice claim",
+  "source_transcript": "narration-segments.json",
+  "source_transcript_sha256": "b9b60d68dcea398a538f03be1867806deee6532fa6fd52aa1b1b3d8c63a40303",
+  "python_version": "3.12.14",
+  "piper_version": "1.8.0",
+  "onnxruntime_version": "1.31.0",
+  "model_repository": "rhasspy/piper-voices",
+  "model_revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+  "model_file": "en_US-ljspeech-high.onnx",
+  "model_sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+  "model_config_sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+  "parameters": {
+    "length_scale": 1.2,
+    "sentence_silence_seconds": 0.25,
+    "volume": 0.85,
+    "sample_rate_hz": 22050,
+    "channels": 1
+  },
+  "tool_license": "GPL-3.0-or-later; local tool only, not bundled into product",
+  "model_repository_license_metadata": "MIT",
+  "model_dataset_license_card": "public domain (LJ Speech)",
+  "license_references": [
+    "https://pypi.org/project/piper-tts/1.8.0/",
+    "https://raw.githubusercontent.com/OHF-Voice/piper1-gpl/639388b6317fc4731e91d53da42aea68fd4166ff/COPYING",
+    "https://huggingface.co/rhasspy/piper-voices/blob/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/ljspeech/high/MODEL_CARD",
+    "https://keithito.com/LJ-Speech-Dataset/"
+  ],
+  "total_unpadded_duration_seconds": 107.06358276643991,
+  "segments": [
+    {
+      "id": "intro",
+      "file": "intro.wav",
+      "duration_seconds": 17.95047619047619,
+      "frames": 395808,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "a8ac58600d7a4f703cf3629697aede438a6cd5c999dcb96c96fff32fe134fcf6",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -19.749982411482453,
+      "clipped_samples": 0,
+      "word_count": 35,
+      "source_text": "Two similar screws. Two different homes. After an interruption, which loose part belongs where? PartCue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance. Every part has a way home.",
+      "engine_input": "Two similar screws. Two different homes. After an interruption, which loose part belongs where? Part Cue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance. Every part has a way home.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 1,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "setup",
+      "file": "setup.wav",
+      "duration_seconds": 9.044897959183674,
+      "frames": 199440,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "df5309cf08e1d1ee00993caccf50aae4e35644775504e56c57188eef781cedd6",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -18.70037962082384,
+      "clipped_samples": 0,
+      "word_count": 20,
+      "source_text": "This is the actual Lens Studio preview. The bench is simulated, and every mark is manual. First, place the workspace.",
+      "engine_input": "This is the actual Lens Studio preview. The bench is simulated, and every mark is manual. First, place the workspace.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "record",
+      "file": "record.wav",
+      "duration_seconds": 10.530975056689343,
+      "frames": 232208,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "4ecab22cc203690d8a1c55f16e2de35ae33434c458734f2e05b51887fcb33e6f",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -20.1508983193311,
+      "clipped_samples": 0,
+      "word_count": 26,
+      "source_text": "Select a part, choose an empty tray well, and record its removal. Each record connects an origin to a tray location. Repeat for the remaining parts.",
+      "engine_input": "Select a part, choose an empty tray well, and record its removal. Each record connects an origin to a tray location. Repeat for the remaining parts.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "pair",
+      "file": "pair.wav",
+      "duration_seconds": 4.598276643990929,
+      "frames": 101392,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "473738dcd50d5f73a24463fe7bca92b5e31aaa681d0c670dae28248df8839a81",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -19.75406410023267,
+      "clipped_samples": 0,
+      "word_count": 9,
+      "source_text": "Amber is pickup. Cyan is origin. Follow the path.",
+      "engine_input": "Amber is pickup. Cyan is origin. Follow the path.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "wrong",
+      "file": "wrong.wav",
+      "duration_seconds": 4.26702947845805,
+      "frames": 94088,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "c6d80b18347c4810e1cf0434ffef33476a937a656c092705a2bfd74dc0cd56dd",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -18.5411600790612,
+      "clipped_samples": 0,
+      "word_count": 9,
+      "source_text": "A wrong part stays blocked. Confirm the expected part.",
+      "engine_input": "A wrong part stays blocked. Confirm the expected part.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "pause",
+      "file": "pause.wav",
+      "duration_seconds": 9.044897959183674,
+      "frames": 199440,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "ac1ef5c6f7d33597f373af3bf329036bf0ff87aff78ac5aa172b72ff73e885a0",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -18.763854612069537,
+      "clipped_samples": 0,
+      "word_count": 21,
+      "source_text": "Pause hides the cues. Resume restores the same next part. Undo brings back the previous return when a correction is needed.",
+      "engine_input": "Pause hides the cues. Resume restores the same next part. Undo brings back the previous return when a correction is needed.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "complete",
+      "file": "complete.wav",
+      "duration_seconds": 9.71827664399093,
+      "frames": 214288,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "bd916a08050879ba6aa89d33acb7ce2facf8152eab26a82f4ab84d32ac08fdb6",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -20.071185020939453,
+      "clipped_samples": 0,
+      "word_count": 21,
+      "source_text": "Confirm the remaining returns, and the active cues clear. This accounts for user confirmations. It does not inspect a physical installation.",
+      "engine_input": "Confirm the remaining returns, and the active cues clear. This accounts for user confirmations. It does not inspect a physical installation.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "spatial",
+      "file": "spatial.wav",
+      "duration_seconds": 10.345215419501134,
+      "frames": 228112,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "2ff713b42f1fa081760cf7a4a2a6bd2c010e404308686ab4ad1063a681937020",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -18.456416275342626,
+      "clipped_samples": 0,
+      "word_count": 23,
+      "source_text": "Here, the viewpoint moves without replacing the bench. Both cues stay at their saved locations. Confirming the return advances to the next pair.",
+      "engine_input": "Here, the viewpoint moves without replacing the bench. Both cues stay at their saved locations. Confirming the return advances to the next pair.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 0,
+        "source_transcript_unchanged": true
+      }
+    },
+    {
+      "id": "closing",
+      "file": "closing.wav",
+      "duration_seconds": 31.563537414965985,
+      "frames": 695976,
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "format": "PCM signed 16-bit WAV",
+      "sha256": "d04547c664aba7801c6a0d3b2c2080155214742058f52f9e513525ac71fb45e2",
+      "peak_dbfs": -1.4121828334625561,
+      "rms_dbfs": -20.166786230349693,
+      "clipped_samples": 0,
+      "word_count": 61,
+      "source_text": "Thirty-four software checks pass, alongside Lens preview scenarios. Physical glasses and repair benefits still need testing. The first customer hypothesis is repair and training benches. Twenty dollars per bench per month is a pricing hypothesis. A pilot must compare total task time against mats, photos and a plain reverse checklist, including recording time. PartCue helps you find your own way back.",
+      "engine_input": "Thirty-four software checks pass, alongside Lens preview scenarios. Physical glasses and repair benefits still need testing. The first customer hypothesis is repair and training benches. Twenty dollars per bench per month is a pricing hypothesis. A pilot must compare total task time against mats, photos and a plain reverse checklist, including recording time. Part Cue helps you find your own way back.",
+      "pronunciation_preprocess": {
+        "literal_replacement": "PartCue -> Part Cue",
+        "replacement_count": 1,
+        "source_transcript_unchanged": true
+      }
+    }
+  ],
+  "retimed_sections": [
+    "pair",
+    "wrong",
+    "closing"
+  ],
+  "unchanged_other_waveforms_verified": true,
+  "latest_closing_software_check_count": 34
+}

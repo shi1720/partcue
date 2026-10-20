@@ -9,8 +9,18 @@ This video shows the actual CLAD-built Lens running in Lens Studio 5.24.1 previe
 Source, Lens Studio project, Devpost planning documents and reproducible validation:
 https://github.com/shi1720/partcue
 
-Validation: 32 software checks and six LEAF preview scenarios, including IK tray selection and confirmation with scripted fallback disabled. Hardware tracking, comfort and real repair outcomes remain untested. A separate local companion supports accounts and saved rehearsals; it does not sync to the Lens.
+Validation: 34 software checks and seven functional/IK Lens preview scenarios, including IK tray selection and confirmation with scripted fallback disabled. The public source's clean CI also passes all 34 checks:
+https://github.com/shi1720/partcue/actions/runs/39416731639
+
+Hardware tracking, comfort and real repair outcomes remain untested. Four authored parts and predefined origins make up this preview fixture. The Lens keeps the current session in memory. A separate local companion supports accounts and saved rehearsals; it does not sync to the Lens.
 
 Commercial hypothesis: independent repair and training benches; $20 per bench per month is a proposed pricing test, not validated demand. The next pilot compares total task time, including marking, against mats, photos and a plain reverse checklist.
 
 Created by Shivam Gupta with AI coding assistance. Product geometry and sound cues are original for this project; Snap packages retain their applicable notices.
+
+Narration is a generic synthetic guide generated locally with Piper and the en_US-ljspeech-high model. It is not Shivam Gupta's voice; no voice cloning was used. The transcript, generation settings, hashes and license references are in the repository's demo/narration-provenance.json. The video permanently labels synthetic narration and marks repeated excerpts as REPLAY.
+
+0:00 Two similar screws, two different homes
+0:28 Continuous Lens workflow: record, return and recover
+1:39 Continuous viewpoint check and next-pair transition
+2:00 Validation and the repair-bench pilot hypothesis

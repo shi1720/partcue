@@ -1,0 +1,15 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=Z9rPXUwUdnw",
+  "studio_confirmation": "Video published; Public selected; copyright and Community Guidelines checks found no issues",
+  "verified_at": "2026-10-20T11:55:26.494Z",
+  "playback_method": "privacy-enhanced public embed in an HTTP page with a proper Referer; playback advanced with no media error",
+  "playback": {
+    "currentTime": 25.716857,
+    "duration": 152.021,
+    "errorCode": null,
+    "paused": true,
+    "readyState": 4
+  },
+  "captions": "YouTube embedded player reports Subtitles/CC turned on and displays the uploaded narration text",
+  "anonymous_oembed": "Public metadata fetched without cookies or authentication; separate work log retained"
+}

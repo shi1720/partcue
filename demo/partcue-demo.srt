@@ -1,0 +1,123 @@
+1
+00:00:00,600 --> 00:00:02,300
+Two similar screws.
+
+2
+00:00:02,300 --> 00:00:04,000
+Two different homes.
+
+3
+00:00:04,000 --> 00:00:08,067
+After an interruption, which loose part belongs where?
+
+4
+00:00:08,067 --> 00:00:15,433
+PartCue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance.
+
+5
+00:00:15,433 --> 00:00:18,567
+Every part has a way home.
+
+6
+00:00:19,000 --> 00:00:22,167
+This is the actual Lens Studio preview.
+
+7
+00:00:22,167 --> 00:00:26,133
+The bench is simulated, and every mark is manual.
+
+8
+00:00:26,133 --> 00:00:28,033
+First, place the workspace.
+
+9
+00:00:35,000 --> 00:00:39,767
+Select a part, choose an empty tray well, and record its removal.
+
+10
+00:00:39,767 --> 00:00:43,400
+Each record connects an origin to a tray location.
+
+11
+00:00:43,400 --> 00:00:45,533
+Repeat for the remaining parts.
+
+12
+00:00:52,200 --> 00:00:53,733
+Amber is pickup.
+
+13
+00:00:53,733 --> 00:00:55,267
+Cyan is origin.
+
+14
+00:00:55,267 --> 00:00:56,800
+Follow the path.
+
+15
+00:00:57,200 --> 00:00:59,533
+A wrong part stays blocked.
+
+16
+00:00:59,533 --> 00:01:01,467
+Confirm the expected part.
+
+17
+00:01:05,500 --> 00:01:07,333
+Pause hides the cues.
+
+18
+00:01:07,333 --> 00:01:09,933
+Resume restores the same next part.
+
+19
+00:01:09,933 --> 00:01:14,533
+Undo brings back the previous return when a correction is needed.
+
+20
+00:01:23,933 --> 00:01:28,033
+Confirm the remaining returns, and the active cues clear.
+
+21
+00:01:28,033 --> 00:01:30,433
+This accounts for user confirmations.
+
+22
+00:01:30,433 --> 00:01:33,667
+It does not inspect a physical installation.
+
+23
+00:01:40,500 --> 00:01:44,100
+Here, the viewpoint moves without replacing the bench.
+
+24
+00:01:44,100 --> 00:01:47,267
+Both cues stay at their saved locations.
+
+25
+00:01:47,267 --> 00:01:50,833
+Confirming the return advances to the next pair.
+
+26
+00:02:00,100 --> 00:02:04,300
+Thirty-four software checks pass, alongside Lens preview scenarios.
+
+27
+00:02:04,300 --> 00:02:08,500
+Physical glasses and repair benefits still need testing.
+
+28
+00:02:08,500 --> 00:02:13,200
+The first customer hypothesis is repair and training benches.
+
+29
+00:02:13,200 --> 00:02:18,367
+Twenty dollars per bench per month is a pricing hypothesis.
+
+30
+00:02:18,367 --> 00:02:27,467
+A pilot must compare total task time against mats, photos and a plain reverse checklist, including recording time.
+
+31
+00:02:27,467 --> 00:02:31,667
+PartCue helps you find your own way back.

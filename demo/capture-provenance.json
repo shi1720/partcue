@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "capture_method": "Lens Studio native Preview Record Video; microphone disabled; actual rendered scene and local product SFX",
+  "workflow": {
+    "file": "partcue-workflow-final.mp4",
+    "sha256": "9889abb754937be5dd4e92606c719a660a636e443b125127694edd1c1575352f",
+    "duration": 114.165,
+    "product_commit": "a6c74c7c7462216ff2dfa04b2e999cc437c3d210",
+    "scenario": "partcue-07-demo",
+    "scenario_is_choreography_not_an_assertion_test": true
+  },
+  "spatial": {
+    "file": "partcue-spatial.mp4",
+    "sha256": "5fb535e8a0f5ddc918f67714a81da76962e5840f8b8339a031f60a59d8ebe515",
+    "duration": 165.298333,
+    "selected_continuous_range": [
+      123,
+      144
+    ],
+    "evidence": "../lens/PartTrail/devpost/spatial-video-evidence-corrected.json",
+    "revision_note": "Recorded before final stale-selection hardening; geometry and the demonstrated spatial/confirmation path are unchanged. The final workflow was recorded after hardening."
+  },
+  "source_master": {
+    "file": "partcue-source-master.mp4",
+    "sha256": "0e6c0747cb3099a4c8413f5b1bb3f34c55f012d8520dc396bf38d16c6d25c128",
+    "join": "ffmpeg concat demuxer, workflow then spatial, stream copy, faststart; no frame generation or speed change",
+    "spatial_offset_seconds": 114.165
+  },
+  "edit": {
+    "duration": 152,
+    "workflow_continuous_range": [
+      0,
+      71
+    ],
+    "spatial_continuous_range": [
+      123,
+      144
+    ],
+    "intro_and_outro": "Visibly labeled replay excerpts",
+    "disclosures": "Four authored parts; predefined origins; simulated bench; SIK replay; generic synthetic guide; no automatic recognition or physical inspection."
+  }
+}

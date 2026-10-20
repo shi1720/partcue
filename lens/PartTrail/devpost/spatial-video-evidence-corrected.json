@@ -1,0 +1,243 @@
+{
+  "startedAtUtc": "2026-10-20T11:33:49.123Z",
+  "previewName": "Preview 2",
+  "events": [
+    {
+      "action": "before",
+      "startedAtUtc": "2026-10-20T11:33:49.124Z",
+      "completedAtUtc": "2026-10-20T11:33:49.354Z",
+      "arguments": {
+        "previewName": "Preview 2",
+        "query": "{ root:sceneObject(uniqueId:\"-636962294460300455:-8894528417975757003\"){summary transform{worldPosition}} origin:sceneObject(uniqueId:\"3532141362204341837:2593987896676922698\"){summary transform{worldPosition}} pickup:sceneObject(uniqueId:\"3532141362204341837:2593987896676922701\"){summary transform{worldPosition}} texts:sceneObjects(filter:{hasComponents:[\"Text\"],nameContains:\"Task\",enabledOnly:true}){matches{summary components(filter:[\"Text\"]){type properties}}} targets:sceneObjects(filter:{hasComponents:[\"Interactable\"],enabledOnly:true}){matches{summary}} }"
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"_metadata\":{\"executionTimeMs\":203,\"previewName\":\"Preview 2\"},\"data\":{\"origin\":{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896676922698\"},\"transform\":{\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}},\"pickup\":{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896676922701\"},\"transform\":{\"worldPosition\":{\"x\":9.800000190734863,\"y\":-34,\"z\":-104.30000305175781}}},\"root\":{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100}}},\"targets\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart0\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922605\"}},{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart1\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922625\"}},{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart2\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922645\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"BackPlate\",\"RoundedRectangle\",\"Interactable\",\"InteractionPlane\"],\"enabled\":true,\"name\":\"BenchToolbar\",\"parentName\":\"PartTrailWorkRoot\",\"parentUniqueId\":\"-636962294460300455:-8894528417975757003\",\"uniqueId\":\"-5434272242978632242:-8784729935933647462\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"PrimaryAction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241621\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"PauseResume\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241701\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"UndoAction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241781\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"SessionMenu\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241861\"}}]},\"texts\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Lid\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920803\",\"uniqueId\":\"3532141362204341837:2593987896676920890\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":44.849998474121094,\"sizeToFit\":false,\"text\":\"Well 3 → origin · ×1\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskInstruction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920932\",\"uniqueId\":\"3532141362204341837:2593987896676920975\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"1 / 4 returned · 3 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920932\",\"uniqueId\":\"3532141362204341837:2593987896676920997\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"2\",\"size\":43.70000076293945,\"sizeToFit\":false,\"text\":\"Returned Inner module ×1. Next pair is active.\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskFeedback\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920803\",\"uniqueId\":\"3532141362204341837:2593987896676921019\"}}]}}}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "action": "setPositionAndFlatLookAt",
+      "startedAtUtc": "2026-10-20T11:33:49.354Z",
+      "completedAtUtc": "2026-10-20T11:33:49.363Z",
+      "arguments": {
+        "previewName": "Preview 2",
+        "action": "setPosition",
+        "commands": [
+          {
+            "action": "getPose"
+          },
+          {
+            "action": "setPosition",
+            "x": 10,
+            "y": -6,
+            "z": 0
+          },
+          {
+            "action": "lookAt",
+            "x": 0,
+            "y": -33,
+            "z": -100
+          },
+          {
+            "action": "getPose"
+          }
+        ]
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"cameraPose\":{\"position\":{\"x\":10,\"y\":-6,\"z\":0},\"rotation\":{\"x\":344.96,\"y\":5.71,\"z\":0}},\"message\":\"Executed 4 commands: Current camera pose → Position set to (10, -6, 0) → Looking at (0, -33, -100) → Current camera pose\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "action": "afterCamera",
+      "startedAtUtc": "2026-10-20T11:33:49.363Z",
+      "completedAtUtc": "2026-10-20T11:33:49.603Z",
+      "arguments": {
+        "previewName": "Preview 2",
+        "query": "{ root:sceneObject(uniqueId:\"-636962294460300455:-8894528417975757003\"){summary transform{worldPosition}} origin:sceneObject(uniqueId:\"3532141362204341837:2593987896676922698\"){summary transform{worldPosition}} pickup:sceneObject(uniqueId:\"3532141362204341837:2593987896676922701\"){summary transform{worldPosition}} texts:sceneObjects(filter:{hasComponents:[\"Text\"],nameContains:\"Task\",enabledOnly:true}){matches{summary components(filter:[\"Text\"]){type properties}}} targets:sceneObjects(filter:{hasComponents:[\"Interactable\"],enabledOnly:true}){matches{summary}} }"
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"_metadata\":{\"executionTimeMs\":217,\"previewName\":\"Preview 2\"},\"data\":{\"origin\":{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896676922698\"},\"transform\":{\"worldPosition\":{\"x\":-15,\"y\":-33,\"z\":-101}}},\"pickup\":{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896676922701\"},\"transform\":{\"worldPosition\":{\"x\":9.800000190734863,\"y\":-34,\"z\":-104.30000305175781}}},\"root\":{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100}}},\"targets\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart0\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922605\"}},{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart1\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922625\"}},{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart2\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922645\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"BackPlate\",\"RoundedRectangle\",\"Interactable\",\"InteractionPlane\"],\"enabled\":true,\"name\":\"BenchToolbar\",\"parentName\":\"PartTrailWorkRoot\",\"parentUniqueId\":\"-636962294460300455:-8894528417975757003\",\"uniqueId\":\"-5434272242978632242:-8784729935933647462\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"PrimaryAction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241621\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"PauseResume\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241701\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"UndoAction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241781\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"SessionMenu\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677241578\",\"uniqueId\":\"3532141362204341837:2593987896677241861\"}}]},\"texts\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Lid\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920803\",\"uniqueId\":\"3532141362204341837:2593987896676920890\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":44.849998474121094,\"sizeToFit\":false,\"text\":\"Well 3 → origin · ×1\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskInstruction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920932\",\"uniqueId\":\"3532141362204341837:2593987896676920975\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"1 / 4 returned · 3 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920932\",\"uniqueId\":\"3532141362204341837:2593987896676920997\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"2\",\"size\":43.70000076293945,\"sizeToFit\":false,\"text\":\"Returned Inner module ×1. Next pair is active.\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskFeedback\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920803\",\"uniqueId\":\"3532141362204341837:2593987896676921019\"}}]}}}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "action": "selectAndConfirmLid",
+      "startedAtUtc": "2026-10-20T11:33:49.603Z",
+      "completedAtUtc": "2026-10-20T11:33:55.844Z",
+      "arguments": {
+        "previewName": "Preview 2",
+        "action": "Batch",
+        "actions": [
+          {
+            "action": "Pinch",
+            "name": "PickupPart2"
+          },
+          {
+            "action": "Wait",
+            "durationMs": 400
+          },
+          {
+            "action": "Pinch",
+            "name": "PrimaryAction"
+          },
+          {
+            "action": "Wait",
+            "durationMs": 500
+          }
+        ],
+        "timeoutMs": 15000
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"action\":\"Batch\",\"handState\":{\"left\":{\"status\":\"free\"},\"right\":{\"status\":\"free\"}},\"stepCount\":4,\"success\":true}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "action": "afterReturn",
+      "startedAtUtc": "2026-10-20T11:33:55.844Z",
+      "completedAtUtc": "2026-10-20T11:33:56.087Z",
+      "arguments": {
+        "previewName": "Preview 2",
+        "query": "{ root:sceneObject(uniqueId:\"-636962294460300455:-8894528417975757003\"){summary transform{worldPosition}} origin:sceneObject(uniqueId:\"3532141362204341837:2593987896676922698\"){summary transform{worldPosition}} pickup:sceneObject(uniqueId:\"3532141362204341837:2593987896676922701\"){summary transform{worldPosition}} texts:sceneObjects(filter:{hasComponents:[\"Text\"],nameContains:\"Task\",enabledOnly:true}){matches{summary components(filter:[\"Text\"]){type properties}}} targets:sceneObjects(filter:{hasComponents:[\"Interactable\"],enabledOnly:true}){matches{summary}} }"
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"_metadata\":{\"executionTimeMs\":227,\"previewName\":\"Preview 2\"},\"data\":{\"origin\":{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActiveOriginRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896676922698\"},\"transform\":{\"worldPosition\":{\"x\":-5,\"y\":-33,\"z\":-95}}},\"pickup\":{\"summary\":{\"childCount\":0,\"componentTypes\":[\"RenderMeshVisual\"],\"enabled\":true,\"name\":\"ActivePickupRing\",\"parentName\":\"ActiveCuePair\",\"parentUniqueId\":\"-2948204073411196257:-5989017964640308683\",\"uniqueId\":\"3532141362204341837:2593987896676922701\"},\"transform\":{\"worldPosition\":{\"x\":18.200000762939453,\"y\":-34,\"z\":-95.69999694824219}}},\"root\":{\"summary\":{\"childCount\":8,\"componentTypes\":[],\"enabled\":true,\"name\":\"PartTrailWorkRoot\",\"parentName\":\"PartTrail\",\"parentUniqueId\":\"5136580256453051627:-6520597721039544769\",\"uniqueId\":\"-636962294460300455:-8894528417975757003\"},\"transform\":{\"worldPosition\":{\"x\":0,\"y\":-40,\"z\":-100}}},\"targets\":{\"matches\":[{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart0\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922605\"}},{\"summary\":{\"childCount\":0,\"componentTypes\":[\"ScriptComponent\",\"Interactable\"],\"enabled\":true,\"name\":\"PickupPart1\",\"parentName\":\"PartTrailBench\",\"parentUniqueId\":\"-616676544529873251:-6578186185576177099\",\"uniqueId\":\"3532141362204341837:2593987896676922625\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"BackPlate\",\"RoundedRectangle\",\"Interactable\",\"InteractionPlane\"],\"enabled\":true,\"name\":\"BenchToolbar\",\"parentName\":\"PartTrailWorkRoot\",\"parentUniqueId\":\"-636962294460300455:-8894528417975757003\",\"uniqueId\":\"-5434272242978632242:-8784729935933647462\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"PrimaryAction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677336015\",\"uniqueId\":\"3532141362204341837:2593987896677336058\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"PauseResume\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677336015\",\"uniqueId\":\"3532141362204341837:2593987896677336138\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"UndoAction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677336015\",\"uniqueId\":\"3532141362204341837:2593987896677336218\"}},{\"summary\":{\"childCount\":2,\"componentTypes\":[\"RenderMeshVisual\",\"ScriptComponent\",\"FlexItem\",\"Button\",\"RoundedRectangle\",\"Interactable\",\"InteractableStateMachine\"],\"enabled\":true,\"name\":\"SessionMenu\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896677336015\",\"uniqueId\":\"3532141362204341837:2593987896677336298\"}}]},\"texts\":{\"matches\":[{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":71.29999542236328,\"sizeToFit\":false,\"text\":\"Return Long screw\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskTitle\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920803\",\"uniqueId\":\"3532141362204341837:2593987896676920890\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":44.849998474121094,\"sizeToFit\":false,\"text\":\"Well 2 → origin · ×1\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskInstruction\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920932\",\"uniqueId\":\"3532141362204341837:2593987896676920975\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"0\",\"size\":47.14999771118164,\"sizeToFit\":false,\"text\":\"2 / 4 returned · 2 remaining\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskProgress\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920932\",\"uniqueId\":\"3532141362204341837:2593987896676920997\"}},{\"components\":[{\"properties\":{\"color\":{\"a\":1,\"b\":1,\"g\":1,\"r\":1},\"horizontalAlignment\":\"1\",\"horizontalOverflow\":\"2\",\"size\":43.70000076293945,\"sizeToFit\":false,\"text\":\"Returned Lid ×1. Next pair is active.\",\"verticalAlignment\":\"1\",\"verticalOverflow\":\"0\"},\"type\":\"Component.Text\"}],\"summary\":{\"childCount\":0,\"componentTypes\":[\"Text\",\"ScriptComponent\",\"FlexItem\"],\"enabled\":true,\"name\":\"TaskFeedback\",\"parentName\":\"Flex\",\"parentUniqueId\":\"3532141362204341837:2593987896676920803\",\"uniqueId\":\"3532141362204341837:2593987896676921019\"}}]}}}"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ],
+  "priorPartialFailurePreserved": true,
+  "before": {
+    "root": {
+      "x": 0,
+      "y": -40,
+      "z": -100
+    },
+    "origin": {
+      "x": -15,
+      "y": -33,
+      "z": -101
+    },
+    "pickup": {
+      "x": 9.800000190734863,
+      "y": -34,
+      "z": -104.30000305175781
+    },
+    "texts": {
+      "TaskTitle": "Return Lid",
+      "TaskInstruction": "Well 3 → origin · ×1",
+      "TaskProgress": "1 / 4 returned · 3 remaining",
+      "TaskFeedback": "Returned Inner module ×1. Next pair is active."
+    }
+  },
+  "afterCamera": {
+    "root": {
+      "x": 0,
+      "y": -40,
+      "z": -100
+    },
+    "origin": {
+      "x": -15,
+      "y": -33,
+      "z": -101
+    },
+    "pickup": {
+      "x": 9.800000190734863,
+      "y": -34,
+      "z": -104.30000305175781
+    },
+    "texts": {
+      "TaskTitle": "Return Lid",
+      "TaskInstruction": "Well 3 → origin · ×1",
+      "TaskProgress": "1 / 4 returned · 3 remaining",
+      "TaskFeedback": "Returned Inner module ×1. Next pair is active."
+    }
+  },
+  "afterReturn": {
+    "root": {
+      "x": 0,
+      "y": -40,
+      "z": -100
+    },
+    "origin": {
+      "x": -5,
+      "y": -33,
+      "z": -95
+    },
+    "pickup": {
+      "x": 18.200000762939453,
+      "y": -34,
+      "z": -95.69999694824219
+    },
+    "texts": {
+      "TaskTitle": "Return Long screw",
+      "TaskInstruction": "Well 2 → origin · ×1",
+      "TaskProgress": "2 / 4 returned · 2 remaining",
+      "TaskFeedback": "Returned Lid ×1. Next pair is active."
+    }
+  },
+  "cameraOnlyDeltasCm": {
+    "root": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "pickup": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "returnDeltasCm": {
+    "root": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 10,
+      "y": 0,
+      "z": 6
+    },
+    "pickup": {
+      "x": 8.40000057220459,
+      "y": 0,
+      "z": 8.600006103515625
+    }
+  },
+  "completedAtUtc": "2026-10-20T11:34:05.708Z",
+  "status": "success",
+  "resetRecompileSourceSceneEdits": false,
+  "recorderOperated": false
+}

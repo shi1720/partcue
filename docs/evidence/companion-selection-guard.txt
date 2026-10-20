@@ -1,0 +1,95 @@
+Browser tab: 8, Title: "PartCue — Remember the way back.", URL: "http://127.0.0.1:4173/?release=selection-guard".
+0 AXWebArea PartCue — Remember the way back., URL: 127.0.0.1:4173/?release=selection-guard
+	1 link Description: Skip to workbench, Value: 127.0.0.1:4173/?release=selection-guard#workspace
+	2 container
+		3 link Description: PartCue home, Value: 127.0.0.1:4173/
+		4 text A memory for your workbench
+		88 text Guest rehearsal
+		6 button Sign in, ID: auth-open
+	7 container
+		8 container Remember the way back.
+			9 text HANDS ON. MIND AT EASE.
+			10 heading Remember the way back., Value: 1, ID: page-heading
+				11 text Remember the way  back.
+			12 text Mark where it came from. Park it in a tray. Find your way back, one part at a time.
+			13 text 01—04
+			14 container
+				15 text A small repair.
+				16 text A little less to remember.
+		17 container Description: PartCue browser rehearsal, ID: workspace
+			18 text YOUR WORKBENCH
+			19 heading Mechanical enclosure, Value: 2, ID: session-title
+				89 text Mechanical enclosure
+			90 text In memory only
+			22 button Save session, ID: save-session
+			23 button Description: Open saved sessions, Help: Saved sessions, ID: sessions-open
+			24 button Description: New session, ID: new-session
+			25 container The last out goes back first.
+				91 text FOLLOWING THE WAY BACK
+				92 text 00 / 02
+				28 heading The last out goes back first., Value: 3, ID: guide-title
+					93 text The last out
+goes back first.
+				94 text Find the highlighted part in its tray. Return it to the cyan origin, then confirm how many pieces you placed.
+				31 container return-panel
+					32 text NEXT TO RETURN
+					33 heading Long screw, Value: 4, ID: next-label
+						95 text Long screw
+					96 text Tray B · 1 piece
+					36 text Saved origin
+					37 button (collapsed) Recorded locations, Secondary Actions: Expand
+						38 text Recorded locations
+					39 text Select the next part below or on the bench. A different part stays blocked.
+					40 container Description: Choose the next part to return, ID: return-parts
+						97 checkbox Description: Short screw, Value: 0
+							98 text ⌁
+							99 text Short screw
+							100 text Tray A · 1 piece
+						101 checkbox Description: Long screw, Value: 0
+							102 text ⌁
+							103 text Long screw
+							104 text Tray B · 1 piece
+				49 text Saved origin Tray position
+				50 container
+					51 text Manual marks. Explicit confirmations.
+					52 text Your judgment stays in the loop.
+			53 container scene-shell
+				54 container
+					55 text Browser rehearsal / simulated bench / manual marking
+				56 image Description: Interactive simulated workbench. Use the part and tray buttons to operate with a keyboard., ID: bench-canvas
+				57 container
+					58 text ORIGIN / ENCLOSURE TRAYS / A — D
+				59 container
+					105 text Amber: where to find it · Cyan: where it goes back
+					61 button Reset view , Help: Reset camera view, ID: reset-view
+			62 text THE WAY BACK
+			63 heading Return order · last out, first back., Value: 3, ID: sequence-title
+				106 text Return order · last out, first back.
+			107 text 2 parts recorded
+			66 content list sequence-list
+				108 container Long screw. 1 piece. Origin -14, 5.4, 8 cm. Tray 40, 1.8, -13 cm.
+					109 text 01 NEXT
+					110 text Long screw
+					111 text 1 piece · Tray B
+				112 container Short screw. 1 piece. Origin -30, 5.4, -8 cm. Tray 16, 1.8, -13 cm.
+					113 text 02 RECORDED
+					114 text Short screw
+					115 text 1 piece · Tray A
+			75 progress indicator Description: Return progress, Value: 0, ID: session-progress
+			116 text 0 / 2 returned
+			77 button Ⅱ Pause, ID: pause-session
+			78 button (disabled) ↶ Undo last return, ID: undo-action
+			79 button Reset bench, ID: reset-session
+			80 button Export JSON ↗, ID: export-session
+			81 button Import, ID: import-session
+			117 container notification
+				118 text Next is Long screw from tray B. Select it again, return it to the cyan origin, then confirm the quantity. Leave other parts in their trays.
+				119 button Description: Dismiss message, ID: dismiss-notification
+		82 text  Built for the moment you forget where that one screw came from.
+		83 container
+			84 text This is the browser companion rehearsal. The separate SPECS Lens runs in Lens Studio preview. Saved rehearsals do not sync to the Lens.
+			120 text Guest work lives in this tab. Export it before closing, or sign in to save.
+	86 container
+		87 text PARTCUE / A MEMORY FOR YOUR WORKBENCH Designed & built by Shivam Gupta · Learn AR with SPECS
+
+The focused UI element is 97 checkbox Description: Short screw, Value: 0

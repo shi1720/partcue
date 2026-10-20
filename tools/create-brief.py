@@ -3,7 +3,7 @@
 
 Install: python3 -m pip install -r requirements-docs.txt
 Draft: python3 tools/create-brief.py --output /tmp/PartCue-Brief-Draft.pdf
-Verified: python3 tools/create-brief.py --software-tests 32 --leaf-passed 6 \
+Verified: python3 tools/create-brief.py --software-tests 34 --leaf-passed 7 \
     --verified --lens-image docs/evidence/lens-return.png
 
 Run from any directory. Relative --output and --lens-image paths resolve against
@@ -14,6 +14,7 @@ Images are used as supplied; this tool does not synthesize runtime evidence.
 from pathlib import Path
 import argparse
 from datetime import date
+from urllib.parse import urlsplit
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.utils import ImageReader
@@ -26,12 +27,18 @@ ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument('--output', default='PartCue-Project-Brief.pdf', help='PDF output path (relative to repository root)')
 parser.add_argument('--lens-image', help='Actual Lens Studio capture, used as supplied (relative to repository root)')
-parser.add_argument('--software-tests', type=int, default=31, help='Observed passing software-test count')
-parser.add_argument('--leaf-passed', type=int, default=6, help='Observed passing LEAF count')
-parser.add_argument('--leaf-total', type=int, default=6, help='Total required LEAF scenarios')
+parser.add_argument('--software-tests', type=int, default=34, help='Observed passing software-test count')
+parser.add_argument('--leaf-passed', type=int, default=7, help='Observed passing LEAF count')
+parser.add_argument('--leaf-total', type=int, default=7, help='Total required LEAF scenarios')
 parser.add_argument('--verified', action='store_true', help='Current design and final scenario rerun/capture are verified')
+parser.add_argument('--video-url', help='Verified public YouTube URL; omit until publication is complete')
+parser.add_argument('--spatial-recorded', action='store_true', help='Continuous spatial-viewpoint clip has been captured and reviewed')
 parser.add_argument('--date', default='2026-10-20', help='Evidence snapshot date, ISO YYYY-MM-DD')
 args = parser.parse_args()
+if args.video_url:
+    video = urlsplit(args.video_url)
+    if video.scheme != 'https' or video.hostname not in {'youtube.com','www.youtube.com','youtu.be'}:
+        parser.error('--video-url must be an HTTPS YouTube link verified by the author')
 if args.software_tests < 0 or not 0 <= args.leaf_passed <= args.leaf_total:
     parser.error('Test counts must be nonnegative, with passed LEAF <= total LEAF')
 try:
@@ -175,7 +182,7 @@ y=p('The useful information is a relationship between two places on the bench. K
 y-=22
 box(48,y,499,114)
 label('Scope / simulated bench and manual marking',63,y-21,CYAN)
-p('A clearly labeled <b>simulated bench / manual marking</b> uses standard mouse-driven pinch interactions. Camera recognition, automatic screw measurement, persistent spatial anchors, and hardware comfort are outside this demonstration.',63,y-34,468,10.3,15)
+p('The <b>simulated bench / manual marking</b> preview uses four authored parts and predefined origins. Mouse-driven pinches carry the flow. Lens state is session-only, with no automatic companion sync. Camera recognition, automatic screw measurement, and device comfort remain outside this demonstration.',63,y-34,468,10.3,15)
 c.showPage()
 
 # 3 / Economics
@@ -233,8 +240,8 @@ c.showPage()
 # 5 / Honest status and close
 base(5,'build and submission status')
 if args.verified:
-    heading='A working Lens.<br/>Evidence over claims.'
-    deck='The actual Lens runs in Lens Studio preview. Final design observations and scenario results are recorded separately from companion software tests.'
+    heading='Built, tested,<br/>ready to demonstrate.'
+    deck='A working Lens, captured workflow, and public source. Lens runtime scenarios and independent software CI checks are reported separately.'
 else:
     heading='Working baseline.<br/>Final checks pending.'
     deck='The Lens baseline runs and its scenarios passed. Direct tray selection and phase-based UI are being refined; the final design needs a fresh scenario run and capture.'
@@ -242,8 +249,8 @@ y=title('Evidence snapshot / '+SNAPSHOT.strftime('%d %B %Y'),heading,deck)
 y-=21
 box(48,y,499,99,NAVY)
 text(str(args.software_tests),65,y-40,31,'Serif',BG);text('SOFTWARE TESTS',65,y-59,8,'SansB',HexColor('#B4D7D8'))
-text(f'{args.leaf_passed}/{args.leaf_total}',233,y-40,31,'Serif',BG);text('LEAF '+('FINAL' if args.verified else 'BASELINE'),233,y-59,8,'SansB',HexColor('#B4D7D8'))
-text('CHECKED' if args.verified else 'PENDING',400,y-39,18,'Serif',BG);text('FINAL DESIGN',400,y-59,8,'SansB',HexColor('#B4D7D8'))
+text(f'{args.leaf_passed}/{args.leaf_total}',233,y-40,31,'Serif',BG);text('LEAF SCENARIOS',233,y-59,8,'SansB',HexColor('#B4D7D8'))
+text('PUBLIC' if args.verified else 'PENDING',400,y-39,18,'Serif',BG);text('SOURCE + CI',400,y-59,8,'SansB',HexColor('#B4D7D8'))
 text('Automated software checks and manual browser QA are separate from Lens validation.',65,y-83,8.5,'Sans',BG)
 y-=122
 label('Observed in the companion browser flow',48,y)
@@ -251,26 +258,29 @@ y=p('Four-part record/return; wrong-part and quantity rejection; pause, resume, 
 y-=18
 label('Lens implementation and verification',48,y)
 if args.verified:
-    lens_detail='Built through CLAD and official Lens Studio MCP. The final preview demonstrates direct tray selection, one active paired cue, phase-based controls, and correction paths. The passing scenario count above refers to this checked design.'
+    lens_detail='Built through CLAD and official Lens Studio MCP. Seven named functional and IK scenarios passed in preview after the latest stale-selection guard. This count excludes the demonstration choreography. The Lens core exactly matches the shared TypeScript source. Real tray pickup and Confirm use far-field routing.'
 else:
-    lens_detail='Built through CLAD and official Lens Studio MCP. Six baseline LEAF scenarios passed. The design pass adds direct tray selection and phase-specific controls. Its results must be rerun before claiming final acceptance.'
+    lens_detail='Built through CLAD and official Lens Studio MCP. The named functional and IK scenarios passed. A new design or core change needs a fresh run before its results can be claimed. The demonstration choreography is separate from the acceptance scenario count.'
 y=p(lens_detail,48,y-14,499,10.2,14.5)
 y-=18
 label('What remains unproven',48,y)
-y=p('The scene is an authored simulated bench with manual marking. There is no camera recognition or automatic installation verification. Glasses comfort, physical tracking, measured time savings, and willingness to pay require device and user studies. Companion and Lens do not automatically synchronize.',48,y-14,499,10.2,14.5)
+y=p('Four authored parts and predefined origins define the preview scope. Marks and return confirmations are manual. Lens state is session-only, with no automatic companion sync. Camera recognition and physical installation verification are absent. Device tracking, comfort, technician time savings, and willingness to pay need separate studies.',48,y-14,499,10.2,14.5)
 y-=21
-text('Before submission',48,y,20,'Serif');y-=26
-for t in [
-    'Retain final Lens capture, clean runtime logs, and scenario results.',
-    'Push final project files and planning to the <link href="https://github.com/shi1720/partcue" color="#16858E"><u>public PartCue repository</u></link>.',
-    'Record the actual preview; publish a YouTube demo under three minutes.',
-    'Check submission copy against the final evidence and official rules.'
-]:
-    c.setStrokeColor(CYAN);c.setLineWidth(.9);c.rect(49,y-8,8,8,stroke=1,fill=0)
-    y=p(t,69,y+2,478,10,14)-11
+text('Release status',48,y,20,'Serif');y-=26
+capture_status = 'Captured the workflow, spatial-viewpoint clip, and final runtime views.' if args.spatial_recorded else 'Captured the workflow and final runtime views; spatial recording is next.'
+video_status = ('DONE', 'Published the <link href="'+args.video_url+'" color="#16858E"><u>public YouTube demonstration</u></link> (2:32).') if args.video_url else ('NEXT','Publish a YouTube demo under three minutes; verify public playback.')
+release_rows = [
+    ('DONE','Published <link href="https://github.com/shi1720/partcue" color="#16858E"><u>source and planning</u></link>; <link href="https://github.com/shi1720/partcue/actions/runs/39416731639" color="#16858E"><u>independent GitHub CI passed all 34 checks</u></link>.'),
+    ('DONE',capture_status),
+    video_status,
+    ('NEXT','Complete personal details and eligibility, then select final Submit on Devpost.')
+]
+for status, item in release_rows:
+    text(status,48,y-6,7.5,'SansB',CYAN if status == 'DONE' else CORAL)
+    y=p(item,85,y+2,462,10,14)-11
 y-=3
 rule(y)
-y=p('The promise is simple. The proof must be real.',48,y-17,499,19,25,font='SerifI')
+y=p('Next: a measured pilot at the repair bench.',48,y-17,499,19,25,font='SerifI')
 c.showPage()
 c.save()
 print(OUT)

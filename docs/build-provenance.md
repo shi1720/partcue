@@ -2,7 +2,7 @@
 
 **PartCue — created by Shivam Gupta, developed with AI coding assistance.** Work began on 20 October 2026, within the official 15 October–9 November 2026 submission period. [Official rules](https://learn-specs.devpost.com/rules).
 
-This record describes the tools and evidence behind the implemented entry. The public source destination is [shi1720/partcue](https://github.com/shi1720/partcue); the repository is created, with upload pending at this checkpoint.
+This record describes the tools and evidence behind the implemented entry. Public source: [shi1720/partcue](https://github.com/shi1720/partcue), tested code revision [`a6c74c7`](https://github.com/shi1720/partcue/commit/a6c74c7). [CI passes all 34 checks](https://github.com/shi1720/partcue/actions/runs/39416731639).
 
 ## Planning and product decisions
 
@@ -38,14 +38,24 @@ The project-local `devpost/build-report.md` and `devpost/leaf-results.md` under 
 
 Scenarios 1–5 used LEAF's functional interactor through real SIK/UIKit targets. Scenario 6 used IK. These runs establish preview behavior; they do not establish direct physical reach or real-device hand tracking. Renderer fallback and nonfatal batching warnings are disclosed in the project-local results.
 
-**Final scenario rerun: six of six passed.** The final design adds phase-specific UI and direct tray-part selection, with updated environment and framing. The interaction review exposed a back-row target sightline problem; after that fix, the final IK run selected the actual tray part and confirmed its return with fallback disabled. Final captures and continuous viewpoint proof are being prepared in `lens/PartTrail/devpost/captures/partcue-final/`; no finished recording is implied by that destination.
+**Design-stage rerun: six of six passed.** The final design adds phase-specific UI and direct tray-part selection, with updated environment and framing. The interaction review exposed a back-row target sightline problem; after that fix, the final IK run selected the actual tray part and confirmed its return with fallback disabled. Final captures exist under `lens/PartTrail/devpost/captures/partcue-final/`. Native workflow and continuous spatial recordings now exist under `demo/raw/`; the corrected runtime spatial evidence records zero halo/root drift during camera movement, followed by an actual next return. Those earlier source captures retain their original stages; a fresh post-guard native workflow was subsequently recorded at `demo/raw/partcue-workflow-final.mp4` (114.165 seconds).
 
 ## Companion and shared software
 
 The separate browser companion has real local accounts, salted password hashing, expiring opaque sessions, CSRF and ownership protection, SQLite snapshots, optimistic revisions and verified online backups. It runs without API keys or paid infrastructure. It does not synchronize with the Lens.
 
-The shared software checkpoint is **32/32 passing tests**, including exact Lens-core source parity, domain rules, real HTTP/SQLite integration, account-switch isolation and browser authentication regressions. [Validation](validation.md) records the build environment and actual browser workflows; these are not mislabeled as LEAF results.
+The current local shared software checkpoint is **34/34 passing tests**, including exact Lens-core source parity, domain rules, real HTTP/SQLite integration, account-switch isolation and browser authentication regressions. [Validation](validation.md) records the build environment and actual browser workflows; these are not mislabeled as LEAF results.
 
-## Remaining release evidence
+## Final selection-guard correction
 
-Final capture completion, public source upload, a public YouTube demo under three minutes and completed Devpost submission remain gates. Hardware comfort, alignment stability, physical assembly correctness and practical repair benefit require separate studies. Contributor credit does not imply unrecorded manual edits, customer interviews or field results.
+An independent source review reproduced an older correct return selection remaining armed after a rejected wrong pickup. The root core now exposes an explicit `deselectReturn` command and `return-deselected` event; the rejection itself stays immutable. Both adapters clear the old selection before a confirmation can succeed. Two new software regressions and a fresh actual browser observation passed. The Lens core was copied through official MCP and all seven functional/IK scenarios passed on the saved guard revision.
+
+Current root/Lens core SHA-256: `ea3d499db55843a5b613a12d4ee07c64f5a44979cfdaeea135768b8556fa3bc8`. Exact source parity is included in the 34 local checks. [Validation](validation.md) links the actual browser evidence and spatial observation.
+
+## Published media and final participant step
+
+The finished [public demo](https://www.youtube.com/watch?v=Z9rPXUwUdnw) is **2:32**, 1920 × 1080. Full decoding and an independent visual review passed. YouTube Studio reports Public with no check issues; the viewer page title and duration were checked. Narration is a disclosed generic synthetic guide, not Shivam’s voice or a voice clone; original Lens feedback sounds remain in the mix.
+
+The final edit is `demo/partcue-demo.mp4`; source capture and edit/audio provenance remain under `demo/`. The footage is actual Lens Studio preview of four authored parts with predefined origins, driven through real SIK/UIKit input replay. It is not generated repair footage, arbitrary location capture or a live human hand recording.
+
+Source and passing 34-check CI are public. All seven functional/IK Lens scenarios passed on the saved guard revision. The remaining submission step is Shivam's review, personal Additional info responses and truthful attestations and Devpost Submit; that action is not recorded as completed. Hardware comfort, alignment stability and practical repair benefit remain future validation work.

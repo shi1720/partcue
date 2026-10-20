@@ -1,0 +1,38 @@
+[
+  {
+    "id": "intro",
+    "text": "Two similar screws. Two different homes. After an interruption, which loose part belongs where? PartCue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance. Every part has a way home."
+  },
+  {
+    "id": "setup",
+    "text": "This is the actual Lens Studio preview. The bench is simulated, and every mark is manual. First, place the workspace."
+  },
+  {
+    "id": "record",
+    "text": "Select a part, choose an empty tray well, and record its removal. Each record connects an origin to a tray location. Repeat for the remaining parts."
+  },
+  {
+    "id": "pair",
+    "text": "Amber is pickup. Cyan is origin. Follow the path."
+  },
+  {
+    "id": "wrong",
+    "text": "A wrong part stays blocked. Confirm the expected part."
+  },
+  {
+    "id": "pause",
+    "text": "Pause hides the cues. Resume restores the same next part. Undo brings back the previous return when a correction is needed."
+  },
+  {
+    "id": "complete",
+    "text": "Confirm the remaining returns, and the active cues clear. This accounts for user confirmations. It does not inspect a physical installation."
+  },
+  {
+    "id": "spatial",
+    "text": "Here, the viewpoint moves without replacing the bench. Both cues stay at their saved locations. Confirming the return advances to the next pair."
+  },
+  {
+    "id": "closing",
+    "text": "Thirty-four software checks pass, alongside Lens preview scenarios. Physical glasses and repair benefits still need testing. The first customer hypothesis is repair and training benches. Twenty dollars per bench per month is a pricing hypothesis. A pilot must compare total task time against mats, photos and a plain reverse checklist, including recording time. PartCue helps you find your own way back."
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "product": "PartCue",
+  "creator": "Shivam Gupta",
+  "built_with_ai_assistance": true,
+  "test_only": false,
+  "source": {
+    "name": "partcue-source-master.mp4",
+    "sha256": "0e6c0747cb3099a4c8413f5b1bb3f34c55f012d8520dc396bf38d16c6d25c128",
+    "duration_seconds": 279.463333,
+    "width": 1570,
+    "height": 1590
+  },
+  "source_clips": [
+    {
+      "start": 204.16500000000002,
+      "end": 232.16500000000002,
+      "replay": true
+    },
+    {
+      "start": 0.0,
+      "end": 71.0
+    },
+    {
+      "start": 237.16500000000002,
+      "end": 258.165
+    },
+    {
+      "start": 76.0,
+      "end": 108.0,
+      "replay": true
+    }
+  ],
+  "output": {
+    "name": "partcue-demo.mp4",
+    "sha256": "d1aa4a45440e069d40d1c8302d596e5510d1ee8f8da4b22eaf9bdd8cd373352a",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 4560,
+    "duration_seconds": 152.0,
+    "audio_edition": "AI guide narration · synthetic + source SFX"
+  },
+  "narration": {
+    "name": "partcue-guide.wav",
+    "sha256": "3d69c0923de4cb7b896d8e2367f79ad099514d3cf3ddcedbd03ef351289357c2",
+    "start_seconds": 0.0,
+    "kind": "ai-guide"
+  },
+  "fonts": {
+    "regular": "Arial.ttf",
+    "bold": "Arial Bold.ttf"
+  },
+  "ffmpeg_version": "ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "disclosure": "Actual supplied Lens Studio footage; simulated input; manual marks and confirmations. Composition does not validate a physical repair.",
+  "caption_count": 31,
+  "audio_mix": {
+    "preserve_source_audio": true,
+    "source_gain": 0.3,
+    "narration_gain": 1
+  },
+  "encoding": {
+    "codec": "libx264",
+    "preset": "medium",
+    "crf": 18,
+    "pixel_format": "yuv420p",
+    "layout": "square",
+    "video_box": [
+      48,
+      140,
+      1040,
+      876
+    ]
+  },
+  "verified_full_decode": true
+}

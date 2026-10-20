@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "duration": 152,
+  "kind": "generic synthetic guide, not Shivam Gupta voice",
+  "sample_rate_hz": 22050,
+  "segments": [
+    {
+      "id": "intro",
+      "start": 0.6,
+      "end": 18.55047619047619,
+      "source_sha256": "a8ac58600d7a4f703cf3629697aede438a6cd5c999dcb96c96fff32fe134fcf6"
+    },
+    {
+      "id": "setup",
+      "start": 19.0,
+      "end": 28.044897959183672,
+      "source_sha256": "df5309cf08e1d1ee00993caccf50aae4e35644775504e56c57188eef781cedd6"
+    },
+    {
+      "id": "record",
+      "start": 35.0,
+      "end": 45.53097505668934,
+      "source_sha256": "4ecab22cc203690d8a1c55f16e2de35ae33434c458734f2e05b51887fcb33e6f"
+    },
+    {
+      "id": "pair",
+      "start": 52.2,
+      "end": 56.79827664399093,
+      "source_sha256": "473738dcd50d5f73a24463fe7bca92b5e31aaa681d0c670dae28248df8839a81"
+    },
+    {
+      "id": "wrong",
+      "start": 57.2,
+      "end": 61.46702947845805,
+      "source_sha256": "c6d80b18347c4810e1cf0434ffef33476a937a656c092705a2bfd74dc0cd56dd"
+    },
+    {
+      "id": "pause",
+      "start": 65.5,
+      "end": 74.54489795918367,
+      "source_sha256": "ac1ef5c6f7d33597f373af3bf329036bf0ff87aff78ac5aa172b72ff73e885a0"
+    },
+    {
+      "id": "complete",
+      "start": 83.95002267573696,
+      "end": 93.6682993197279,
+      "source_sha256": "bd916a08050879ba6aa89d33acb7ce2facf8152eab26a82f4ab84d32ac08fdb6"
+    },
+    {
+      "id": "spatial",
+      "start": 100.5,
+      "end": 110.84521541950113,
+      "source_sha256": "2ff713b42f1fa081760cf7a4a2a6bd2c010e404308686ab4ad1063a681937020"
+    },
+    {
+      "id": "closing",
+      "start": 120.1,
+      "end": 151.663537414966,
+      "source_sha256": "d04547c664aba7801c6a0d3b2c2080155214742058f52f9e513525ac71fb45e2"
+    }
+  ],
+  "caption_timing": "Sentence timings estimated within verified waveform sections; section starts aligned to visible actions."
+}

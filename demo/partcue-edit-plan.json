@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "title": "PartCue",
+  "tagline": "Every part has a way home.",
+  "clips": [
+    {
+      "start": 204.16500000000002,
+      "end": 232.16500000000002,
+      "replay": true
+    },
+    {
+      "start": 0,
+      "end": 71
+    },
+    {
+      "start": 237.16500000000002,
+      "end": 258.165
+    },
+    {
+      "start": 76,
+      "end": 108,
+      "replay": true
+    }
+  ],
+  "cards": [
+    {
+      "start": 0,
+      "end": 19,
+      "eyebrow": "SPATIAL REPAIR MEMORY",
+      "title": "Two similar screws.\nTwo different homes.",
+      "body": "Remember the relationship between a loose part and where it came from.",
+      "accent": "amber"
+    },
+    {
+      "start": 19,
+      "end": 28,
+      "eyebrow": "THE PREVIEW FIXTURE",
+      "title": "Four authored parts.\nEvery mark is manual.",
+      "body": "Predefined origins · simulated bench. Inputs replay through real SIK controls.",
+      "accent": "cyan"
+    },
+    {
+      "start": 28,
+      "end": 35.4,
+      "eyebrow": "01 / PLACE THE BENCH",
+      "title": "Put the memory\nbeside the work.",
+      "body": "Set the workspace, then start. The first recorded removal locks placement.",
+      "accent": "cyan"
+    },
+    {
+      "start": 35.4,
+      "end": 52.0333,
+      "eyebrow": "02 / RECORD REMOVALS",
+      "title": "Origin → tray.\nOne part at a time.",
+      "body": "Select a part. Choose an empty well. Record its removal.",
+      "accent": "coral"
+    },
+    {
+      "start": 52.0333,
+      "end": 57.1667,
+      "eyebrow": "03 / RETURN IN REVERSE",
+      "title": "Amber pickup.\nCyan origin.",
+      "body": "Only the next pair is active. The path connects the two saved places.",
+      "accent": "cyan"
+    },
+    {
+      "start": 57.1667,
+      "end": 65.8667,
+      "eyebrow": "04 / BLOCK THE WRONG PICK",
+      "title": "The expected part.\nA clear confirmation.",
+      "body": "A wrong pick leaves progress unchanged and requires the correct selection.",
+      "accent": "amber"
+    },
+    {
+      "start": 65.8667,
+      "end": 75.5317,
+      "eyebrow": "INTERRUPTION & RECOVERY",
+      "title": "Pause. Resume.\nCorrect with undo.",
+      "body": "Cues hide during a pause. Resume returns to the same next part.",
+      "accent": "coral"
+    },
+    {
+      "start": 75.5317,
+      "end": 88.7667,
+      "eyebrow": "05 / CONFIRM THE RETURNS",
+      "title": "Find it. Return it.\nConfirm it.",
+      "body": "Progress advances only after selection and the recorded quantity.",
+      "accent": "cyan"
+    },
+    {
+      "start": 88.7667,
+      "end": 94.0983,
+      "eyebrow": "USER CONFIRMED",
+      "title": "Four accounted for.\nActive cues clear.",
+      "body": "Completion records acknowledgments. It does not inspect the installation.",
+      "accent": "cyan"
+    },
+    {
+      "start": 94.0983,
+      "end": 99,
+      "eyebrow": "SESSION RECOVERY",
+      "title": "Restart asks first.",
+      "body": "Keep the session or confirm clearing its recorded trail.",
+      "accent": "coral"
+    },
+    {
+      "start": 99,
+      "end": 120,
+      "eyebrow": "CONTINUOUS VIEWPOINT CHECK",
+      "title": "Move your view.\nKeep the pair.",
+      "body": "Separate continuous take. Bench and cue endpoints stay fixed, then confirmation reveals the next pair.",
+      "accent": "cyan"
+    },
+    {
+      "start": 120,
+      "end": 128.5,
+      "eyebrow": "VERIFIED IN PREVIEW",
+      "title": "34 software checks.\n7 Lens scenarios.",
+      "body": "Public source and passing CI. Hardware tracking, comfort and repair benefit remain untested.",
+      "accent": "cyan"
+    },
+    {
+      "start": 128.5,
+      "end": 140,
+      "eyebrow": "FIRST CUSTOMER HYPOTHESIS",
+      "title": "Repair benches.\nTraining benches.",
+      "body": "$20 per active bench per month is a proposed pricing test. No demand or savings claim.",
+      "accent": "amber"
+    },
+    {
+      "start": 140,
+      "end": 152,
+      "eyebrow": "THE NEXT EXPERIMENT",
+      "title": "A pilot that counts\nthe marking time.",
+      "body": "Compare total task time with mats, photos and a plain reverse checklist.\ngithub.com/shi1720/partcue",
+      "accent": "coral"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.6,
+      "end": 2.3006,
+      "text": "Two similar screws."
+    },
+    {
+      "start": 2.3006,
+      "end": 4.0011,
+      "text": "Two different homes."
+    },
+    {
+      "start": 4.0011,
+      "end": 8.0636,
+      "text": "After an interruption, which loose part belongs where?"
+    },
+    {
+      "start": 8.0636,
+      "end": 15.4328,
+      "text": "PartCue is spatial memory for your own teardown, created by Shivam Gupta with AI assistance."
+    },
+    {
+      "start": 15.4328,
+      "end": 18.5505,
+      "text": "Every part has a way home."
+    },
+    {
+      "start": 19.0,
+      "end": 22.1533,
+      "text": "This is the actual Lens Studio preview."
+    },
+    {
+      "start": 22.1533,
+      "end": 26.1363,
+      "text": "The bench is simulated, and every mark is manual."
+    },
+    {
+      "start": 26.1363,
+      "end": 28.0449,
+      "text": "First, place the workspace."
+    },
+    {
+      "start": 35.0,
+      "end": 39.773,
+      "text": "Select a part, choose an empty tray well, and record its removal."
+    },
+    {
+      "start": 39.773,
+      "end": 43.4096,
+      "text": "Each record connects an origin to a tray location."
+    },
+    {
+      "start": 43.4096,
+      "end": 45.531,
+      "text": "Repeat for the remaining parts."
+    },
+    {
+      "start": 52.2,
+      "end": 53.7328,
+      "text": "Amber is pickup."
+    },
+    {
+      "start": 53.7328,
+      "end": 55.2655,
+      "text": "Cyan is origin."
+    },
+    {
+      "start": 55.2655,
+      "end": 56.7983,
+      "text": "Follow the path."
+    },
+    {
+      "start": 57.2,
+      "end": 59.5427,
+      "text": "A wrong part stays blocked."
+    },
+    {
+      "start": 59.5427,
+      "end": 61.467,
+      "text": "Confirm the expected part."
+    },
+    {
+      "start": 65.5,
+      "end": 67.3248,
+      "text": "Pause hides the cues."
+    },
+    {
+      "start": 67.3248,
+      "end": 69.9431,
+      "text": "Resume restores the same next part."
+    },
+    {
+      "start": 69.9431,
+      "end": 74.5449,
+      "text": "Undo brings back the previous return when a correction is needed."
+    },
+    {
+      "start": 83.95,
+      "end": 88.0419,
+      "text": "Confirm the remaining returns, and the active cues clear."
+    },
+    {
+      "start": 88.0419,
+      "end": 90.4289,
+      "text": "This accounts for user confirmations."
+    },
+    {
+      "start": 90.4289,
+      "end": 93.6683,
+      "text": "It does not inspect a physical installation."
+    },
+    {
+      "start": 100.5,
+      "end": 104.0875,
+      "text": "Here, the viewpoint moves without replacing the bench."
+    },
+    {
+      "start": 104.0875,
+      "end": 107.2578,
+      "text": "Both cues stay at their saved locations."
+    },
+    {
+      "start": 107.2578,
+      "end": 110.8452,
+      "text": "Confirming the return advances to the next pair."
+    },
+    {
+      "start": 120.1,
+      "end": 124.302,
+      "text": "Thirty-four software checks pass, alongside Lens preview scenarios."
+    },
+    {
+      "start": 124.302,
+      "end": 128.5039,
+      "text": "Physical glasses and repair benefits still need testing."
+    },
+    {
+      "start": 128.5039,
+      "end": 133.1945,
+      "text": "The first customer hypothesis is repair and training benches."
+    },
+    {
+      "start": 133.1945,
+      "end": 138.3736,
+      "text": "Twenty dollars per bench per month is a pricing hypothesis."
+    },
+    {
+      "start": 138.3736,
+      "end": 147.4616,
+      "text": "A pilot must compare total task time against mats, photos and a plain reverse checklist, including recording time."
+    },
+    {
+      "start": 147.4616,
+      "end": 151.6635,
+      "text": "PartCue helps you find your own way back."
+    }
+  ]
+}
