@@ -244,3 +244,24 @@ test('a long deterministic workflow maintains invariants through undo, interrupt
   assert.equal(f.state.phase, 'complete');
   assert.equal(progress(f.state).remainingPieces, 0);
 });
+
+test('explicit return deselection disarms an older selection after a rejected wrong pickup without advancing', () => {
+  const initial=fixture();initial.reject({type:'deselectReturn'},'WRONG_PHASE');
+  const f=recording(part('a'),part('b'));
+  f.reject({type:'deselectReturn'},'WRONG_PHASE');
+  f.act({type:'beginReturn'});f.reject({type:'deselectReturn'},'EMPTY');
+  f.act({type:'selectReturn',partId:'b'});
+  const armed=f.state,seq=armed.eventSeq,parts=armed.parts;
+  f.reject({type:'selectReturn',partId:'a'},'WRONG_PART');
+  assert.equal(f.state,armed,'rejection itself preserves the exact original snapshot');
+  f.act({type:'deselectReturn'});
+  assert.equal(f.state.pendingReturnId,null);assert.equal(f.state.returnedCount,0);assert.equal(f.state.parts,parts);
+  assert.equal(f.state.eventSeq,seq+1);assert.deepEqual(f.state.events.at(-1),{seq:seq+1,at:f.state.updatedAt,type:'return-deselected',partId:'b'});
+  assert.deepEqual(parseSession(serializeSession(f.state)),f.state,'deselection events survive a validated snapshot round trip');
+  f.reject({type:'confirmReturn',partId:'b',count:1},'CONFIRM_REQUIRED');
+  f.act({type:'selectReturn',partId:'b'});f.act({type:'confirmReturn',partId:'b',count:1});
+  assert.equal(f.state.returnedCount,1);assert.equal(nextPart(f.state).id,'a');
+  f.reject({type:'confirmReturn',partId:'b',count:1},'WRONG_PART');assert.equal(f.state.returnedCount,1);
+  f.act({type:'pause'});f.reject({type:'deselectReturn'},'WRONG_PHASE');f.act({type:'resume'});
+  returnPart(f,'a');f.reject({type:'deselectReturn'},'WRONG_PHASE');
+});

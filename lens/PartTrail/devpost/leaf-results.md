@@ -1,5 +1,44 @@
 # PartCue — final LEAF preview results
 
+## Final stale-selection guard revision — 2026-10-20
+
+This section supersedes earlier test-stage results for the current saved PartCue.esproj. Core SHA-256 is `ea3d499db55843a5b613a12d4ee07c64f5a44979cfdaeea135768b8556fa3bc8`, byte-identical between ../../core/index.ts and Assets/Scripts/PartTrailCore.ts. The copy used official ExecuteEditorCode with LensStudio:FileSystem.readFile/writeFile. No boundary adaptation was needed.
+
+Main now handles rejected selectReturn/WRONG_PART by applying the public deselectReturn core command if a selection exists, accepting the cleared state, then clearing selectedPart and resetting confirmCount to 1. Wrong-part feedback remains and says “Select it again before confirming.” The rejected selectReturn itself still preserves state; the explicit follow-on deselectReturn adds a return-deselected event while leaving return progress unchanged.
+
+The new PartCueLeafStaleSelectionScenario.ts (auto-generated .meta included) uses the existing real-SIK test interactor: record four → begin return → correct PickupPart3 → wrong PickupPart0 → assert pending null and zero returns → confirm rejected with snapshot unchanged → reselect module and confirm exactly once → double confirm unchanged. It calls no private Main intents or core commands. Existing functional tests and demo07 source are unchanged. Index now registers eight scenarios, seven functional/IK plus the unchanged demo.
+
+Official TypeScript compilation succeeded; refresh initialized Main and all eight scenarios without a JS exception. Known depth-format and batching warnings remain. All seven functional/IK scenarios ran serially through official run_leaf_scenario, onDevice:false, INFO, timeout120, diagnostic duration0, fail-fast. IK used the existing no-fallback solver and logged far-field rays for both PickupPart3 and PrimaryAction.
+
+| Scenario | Result | Lens duration | Official call completed UTC |
+| --- | --- | --- | --- |
+| partcue-08-stale-selection-guard | succeeded | 18.044 s | 2026-10-20T11:36:19.278Z |
+| parttrail-03-wrong-part-count-confirm | succeeded | 20.503 s | 2026-10-20T11:36:46.786Z |
+| parttrail-04-pause-resume-undo | succeeded | 17.852 s | 2026-10-20T11:37:10.546Z |
+| parttrail-05-complete-confirm-restart | succeeded | 20.503 s | 2026-10-20T11:37:37.728Z |
+| parttrail-06-ik-toolbar-selection | succeeded | 23.160 s | 2026-10-20T11:38:06.239Z |
+| parttrail-01-record-four | succeeded | 13.896 s | 2026-10-20T11:38:25.427Z |
+| parttrail-02-active-pair-animation | succeeded | 14.858 s | 2026-10-20T11:38:47.568Z |
+
+The saved project is PartCue.esproj, saved through model.project.save at 2026-10-20T11:38:58.995Z. Raw calls, exact UTC action windows, hashes, baseline log offset and Lens-side PASSED lines are in [stale-selection-guard-results.json](stale-selection-guard-results.json). Parent's 34 root tests remain pending; no result is claimed here. Demo07 hash remains `a79e31ca71bc5d68b23351a77a4ab42e54cdf2a57fd21abb415078d5c0bfdec3`; no demo/video was started in this pass. No UI layout, geometry, scene, package, recorder helper or companion changes were made.
+
+### Lens-side final guard evidence
+
+```text
+I 17:06:19.265 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 18.044s]PASSED: partcue-08-stale-selection-guard
+I 17:06:46.773 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 20.503s]PASSED: parttrail-03-wrong-part-count-confirm
+I 17:07:10.534 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 17.852s]PASSED: parttrail-04-pause-resume-undo
+I 17:07:37.720 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 20.503s]PASSED: parttrail-05-complete-confirm-restart
+I 17:07:58.268 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Assets/Scripts/PartTrailLeafIKScenario.ts:14] [PartCue IK routing] PickupPart3 = far-field ray
+I 17:08:03.653 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Assets/Scripts/PartTrailLeafIKScenario.ts:14] [PartCue IK routing] PrimaryAction = far-field ray
+I 17:08:06.227 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 23.160s]PASSED: parttrail-06-ik-toolbar-selection
+I 17:08:25.401 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 13.896s]PASSED: parttrail-01-record-four
+I 17:08:47.541 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 14.858s]PASSED: parttrail-02-active-pair-animation
+```
+
+## Historical verification before the guard revision
+
+
 Observed 2026-10-20 in Lens Studio 5.24.1, SPECS 27 stereo Interactive Preview (Plane), current native title Preview 2. Actual official run_leaf_scenario calls returned succeeded for all six final tests after the caption-only polish. The unchanged demo action script previously succeeded in its 77.839 s rehearsal before that caption-only polish. No device execution or physical direct-reach claim. Internal PartTrail prefixes and scenario IDs retain their stable references.
 
 Final geometry precedence: the subsequent floor only inset was verified by clean official compilation/runtime initialization and reruns of scenarios 02 and 06 only; both passed. The table uses those newest post-inset results for 02/06. Results 01/03/04/05 remain the complete suite after final caption layout, before the floor inset; the inset changed no actions, layout, roots, colliders or core. No claim is made that all six were rerun after the floor inset.

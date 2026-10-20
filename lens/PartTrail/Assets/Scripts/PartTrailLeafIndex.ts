@@ -7,6 +7,7 @@ import {PartTrailLeafPauseUndoScenario} from "./PartTrailLeafPauseUndoScenario";
 import {PartTrailLeafCompleteScenario} from "./PartTrailLeafCompleteScenario";
 import {PartTrailLeafIKScenario} from "./PartTrailLeafIKScenario";
 import {PartTrailLeafDemoScenario} from "./PartTrailLeafDemoScenario";
+import {PartCueLeafStaleSelectionScenario} from "./PartCueLeafStaleSelectionScenario";
 @component
 export class PartTrailLeafIndex extends BaseScriptComponent {
   @scenariosIndex static scenariosIndex:ScenarioMetadata[]=[
@@ -16,6 +17,7 @@ export class PartTrailLeafIndex extends BaseScriptComponent {
     {id:"parttrail-04-pause-resume-undo",typename:PartTrailLeafPauseUndoScenario.getTypeName()},
     {id:"parttrail-05-complete-confirm-restart",typename:PartTrailLeafCompleteScenario.getTypeName()},
     {id:"parttrail-06-ik-toolbar-selection",typename:PartTrailLeafIKScenario.getTypeName()},
-    {id:"partcue-07-demo",typename:PartTrailLeafDemoScenario.getTypeName()}
+    {id:"partcue-07-demo",typename:PartTrailLeafDemoScenario.getTypeName()},
+    {id:"partcue-08-stale-selection-guard",typename:PartCueLeafStaleSelectionScenario.getTypeName()}
   ];
 }

@@ -1,0 +1,233 @@
+{
+  "revision": "stale-selection-guard",
+  "completedAtUtc": "2026-10-20T11:39:38.603Z",
+  "coreCopy": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"console\":[],\"returnValue\":{\"characters\":18414,\"coreCopied\":true,\"project\":\"/Users/shivamgupta/Documents/Codex/2026-10-20/i-am-participating-in-a-hackathon-3/outputs/parttrail/lens/PartTrail/PartCue.esproj\"},\"status\":\"Execution Succeeded\"}"
+      }
+    ],
+    "isError": false
+  },
+  "mutation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"console\":[],\"returnValue\":{\"indexUpdated\":true,\"mainUpdated\":true,\"scenarioWritten\":true},\"status\":\"Execution Succeeded\"}"
+      }
+    ],
+    "isError": false
+  },
+  "compile": {
+    "status": "succeeded",
+    "tool": "RecompileTypeScriptTool"
+  },
+  "runtime": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"byteOffset\":4372799,\"errors\":[\"W 17:05:49.440 [CamPlat.LensCore.Scn.Rendering.SnapGraphics] Depth format Depth24UnormStencil8 is not renderable; using Depth32FloatStencil8.\",\"W 17:05:50.593 [SceneMaterialBatcher] parameter group created (generic=80B universal=0B maxSlots=204)\"],\"errorsCapped\":false,\"firstActivityAtMs\":27,\"logFile\":\"/Users/shivamgupta/Library/Preferences/Snap/Lens Studio/logs/LensStudioLog-2026-10-20-14-54-51-152-c64b4.txt\",\"mode\":\"refresh\",\"newBytes\":6910,\"prints\":[\"I 17:05:49.054 [Preview 2] [Packages/SpectaclesInteractionKit.lspkg/Core/ConfigurationValidator/ConfigurationValidator.ts:16] SIK Version : 0.18.0\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: parttrail-01-record-four\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: parttrail-02-active-pair-animation\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: parttrail-03-wrong-part-count-confirm\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: parttrail-04-pause-resume-undo\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: parttrail-05-complete-confirm-restart\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: parttrail-06-ik-toolbar-selection\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: partcue-07-demo\",\"I 17:05:49.326 [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [  0.052s]Register scenario: partcue-08-stale-selection-guard\",\"I 17:05:49.377 [Preview 2] [Assets/Scripts/PartTrailBenchController.ts:87] PartTrail procedural bench ready: 22x16x6cm enclosure, 18x18cm tray, four articulated parts\",\"I 17:05:49.589 [Preview 2] [Assets/Scripts/PartTrailMain.ts:136] PartTrail setup recorded=0 returned=0 next=none pending=null\",\"I 17:05:49.589 [Preview 2] [Assets/Scripts/PartTrailMain.ts:31] PartTrail ready: SIMULATED BENCH / MANUAL MARKING\"],\"printsCapped\":false,\"rotated\":false,\"settleElapsedMs\":2378,\"settleMaxMs\":4000,\"settleMaxRaised\":false,\"status\":\"success\",\"tail\":\"I 17:05:48.925 Lens has been reset\\nI 17:05:48.948 Lens has been reset\\nD 17:05:49.015 Http request cancellation not implemented\\nD 17:05:49.015 Http request cancellation not implemented\\nD 17:05:49.015 Http request cancellation not implemented\\nD 17:05:49.015 Http request cancellation not implemented\",\"truncated\":false}"
+      }
+    ],
+    "isError": false
+  },
+  "runs": [
+    {
+      "startedAtUtc": "2026-10-20T11:36:00.407Z",
+      "completedAtUtc": "2026-10-20T11:36:19.278Z",
+      "args": {
+        "scenarioId": "partcue-08-stale-selection-guard",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"partcue-08-stale-selection-guard\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "startedAtUtc": "2026-10-20T11:36:25.399Z",
+      "completedAtUtc": "2026-10-20T11:36:46.786Z",
+      "args": {
+        "scenarioId": "parttrail-03-wrong-part-count-confirm",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"parttrail-03-wrong-part-count-confirm\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "startedAtUtc": "2026-10-20T11:36:52.010Z",
+      "completedAtUtc": "2026-10-20T11:37:10.546Z",
+      "args": {
+        "scenarioId": "parttrail-04-pause-resume-undo",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"parttrail-04-pause-resume-undo\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "startedAtUtc": "2026-10-20T11:37:16.321Z",
+      "completedAtUtc": "2026-10-20T11:37:37.728Z",
+      "args": {
+        "scenarioId": "parttrail-05-complete-confirm-restart",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"parttrail-05-complete-confirm-restart\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "startedAtUtc": "2026-10-20T11:37:42.229Z",
+      "completedAtUtc": "2026-10-20T11:38:06.239Z",
+      "args": {
+        "scenarioId": "parttrail-06-ik-toolbar-selection",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"parttrail-06-ik-toolbar-selection\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "startedAtUtc": "2026-10-20T11:38:10.627Z",
+      "completedAtUtc": "2026-10-20T11:38:25.427Z",
+      "args": {
+        "scenarioId": "parttrail-01-record-four",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"parttrail-01-record-four\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "startedAtUtc": "2026-10-20T11:38:32.026Z",
+      "completedAtUtc": "2026-10-20T11:38:47.568Z",
+      "args": {
+        "scenarioId": "parttrail-02-active-pair-animation",
+        "onDevice": false,
+        "parameters": {
+          "__leaf__log_level": "INFO",
+          "__leaf__timeout_secs": "120",
+          "__leaf__diagnostic_report_duration_ms": "0",
+          "__leaf__diagnostic_policy": "fail-fast"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"scenarioId\":\"parttrail-02-active-pair-animation\",\"status\":\"succeeded\",\"target\":\"preview\"}"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ],
+  "logFile": "/Users/shivamgupta/Library/Preferences/Snap/Lens Studio/logs/LensStudioLog-2026-10-20-14-54-51-152-c64b4.txt",
+  "byteOffset": 4372799,
+  "evidenceLines": [
+    "I 17:06:19.265 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 18.044s]PASSED: partcue-08-stale-selection-guard",
+    "I 17:06:46.773 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 20.503s]PASSED: parttrail-03-wrong-part-count-confirm",
+    "I 17:07:10.534 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 17.852s]PASSED: parttrail-04-pause-resume-undo",
+    "I 17:07:37.720 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 20.503s]PASSED: parttrail-05-complete-confirm-restart",
+    "I 17:07:58.268 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Assets/Scripts/PartTrailLeafIKScenario.ts:14] [PartCue IK routing] PickupPart3 = far-field ray",
+    "I 17:08:03.653 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Assets/Scripts/PartTrailLeafIKScenario.ts:14] [PartCue IK routing] PrimaryAction = far-field ray",
+    "I 17:08:06.227 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 23.160s]PASSED: parttrail-06-ik-toolbar-selection",
+    "I 17:08:25.401 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 13.896s]PASSED: parttrail-01-record-four",
+    "I 17:08:47.541 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 14.858s]PASSED: parttrail-02-active-pair-animation"
+  ],
+  "hashes": {
+    "../../core/index.ts": "ea3d499db55843a5b613a12d4ee07c64f5a44979cfdaeea135768b8556fa3bc8",
+    "Assets/Scripts/PartTrailCore.ts": "ea3d499db55843a5b613a12d4ee07c64f5a44979cfdaeea135768b8556fa3bc8",
+    "Assets/Scripts/PartTrailMain.ts": "caecfb8bd0fbd6e8dc0da45c7e129b02e5b5055c1250452f96bea689040a97b3",
+    "Assets/Scripts/PartTrailLeafIndex.ts": "4bc8f12381d0fc85842a49614faf3c2594484bba525f7963a4323b0eb2d74566",
+    "Assets/Scripts/PartCueLeafStaleSelectionScenario.ts": "fb21d1c9cb19f4937030c7813e809af53f7352c8d1c7367b08749b0d3ca86fec",
+    "Assets/Scripts/PartCueLeafStaleSelectionScenario.ts.meta": "ed773b06b25d327a211e73d7d2c7056fc231e5348a5b599bffea6f2f9d8536c5",
+    "Assets/Scripts/PartTrailLeafDemoScenario.ts": "a79e31ca71bc5d68b23351a77a4ab42e54cdf2a57fd21abb415078d5c0bfdec3"
+  },
+  "demo07Unchanged": true,
+  "demoRun": false,
+  "videoStarted": false,
+  "rootTests": {
+    "countExpectedByParent": 34,
+    "status": "pending parent run"
+  },
+  "limits": [
+    "Preview only; no device execution",
+    "Known host depth-format fallback and unbatched SIK visuals"
+  ],
+  "savedProject": "PartCue.esproj",
+  "savedAtUtc": "2026-10-20T11:38:58.995Z"
+}

@@ -34,7 +34,16 @@ export class PartTrailMain extends BaseScriptComponent {
   private now():number {return Math.max(Date.now(),this.state?this.state.updatedAt+1:0);}
   private command(cmd:Command):boolean {
     const r=applyCommand(this.state,cmd,this.now());
-    if(r.ok===false){this.feedback=r.error.code==="WRONG_COUNT"?"Recorded count is 1. Check quantity; progress unchanged.":r.error.code==="CONFIRM_REQUIRED"?"Select "+nextPart(this.state).label+" first, then confirm count 1.":r.error.message+" "+r.error.recovery;this.audio.play("error");this.render();return false;}
+    if(r.ok===false){
+      if(cmd.type==="selectReturn"&&r.error.code==="WRONG_PART"){
+        if(this.state.pendingReturnId!==null){
+          const cleared=applyCommand(this.state,{type:"deselectReturn"},this.now());
+          if(cleared.ok===true)this.state=cleared.state;
+        }
+        this.selectedPart=-1;this.confirmCount=1;
+      }
+      this.feedback=r.error.code==="WRONG_COUNT"?"Recorded count is 1. Check quantity; progress unchanged.":r.error.code==="CONFIRM_REQUIRED"?"Select "+nextPart(this.state).label+" first, then confirm count 1.":r.error.message+" "+r.error.recovery;this.audio.play("error");this.render();return false;
+    }
     this.state=r.state;return true;
   }
   private intent(type:string,index?:number):void {
@@ -56,7 +65,7 @@ export class PartTrailMain extends BaseScriptComponent {
         else {this.selectedPart=index;this.feedback=PARTS[index].label+" origin marked. Choose its well.";}
       } else if(this.state.phase==="returning"){
         if(this.command({type:"selectReturn",partId:PARTS[index].id})){this.selectedPart=index;this.feedback="Selected. Return to cyan, then confirm.";}
-        else {const p=nextPart(this.state);const w=this.wellIndex(p.trayCm);this.feedback="Expected "+p.label+" • Well "+(w+1)+". Progress unchanged.";}
+        else {const p=nextPart(this.state);const w=this.wellIndex(p.trayCm);this.feedback="Expected "+p.label+" • Well "+(w+1)+". Progress unchanged. Select it again before confirming.";}
       }
     } else if(type==="well"&&this.state.phase==="recording"){
       if(this.state.parts.some(p=>this.wellIndex(p.trayCm)===index)){this.feedback="Well "+(index+1)+" is occupied. Choose an empty well.";this.audio.play("error");}

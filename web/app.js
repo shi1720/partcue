@@ -69,10 +69,19 @@ function expireAuth() {
 function transition(command) {
   const result = applyCommand(state, command, now());
   if (!result.ok) {
+    // A rejected pickup must not leave an older correct selection armed.
+    // Rejection stays immutable; deselection is a separate successful core command.
+    if (command.type === "selectReturn" && result.error.code === "WRONG_PART") {
+      if (state.pendingReturnId !== null) {
+        const cleared = applyCommand(state, { type: "deselectReturn" }, now());
+        if (cleared.ok) state = cleared.state;
+      }
+      $("confirm-count").value = "";
+    }
     const expected = nextPart(state);
     if (result.error.code === "WRONG_PART" && expected)
       notice(
-        `Next is ${expected.label} from tray ${trayName(expected.trayCm)}. Return it to the cyan origin, then confirm the quantity. Leave other parts in their trays.`,
+        `Next is ${expected.label} from tray ${trayName(expected.trayCm)}. Select it again, return it to the cyan origin, then confirm the quantity. Leave other parts in their trays.`,
         "error",
       );
     else if (result.error.code === "WRONG_COUNT" && expected)

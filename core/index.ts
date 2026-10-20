@@ -5,7 +5,7 @@ export type Phase = "setup" | "recording" | "returning" | "paused" | "complete";
 export interface VectorCm { x: number; y: number; z: number }
 export interface PartInput { id: string; label: string; originCm: VectorCm; trayCm: VectorCm; count: number; note?: string }
 export interface Part extends PartInput { removedAt: number }
-export type EventType = "created" | "started" | "part-recorded" | "return-started" | "return-selected" | "part-returned" | "paused" | "resumed" | "removal-undone" | "return-undone" | "reset";
+export type EventType = "created" | "started" | "part-recorded" | "return-started" | "return-selected" | "return-deselected" | "part-returned" | "paused" | "resumed" | "removal-undone" | "return-undone" | "reset";
 export interface SessionEvent { seq: number; at: number; type: EventType; partId?: string }
 export interface Session {
   schemaVersion: typeof SCHEMA_VERSION;
@@ -27,6 +27,7 @@ export type Command =
   | { type: "recordPart"; part: PartInput }
   | { type: "beginReturn" }
   | { type: "selectReturn"; partId: string }
+  | { type: "deselectReturn" }
   | { type: "confirmReturn"; partId: string; count: number }
   | { type: "pause" }
   | { type: "resume" }
@@ -39,7 +40,7 @@ export interface Validation { valid: boolean; errors: string[] }
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9_-]{0,63}(?![\s\S])/;
 const PHASES: readonly string[] = ["setup", "recording", "returning", "paused", "complete"];
-const EVENTS: readonly string[] = ["created", "started", "part-recorded", "return-started", "return-selected", "part-returned", "paused", "resumed", "removal-undone", "return-undone", "reset"];
+const EVENTS: readonly string[] = ["created", "started", "part-recorded", "return-started", "return-selected", "return-deselected", "part-returned", "paused", "resumed", "removal-undone", "return-undone", "reset"];
 const isObject = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null && !Array.isArray(value);
 const hasOnlyKeys = (value: Record<string, unknown>, keys: readonly string[]): boolean => Object.keys(value).every(key => keys.includes(key));
 const validTime = (value: unknown): value is number => Number.isSafeInteger(value) && (value as number) >= 0 && (value as number) <= 8_640_000_000_000_000;
@@ -172,6 +173,11 @@ export function applyCommand(state: Session, command: Command, now: number): Res
       if (command.partId !== expected.id) return fail("WRONG_PART", "Return order is locked to the reverse teardown sequence.", `Leave this part in its tray. Next: ${expected.label} (${expected.count}) from tray position ${expected.trayCm.x}, ${expected.trayCm.y}, ${expected.trayCm.z} cm.`);
       changed = { ...state, pendingReturnId: expected.id }; event = "return-selected"; partId = expected.id; break;
     }
+    case "deselectReturn":
+      if (state.phase !== "returning") return phaseFail();
+      if (state.pendingReturnId === null) return fail("EMPTY", "There is no return selection to clear.", "Select the next part before confirming its return.");
+      partId = state.pendingReturnId;
+      changed = { ...state, pendingReturnId: null }; event = "return-deselected"; break;
     case "confirmReturn": {
       if (state.phase !== "returning") return phaseFail();
       const expected = nextPart(state)!;

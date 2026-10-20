@@ -1,5 +1,44 @@
 # PartCue — Every part has a way home.
 
+## Final stale-selection guard revision — 2026-10-20
+
+This section supersedes earlier test-stage results for the current saved PartCue.esproj. Core SHA-256 is `ea3d499db55843a5b613a12d4ee07c64f5a44979cfdaeea135768b8556fa3bc8`, byte-identical between ../../core/index.ts and Assets/Scripts/PartTrailCore.ts. The copy used official ExecuteEditorCode with LensStudio:FileSystem.readFile/writeFile. No boundary adaptation was needed.
+
+Main now handles rejected selectReturn/WRONG_PART by applying the public deselectReturn core command if a selection exists, accepting the cleared state, then clearing selectedPart and resetting confirmCount to 1. Wrong-part feedback remains and says “Select it again before confirming.” The rejected selectReturn itself still preserves state; the explicit follow-on deselectReturn adds a return-deselected event while leaving return progress unchanged.
+
+The new PartCueLeafStaleSelectionScenario.ts (auto-generated .meta included) uses the existing real-SIK test interactor: record four → begin return → correct PickupPart3 → wrong PickupPart0 → assert pending null and zero returns → confirm rejected with snapshot unchanged → reselect module and confirm exactly once → double confirm unchanged. It calls no private Main intents or core commands. Existing functional tests and demo07 source are unchanged. Index now registers eight scenarios, seven functional/IK plus the unchanged demo.
+
+Official TypeScript compilation succeeded; refresh initialized Main and all eight scenarios without a JS exception. Known depth-format and batching warnings remain. All seven functional/IK scenarios ran serially through official run_leaf_scenario, onDevice:false, INFO, timeout120, diagnostic duration0, fail-fast. IK used the existing no-fallback solver and logged far-field rays for both PickupPart3 and PrimaryAction.
+
+| Scenario | Result | Lens duration | Official call completed UTC |
+| --- | --- | --- | --- |
+| partcue-08-stale-selection-guard | succeeded | 18.044 s | 2026-10-20T11:36:19.278Z |
+| parttrail-03-wrong-part-count-confirm | succeeded | 20.503 s | 2026-10-20T11:36:46.786Z |
+| parttrail-04-pause-resume-undo | succeeded | 17.852 s | 2026-10-20T11:37:10.546Z |
+| parttrail-05-complete-confirm-restart | succeeded | 20.503 s | 2026-10-20T11:37:37.728Z |
+| parttrail-06-ik-toolbar-selection | succeeded | 23.160 s | 2026-10-20T11:38:06.239Z |
+| parttrail-01-record-four | succeeded | 13.896 s | 2026-10-20T11:38:25.427Z |
+| parttrail-02-active-pair-animation | succeeded | 14.858 s | 2026-10-20T11:38:47.568Z |
+
+The saved project is PartCue.esproj, saved through model.project.save at 2026-10-20T11:38:58.995Z. Raw calls, exact UTC action windows, hashes, baseline log offset and Lens-side PASSED lines are in [stale-selection-guard-results.json](stale-selection-guard-results.json). Parent's 34 root tests remain pending; no result is claimed here. Demo07 hash remains `a79e31ca71bc5d68b23351a77a4ab42e54cdf2a57fd21abb415078d5c0bfdec3`; no demo/video was started in this pass. No UI layout, geometry, scene, package, recorder helper or companion changes were made.
+
+### Lens-side final guard evidence
+
+```text
+I 17:06:19.265 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 18.044s]PASSED: partcue-08-stale-selection-guard
+I 17:06:46.773 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 20.503s]PASSED: parttrail-03-wrong-part-count-confirm
+I 17:07:10.534 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 17.852s]PASSED: parttrail-04-pause-resume-undo
+I 17:07:37.720 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 20.503s]PASSED: parttrail-05-complete-confirm-restart
+I 17:07:58.268 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Assets/Scripts/PartTrailLeafIKScenario.ts:14] [PartCue IK routing] PickupPart3 = far-field ray
+I 17:08:03.653 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Assets/Scripts/PartTrailLeafIKScenario.ts:14] [PartCue IK routing] PrimaryAction = far-field ray
+I 17:08:06.227 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 23.160s]PASSED: parttrail-06-ik-toolbar-selection
+I 17:08:25.401 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 13.896s]PASSED: parttrail-01-record-four
+I 17:08:47.541 StudioPlugins/GUI/Preview/Impl/Src/Worker/PreviewWorker.cpp:835 (@Es::Preview::PreviewWorker #16) Es::Preview::PreviewWorker::onSceneCreated(const std::shared_ptr &)::(anonymous class)::operator()] [Preview 2] [Packages/Leaf.lspkg/Utils/common/Logger.ts:89] I [DefaultLeafScenarioManager] [ 14.858s]PASSED: parttrail-02-active-pair-animation
+```
+
+## Historical verification before the guard revision
+
+
 Real SPECS Lens built, saved, compiled and inspected after the design judge review on 2026-10-20. Final results below are actual observations. Historical captures 01–10, `captures/partcue-label-review/` and `captures/partcue-before-seam-polish/` show superseded compositions; `build-report-baseline.md` preserves the pre-review report.
 
 
@@ -68,7 +107,7 @@ Tier: **interactive**.
 | `PartTrailSceneContracts.ts` | Stable dimensions, part/well definitions, view contract and manifest |
 | `PartTrailLeaf*.ts` | Additive live LEAF scenarios, driver and scenario index |
 
-Core SHA-256 (both copies): `1b03613333a739d086c9188c99a8aef77b06ed8b7484a5c95c2724eed1062f57`. No boundary changes were needed: JSON helpers contain no browser constructs. The domain command results remain unchanged, including rejection returning the original state.
+Historical pre-guard core SHA-256 (superseded above): `1b03613333a739d086c9188c99a8aef77b06ed8b7484a5c95c2724eed1062f57`. No boundary changes were needed: JSON helpers contain no browser constructs. The domain command results remain unchanged, including rejection returning the original state.
 
 | Manifest category | Actual output and wiring |
 |---|---|
@@ -95,7 +134,7 @@ The original battery-free mechanical enclosure is demonstration geometry, not a 
 
 **Recording** progressively reveals part → empty well → Record removal, with Change marking recovery and occupied well choices removed. **Return** hides both selector grids and shows one dominant Confirm returned, Pause, Undo when available, and a small Session control. Quantity inspection and restart live in the menu; Keep session exists only during confirmation. **Paused** hides cues and selections, leaving Resume. **Complete** clears the route and offers a confirmable new session. Every surface uses the existing real UIKit module and event intents; no hand-rolled replacement was introduced.
 
-Tray selection now uses actual well-associated SIK targets; hover highlights the corresponding physical part. Nonoverlapping footprints are **6×6 cm**. Front-row selection boxes are6×2.4×6 cm centered at local y3.2; back-row boxes are6×6×6 cm centered at y6.4 to keep the lower hand ray above front-row targets. The target assignment follows the recorded well z, including swapped mappings. Saved core points and mesh positions are unchanged. Selection emits the same Main/core intent and never counts as return. Correct selection plus explicit count confirmation is required; wrong part/count preserves state.
+Tray selection now uses actual well-associated SIK targets; hover highlights the corresponding physical part. Nonoverlapping footprints are **6×6 cm**. Front-row selection boxes are6×2.4×6 cm centered at local y3.2; back-row boxes are6×6×6 cm centered at y6.4 to keep the lower hand ray above front-row targets. The target assignment follows the recorded well z, including swapped mappings. Saved core points and mesh positions are unchanged. Selection emits the same Main/core intent and never counts as return. Correct selection plus explicit count confirmation is required; wrong count preserves state; wrong pickup preserves progress and clears a stale selection through deselectReturn.
 
 Exactly one cyan origin ring and one amber pickup ring appear during return, each with text; pickup includes the well number. Final endpoint captions sit below the device/tray front edges so their glyphs do not intersect the halos or animated route. Rings are3 cm radius with0.22 cm tube thickness, lifted above geometry with stems to exact saved positions. One arched path and three moving arrowheads indicate pickup→origin. The permanent cyan **SIMULATED BENCH / MANUAL MARKING** label and white text do not rely on black backing.
 
@@ -120,7 +159,7 @@ Observed checks: `node --check` exited0; invocation without CLAD_SFX_TOOLS exite
 
 ## Verification limits
 
-Core remains byte-identical to ../../core/index.ts, with SHA-256 above. All 16 TypeScript scripts, six PNGs and four WAVs have metadata; the actual saved scene and scene metadata exist. RequireAsset paths resolve. No orphan icon or missing declared mesh/SFX/UI module remains. No browser/server imports or hand-rolled panels/buttons exist. All scene writes were through VirtualScene; metadata/save and file authoring used official editor tooling.
+Core remains byte-identical to ../../core/index.ts, with SHA-256 above. All 17 TypeScript scripts, six PNGs and four WAVs have metadata; the actual saved scene and scene metadata exist. RequireAsset paths resolve. No orphan icon or missing declared mesh/SFX/UI module remains. No browser/server imports or hand-rolled panels/buttons exist. All scene writes were through VirtualScene; metadata/save and file authoring used official editor tooling.
 
 The host renderer reports Depth24UnormStencil8→Depth32FloatStencil8 fallback. Some SIK glow/cursor/direction-hint visuals exhaust batching retries and remain unbatched. A warning-free host is not claimed. Final compilation/runtime and LEAF evidence are recorded separately below.
 
@@ -142,7 +181,7 @@ asset_manifest:
   music: []
   icons: ["check_circle.png", "pause.png", "play_arrow.png", "radio_button_checked.png", "restart_alt.png", "undo.png"]
   ui_modules: ["PartTrailBenchUI.ts"]
-  scripts: ["PartTrailAudioController.ts", "PartTrailBenchController.ts", "PartTrailBenchUI.ts", "PartTrailCore.ts", "PartTrailGeometry.ts", "PartTrailLeafCompleteScenario.ts", "PartTrailLeafCueScenario.ts", "PartTrailLeafDemoScenario.ts", "PartTrailLeafGuardScenario.ts", "PartTrailLeafIKScenario.ts", "PartTrailLeafIndex.ts", "PartTrailLeafInteractor.ts", "PartTrailLeafPauseUndoScenario.ts", "PartTrailLeafRecordScenario.ts", "PartTrailMain.ts", "PartTrailSceneContracts.ts"]
+  scripts: ["PartCueLeafStaleSelectionScenario.ts", "PartTrailAudioController.ts", "PartTrailBenchController.ts", "PartTrailBenchUI.ts", "PartTrailCore.ts", "PartTrailGeometry.ts", "PartTrailLeafCompleteScenario.ts", "PartTrailLeafCueScenario.ts", "PartTrailLeafDemoScenario.ts", "PartTrailLeafGuardScenario.ts", "PartTrailLeafIKScenario.ts", "PartTrailLeafIndex.ts", "PartTrailLeafInteractor.ts", "PartTrailLeafPauseUndoScenario.ts", "PartTrailLeafRecordScenario.ts", "PartTrailMain.ts", "PartTrailSceneContracts.ts"]
 mesh_backend: meshbuilder
 backend_deviations:
   - mesh: EnclosureShellMesh
